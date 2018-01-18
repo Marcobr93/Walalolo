@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Walalolo
+                    Walalolol
                 </div>
 
                 <div class="links">
