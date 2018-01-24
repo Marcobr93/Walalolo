@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@home');
+Route::get('/saludo', 'PagesController@saludo');
+
+Route::get('/productos/create', 'ProductoController@create');
+Route::get('/chusqers/{producto}', 'ChusqersController@show');
+Route::post('/productos/create', 'ProductoController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

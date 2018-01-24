@@ -1,53 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Requests;
 
-use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterController extends Controller
+class CreateUserRequest extends FormRequest
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
     /**
-     * Where to redirect users after registration.
+     * Determine if the user is authorized to make this request.
      *
-     * @var string
+     * @return bool
      */
-    protected $redirectTo = '/';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function authorize()
     {
-        $this->middleware('guest');
+        return true;
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Get the validation rules that apply to the request.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return array
      */
-    protected function validator(array $data)
+    public function rules()
     {
-        return Validator::make($data, [
+        return [
             'nombre_usuario' => 'required|string|max:255|unique:users',
             'name' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
@@ -56,7 +32,19 @@ class RegisterController extends Controller
             'dni' => 'required|string|max:255',
             'direccion' => 'required|string|max:255',
             'poblacion' => 'required|string|max:255'
-        ], [
+        ];
+    }
+
+    /**
+     * Definición de los mensajes de validación.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        // Se espeficican los mensajes de validación para las reglas definidas
+        // en el método rules de esta clase.
+        return [
             'nombre_usuario.required' => 'Es necesario completar el campo "nombre de usuario".',
             'nombre_usuario.max' => 'Has sobrepasado los 255 caracteres disponibles para el "nombre de usuario".',
             'nombre_usuario.string' => 'El nombre de usuario debe ser una cadena de caracteres.',
@@ -85,26 +73,6 @@ class RegisterController extends Controller
             'dni.required' => 'Es necesario completar el campo "DNI".',
             'dni.max' => 'Has sobrepasado los 255 caracteres disponibles para el "DNI".',
             'dni.string' => 'El DNI debe ser una cadena de caracteres.'
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'nombre_usuario' => $data['nombre_usuario'],
-            'name' => $data['name'],
-            'apellido' => $data['apellido'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'dni' => $data['dni'],
-            'direccion' => $data['direccion'],
-            'poblacion' => $data['poblacion'],
-        ]);
+        ];
     }
 }
