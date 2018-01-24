@@ -15,7 +15,7 @@ Route::get('/', 'PagesController@home');
 Route::get('/saludo', 'PagesController@saludo');
 
 Route::get('/productos/create', 'ProductoController@create');
-Route::get('/chusqers/{producto}', 'ChusqersController@show');
+Route::get('/productos/{producto}', 'ProductoController@show');
 Route::post('/productos/create', 'ProductoController@store');
 
 Auth::routes();

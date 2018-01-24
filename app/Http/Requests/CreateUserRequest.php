@@ -28,7 +28,7 @@ class CreateUserRequest extends FormRequest
             'name' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'email' => 'required|max:255|email|unique:users',
-            'password' => 'required|string|min:6|email|confirmed',
+            'password' => 'required|string|min:6|confirmed',
             'dni' => 'required|string|max:255',
             'direccion' => 'required|string|max:255',
             'poblacion' => 'required|string|max:255'
@@ -60,7 +60,7 @@ class CreateUserRequest extends FormRequest
             'email.unique' => 'El email debe ser un email disponible.',
             'password.required' => 'El password de usuario es obligatorio.',
             'password.string' => 'El password debe ser una cadena de caracteres',
-            'password.max' => 'El nombre debe tener 6 caracteres como máximo',
+            'password.max' => 'El nombre debe tener 6 caracteres como mínimo',
             'password.confirmed' => 'Las contraseñas no coinciden',
             'direccion.required' => 'Es necesario completar el campo "descripción".',
             'direccion.max' => 'Has sobrepasado los 255 caracteres disponibles para la "descripción".',
