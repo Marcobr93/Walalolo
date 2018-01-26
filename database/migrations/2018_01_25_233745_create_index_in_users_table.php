@@ -14,7 +14,7 @@ class CreateIndexInUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('num_productos')->nullable()->change();
+            $table->index('created_at');
         });
     }
 
@@ -26,7 +26,7 @@ class CreateIndexInUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('num_productos');
+            $table->dropIndex('users_created_at_index');
         });
     }
 }

@@ -40,8 +40,11 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(CreateProductoRequest $request){
+
+        $user = $request->user();
+
         Producto::create([
-            'nombre_usuario'  =>  $request->input('nombre_usuario'),
+            'user_id'   => $user->id,
             'titulo'      => $request->input('titulo'),
             'foto'        => $request->input('foto'),
             'descripcion' => $request->input('descripcion'),

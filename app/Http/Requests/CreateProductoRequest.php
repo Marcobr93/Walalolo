@@ -24,7 +24,6 @@ class CreateProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_usuario' => 'required|string|max:255',
             'titulo' => 'required|string|max:255',
             'foto' => 'required|string|max:255',
             'descripcion' => 'required|string|max:500',
@@ -49,9 +48,6 @@ class CreateProductoRequest extends FormRequest
         // Se espeficican los mensajes de validación para las reglas definidas
         // en el método rules de esta clase.
         return [
-            'nombre_usuario.required' => 'Es necesario completar el campo "nombre de usuario".',
-            'nombre_usuario.max' => 'Has sobrepasado los 255 caracteres disponibles para el "nombre de usuario".',
-            'nombre_usuario.string' => 'El nombre de usuario debe ser una cadena de caracteres.',
             'titulo.required' => 'Es necesario completar el campo "título".',
             'titulo.max' => 'Has sobrepasado los 255 caracteres disponibles para el "título".',
             'titulo.string' => 'El título debe ser una cadena de caracteres.',

@@ -38,7 +38,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        @auth()
                         <li class="active"><a href="{{ url('/') }}/productos/create">Añadir Producto</a></li>
+                            @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -9,10 +9,9 @@ $factory->define(App\Producto::class, function (Faker $faker) {
     $time2 = Carbon::createFromTimestamp($faker->dateTimeThisDecade()->getTimestamp());
 
     return [
-        'nombre_usuario' => $faker->userName,
         'titulo'     => $faker->sentence(6,true),
-        'foto'      => 'http://lorempixel.com/150/150/?\'.mt_rand(0,1000)',
-        'descripcion'     => $faker->realText(255),
+        'foto'      => 'http://lorempixel.com/450/300/',
+        'descripcion' => $faker->realText(255),
         'direccion' => $faker->address,
         'poblacion' => $faker->country,
         'precio'    => $faker->randomFloat(null,0,null),

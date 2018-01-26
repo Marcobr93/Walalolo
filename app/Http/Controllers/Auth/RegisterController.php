@@ -52,10 +52,14 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'email' => 'required|max:255|email|unique:users',
+            'avatar' => 'max:255',
             'password' => 'required|string|min:6|confirmed',
             'dni' => 'required|string|max:255',
+            'num_telefono' => 'max:20',
             'direccion' => 'required|string|max:255',
-            'poblacion' => 'required|string|max:255'
+            'poblacion' => 'required|string|max:255',
+            'website' => 'max:255',
+            'descripcion' => 'string|max:500'
         ], [
             'nombre_usuario.required' => 'Es necesario completar el campo "nombre de usuario".',
             'nombre_usuario.max' => 'Has sobrepasado los 255 caracteres disponibles para el "nombre de usuario".',
@@ -70,6 +74,8 @@ class RegisterController extends Controller
             'email.max' => 'Has sobrepasado los 255 caracteres disponibles para el "email".',
             'email.email' => 'El email debe ser un email válido.',
             'email.unique' => 'El email debe ser un email disponible.',
+            'avatar.max' => 'Has sobrepasado los 250 caracteres disponibles para el "avatar".',
+            'num_telefono.max' => 'Has sobrepasado los 20 caracteres disponibles para el "número de teléfono".',
             'password.required' => 'El password de usuario es obligatorio.',
             'password.string' => 'El password debe ser una cadena de caracteres',
             'password.max' => 'El nombre debe tener 6 caracteres como mínimo',
@@ -84,7 +90,10 @@ class RegisterController extends Controller
             'precio.numeric' => 'El "precio" debe ser un número',
             'dni.required' => 'Es necesario completar el campo "DNI".',
             'dni.max' => 'Has sobrepasado los 255 caracteres disponibles para el "DNI".',
-            'dni.string' => 'El DNI debe ser una cadena de caracteres.'
+            'dni.string' => 'El DNI debe ser una cadena de caracteres.',
+            'website.max' => 'Has sobrepasado los 255 caracteres disponibles para el "website".',
+            'descripcion.max' => 'Has sobrepasado los 500 caracteres disponibles para la "descripción".',
+            'descripcion.string' => 'La descripción debe ser una cadena de caracteres.',
         ]);
     }
 
@@ -101,10 +110,14 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'apellido' => $data['apellido'],
             'email' => $data['email'],
+            'avatar' => $data['avatar'],
             'password' => bcrypt($data['password']),
             'dni' => $data['dni'],
+            'num_telefono' => $data['num_telefono'],
             'direccion' => $data['direccion'],
             'poblacion' => $data['poblacion'],
+            'website' => $data['website'],
+            'descripcion' => $data['descripcion']
         ]);
     }
 }

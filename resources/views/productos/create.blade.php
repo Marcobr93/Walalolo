@@ -11,22 +11,6 @@
                         <form action="{{ url('/') }}/productos/create" method="post" class="form-horizontal">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('nombre_usuario') ? ' has-error' : '' }}">
-                                <label for="nombre_usuario" class="col-md-4 control-label">Nombre de usuario</label>
-
-                                <div class="col-md-6">
-                                    <input id="nombre_usuario" type="text" class="form-control" name="nombre_usuario" value="{{ old('nombre_usuario') }}" autofocus>
-
-                                    @if($errors->has('nombre_usuario'))
-                                        @foreach($errors->get('nombre_usuario') as $message)
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
                             <div class="form-group{{ $errors->has('titulo') ? ' has-error' : '' }}">
                                 <label for="titulo" class="col-md-4 control-label">Título</label>
 

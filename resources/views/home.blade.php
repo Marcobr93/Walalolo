@@ -13,10 +13,17 @@
         <div class="row course-set courses__row producto">
             @foreach($chunk as $producto)
                 <div class="col-md-4">
+
                     <div class="ng">
                         <h3>
-                            {{ $producto['titulo'] }}
+                            Usuario: {{ $producto->user->name }}
                         </h3>
+                    </div>
+
+                    <div class="ng">
+                        <h4>
+                            {{ $producto['titulo'] }}
+                        </h4>
                     </div>
 
                     <div>
