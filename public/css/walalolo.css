@@ -5,3 +5,8 @@
 .producto{
     padding: 50px;
 }
+
+.center{
+    display:block;
+    margin:auto;
+}

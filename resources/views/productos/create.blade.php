@@ -2,17 +2,16 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Añadir producto</div>
-
-                    <div class="panel-body">
+        <div class="row justify-content-md-center mt-5">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Añadir producto</div>
+                    <div class="card-body">
                         <form action="{{ url('/') }}/productos/create" method="post" class="form-horizontal">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('titulo') ? ' has-error' : '' }}">
-                                <label for="titulo" class="col-md-4 control-label">Título</label>
+                            <div class="form-group row{{ $errors->has('titulo') ? ' has-error' : '' }}">
+                                <label for="titulo" class="col-lg-4 col-form-label text-lg-right">Título</label>
 
                                 <div class="col-md-6">
                                     <input id="titulo" type="text" class="form-control" name="titulo" value="{{ old('titulo') }}" autofocus>
@@ -27,8 +26,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('foto') ? ' has-error' : '' }}">
-                                <label for="foto" class="col-md-4 control-label">Foto</label>
+                            <div class="form-group row{{ $errors->has('foto') ? ' has-error' : '' }}">
+                                <label for="foto" class="col-lg-4 col-form-label text-lg-right">Foto</label>
 
                                 <div class="col-md-6">
                                     <input id="foto" type="text" class="form-control" name="foto" value="{{ old('foto') }}" autofocus>
@@ -43,8 +42,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('direccion') ? ' has-error' : '' }}">
-                                <label for="direccion" class="col-md-4 control-label">Dirección</label>
+                            <div class="form-group row{{ $errors->has('direccion') ? ' has-error' : '' }}">
+                                <label for="direccion" class="col-lg-4 col-form-label text-lg-right">Dirección</label>
 
                                 <div class="col-md-6">
                                     <input id="direccion" type="text" class="form-control" name="direccion" value="{{ old('direccion') }}" autofocus>
@@ -60,8 +59,8 @@
                             </div>
 
 
-                            <div class="form-group{{ $errors->has('poblacion') ? ' has-error' : '' }}">
-                                <label for="poblacion" class="col-md-4 control-label">Población</label>
+                            <div class="form-group row{{ $errors->has('poblacion') ? ' has-error' : '' }}">
+                                <label for="poblacion" class="col-lg-4 col-form-label text-lg-right">Población</label>
 
                                 <div class="col-md-6">
                                     <input id="poblacion" type="text" class="form-control" name="poblacion" value="{{ old('name') }}" autofocus>
@@ -76,8 +75,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('precio') ? ' has-error' : '' }}">
-                                <label for="precio" class="col-md-4 control-label">Precio</label>
+                            <div class="form-group row{{ $errors->has('precio') ? ' has-error' : '' }}">
+                                <label for="precio" class="col-lg-4 col-form-label text-lg-right">Precio</label>
 
                                 <div class="col-md-6">
                                     <input id="precio" type="number" step="any" class="form-control" name="precio" value="{{ old('precio') }}" autofocus>
@@ -92,8 +91,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('categoria') ? ' has-error' : '' }}">
-                                <label for="categoria" class="col-md-4 control-label">Categoría</label>
+                            <div class="form-group row{{ $errors->has('categoria') ? ' has-error' : '' }}">
+                                <label for="categoria" class="col-lg-4 col-form-label text-lg-right">Categoría</label>
 
                                 <div class="col-md-6">
                                     <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria" title="Categoría">
@@ -120,8 +119,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('tipo_envio') ? ' has-error' : '' }}">
-                                <label for="tipo_envio" class="col-md-4 control-label">Tipo de envío</label>
+                            <div class="form-group row{{ $errors->has('tipo_envio') ? ' has-error' : '' }}">
+                                <label for="tipo_envio" class="col-lg-4 col-form-label text-lg-right">Tipo de envío</label>
 
                                 <div class="col-md-6">
                                     <select name="tipo_envio" class="custom-select custom-select-lg mb-3" id="tipo_envio" title="Tipo de envío">
@@ -143,8 +142,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('negociacion_precio') ? ' has-error' : '' }}">
-                                <label for="negociacion_precio" class="col-md-4 control-label">Negociación precio</label>
+                            <div class="form-group row{{ $errors->has('negociacion_precio') ? ' has-error' : '' }}">
+                                <label for="negociacion_precio" class="col-lg-4 col-form-label text-lg-right">Negociación precio</label>
 
                                 <div class="col-md-6">
                                     <select name="negociacion_precio" class="custom-select custom-select-lg mb-3" id="negociacion_precio" title="Tipo de envío">
@@ -163,8 +162,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('intercambio_producto') ? ' has-error' : '' }}">
-                                <label for="intercambio_producto" class="col-md-4 control-label">Intercambio producto</label>
+                            <div class="form-group row{{ $errors->has('intercambio_producto') ? ' has-error' : '' }}">
+                                <label for="intercambio_producto" class="col-lg-4 col-form-label text-lg-right">Intercambio producto</label>
 
                                 <div class="col-md-6">
                                     <select name="intercambio_producto" class="custom-select custom-select-lg mb-3" id="intercambio_producto" title="Intercambio producto">
@@ -183,8 +182,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('destacado') ? ' has-error' : '' }}">
-                                <label for="destacado" class="col-md-4 control-label">Destacado</label>
+                            <div class="form-group row{{ $errors->has('destacado') ? ' has-error' : '' }}">
+                                <label for="destacado" class="col-lg-4 col-form-label text-lg-right">Destacado</label>
 
                                 <div class="col-md-6">
                                     <select name="destacado" class="custom-select custom-select-lg mb-3" id="destacado" title="Destacado">
@@ -203,8 +202,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('descripcion') ? ' has-error' : '' }}">
-                                <label for="descripcion" class="col-md-4 control-label">Descripción</label>
+                            <div class="form-group row{{ $errors->has('descripcion') ? ' has-error' : '' }}">
+                                <label for="descripcion" class="col-lg-4 col-form-label text-lg-right">Descripción</label>
 
                                 <div class="col-md-6">
                                     <textarea id="descripcion" class="form-control" name="descripcion" rows="5" autofocus></textarea>
@@ -219,8 +218,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
+                            <div class="form-group row">
+                                <div class="col-lg-7 col-form-label text-lg-right">
                                     <button type="submit" class="btn btn-primary">
                                         Añadir producto
                                     </button>
