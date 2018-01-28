@@ -18,8 +18,8 @@ $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name' => $name = $faker->firstName,
         'apellido' => $apellido = $faker->lastName,
-        'nombre_usuario' => $name.'.'.$apellido,
-        'email' => $name.'.'.$apellido.'@gmail.com',
+        'nombre_usuario' => strtolower($name).'.'.strtolower($apellido),
+        'email' => strtolower($name).'.'.strtolower($apellido).'@'.$faker->freeEmailDomain,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
         'avatar' => 'http://lorempixel.com/450/300/',

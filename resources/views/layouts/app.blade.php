@@ -38,6 +38,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        <li>
+                            <img class="img-responsive img-fluid img-portfolio img-hover mb-3" src="/images/wololopequeño.png" alt="Logo" />
+                        </li>
                         @auth()
                         <li class="active"><a href="{{ url('/') }}/productos/create">Añadir Producto</a></li>
                             @endauth
@@ -56,6 +59,8 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    <li><a href="#">Perfil</a></li>
+                                    <li><a href="#">Another action</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
