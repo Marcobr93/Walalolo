@@ -25,7 +25,7 @@
             @foreach($productos as $producto)
                 @if($producto['destacado'] !== 0)
             <div class="carousel-item">
-                <img class="img-fluid center" src="{{ $producto['foto'] }}" alt="Segunda imagen">
+                <img class="img-fluid center" src="{{ $producto['foto'] }}" alt="Imagen destacada">
                 <div class="carousel-caption d-none d-md-block"></div>
             </div>
                 @endif
@@ -41,40 +41,8 @@
         </a>
     </div>
 
+      @include('productos.producto')
 
-    @if($productos->isEmpty())
-        <p>No hay productos para mostrar.</p>
-    @endif
-
-    @foreach($productos->chunk(3) as $chunk)
-        <div class="row course-set courses__row producto">
-            @foreach($chunk as $producto)
-                <div class="col-md-4">
-                    <div class="bg-light rounded">
-                        <h3>
-                            Usuario: {{ $producto->user->name }}
-                        </h3>
-                    </div>
-
-                    <div class="bg-light rounded">
-                        <img class="img-responsive img-fluid img-portfolio img-hover mb-3" src="{{ $producto['foto'] }}" alt="Foto del producto." />
-                    </div>
-
-                    <div class="bg-light rounded border-0">
-                        <h4 class="price ng">
-                            Precio: {{ $producto['precio'] }} €
-                        </h4>
-                    </div>
-                    <div class="bg-light rounded border-0">
-                        <p class="ng">
-                            Descripción: {{ $producto['descripcion'] }}
-                        </p>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    @endforeach
-
-    <div class="text-center">{{ $productos->links() }}</div>
+    <div class="text-center">{{ $productos->links('pagination::bootstrap-4') }}</div>
     </div>
 @endsection

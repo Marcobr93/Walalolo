@@ -22,7 +22,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email' => strtolower($name).'.'.strtolower($apellido).'@'.$faker->freeEmailDomain,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
-        'avatar' => 'http://lorempixel.com/450/300/',
+        'avatar'      => 'https://picsum.photos/300/300/?image='.mt_rand(0,1000),
         'dni' => $faker->dni,
         'num_telefono' => $faker->e164PhoneNumber,
         'direccion' => $faker->address,
