@@ -14,7 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/walalolo.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">

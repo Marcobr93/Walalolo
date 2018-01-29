@@ -10,3 +10,15 @@
     display:block;
     margin:auto;
 }
+
+.carousel-control-next-icon{
+    color:black;
+}
+
+div{
+    border:2px solid cornflowerblue;
+}
+
+.color-fondo{
+    background-color: black;
+}
