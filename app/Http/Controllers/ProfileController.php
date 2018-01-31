@@ -3,24 +3,22 @@
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class UsersController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($nombre_usuario)
+    public function index()
     {
-        $user = User::where('nombre_usuario', $nombre_usuario)->first();
-        $productos = $user->productos()->latest()->paginate(9);
-        return view('users.index', [
-            'productos' => $productos,
+        $user = Auth::user();
+        return view('users.profile', [
             'user' => $user
         ]);
     }
-
 
     /**
      * Show the form for creating a new resource.

@@ -15,12 +15,14 @@ Route::get('/', 'PagesController@home');
 Route::get('/saludo', 'PagesController@saludo');
 
 Route::get('/productos/create', 'ProductoController@create')->middleware('auth');
-Route::get('/productos/{producto}', 'ProductoController@show');
+Route::get('/productos/show/{producto}', 'ProductoController@show');
 Route::post('/productos/create', 'ProductoController@store')->middleware('auth');
-Route::post('/auth/register', 'RegisterController@store');
+//Route::post('/auth/register', 'RegisterController@store');
 
 
-Route::get('/user/{user}', 'UsersController@index');
+Route::get('/user/{nombre_usuario}', 'UsersController@index');
+Route::get('/profile/', 'ProfileController@index')->middleware('auth');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

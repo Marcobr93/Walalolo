@@ -16,7 +16,7 @@
 </head>
 <body class="bg-light">
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light color-fondo">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -33,6 +33,7 @@
                     </li>
                     @auth()
                         <li class="nav-item active"><a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a></li>
+                        <li class="nav-item active"><a href="{{ url('/') }}/profile" class="nav-link">Perfil</a></li>
                     @endauth
                 </ul>
             </div>
@@ -49,11 +50,13 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a href="{{ url('/') }}/profile" class="dropdown-item">
+                                    Perfil
+                                </a>
                                 <a href="{{ route('logout') }}" class="dropdown-item"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
                                     {{ csrf_field() }}

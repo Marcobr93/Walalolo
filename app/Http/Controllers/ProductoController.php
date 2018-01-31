@@ -15,12 +15,13 @@ class ProductoController extends Controller
      * @param Producto $productos
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Producto $productos)
+    public function show(Producto $producto)
     {
         return view('productos.show', [
-            'productos' => $productos
+            'producto' => $producto
         ]);
     }
+
 
     /**
      * Método para mostrar el formulario de alta de una nuevo mensaje Chusqer.
