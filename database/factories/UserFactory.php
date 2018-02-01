@@ -14,12 +14,17 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\User::class, function (Faker $faker) {
+    $name = $faker->firstName;
+    $apellido = $faker->lastName;
+    $nombre_usuario = strtolower($name).'.'.strtolower($apellido);
+    $email = strtolower($name).'.'.strtolower($apellido).'@'.$faker->freeEmailDomain;
 
     return [
-        'name' => $name = $faker->firstName,
-        'apellido' => $apellido = $faker->lastName,
-        'nombre_usuario' => strtolower($name).'.'.strtolower($apellido),
-        'email' => strtolower($name).'.'.strtolower($apellido).'@'.$faker->freeEmailDomain,
+        'name' => $name,
+        'apellido' => $apellido,
+        'nombre_usuario' => $nombre_usuario,
+        'slug' => str_slug($nombre_usuario),
+        'email' => $email,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
         'avatar'      => 'https://picsum.photos/300/300/?image='.mt_rand(0,1000),

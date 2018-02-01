@@ -11,10 +11,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($nombre_usuario)
+    public function index($user)
     {
-        $user = User::where('nombre_usuario', $nombre_usuario)->first();
+        $user = User::where('slug', $user)->first();
         $productos = $user->productos()->latest()->paginate(9);
+
         return view('users.index', [
             'productos' => $productos,
             'user' => $user

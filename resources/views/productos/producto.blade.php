@@ -7,17 +7,15 @@
         @foreach($chunk as $producto)
 <div class="col-md-4">
     <div class="bg-light rounded">
-        <a class="btn pull-right"  href="/user/{{ $producto->user->nombre_usuario }}">
+        <a class="btn pull-right"  href="/user/{{ $producto->user->slug }}">
             {{ $producto->user->name }}
         </a>
     </div>
 
     <div class="bg-light rounded">
-        <a href="/productos/show/{{ $producto['id'] }}">
         <h4>
-            Título: {{ $producto['titulo'] }}
+            Título: <a href="/productos/show/{{ $producto['id'] }}">{{ $producto['titulo'] }} </a>
         </h4>
-        </a>
     </div>
 
     <div class="bg-light rounded">

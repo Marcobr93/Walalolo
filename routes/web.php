@@ -20,7 +20,7 @@ Route::post('/productos/create', 'ProductoController@store')->middleware('auth')
 //Route::post('/auth/register', 'RegisterController@store');
 
 
-Route::get('/user/{nombre_usuario}', 'UsersController@index');
+Route::get('/user/{user}', 'UsersController@index');
 Route::get('/profile/', 'ProfileController@index')->middleware('auth');
 
 Auth::routes();
