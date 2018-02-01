@@ -23,7 +23,7 @@
                 <div class="carousel-caption d-none d-md-block"></div>
             </div>
             @foreach($productos as $producto)
-                @if($producto['destacado'] !== 0)
+                @if($producto['destacado'] === 1)
             <div class="carousel-item">
                 <img class="img-fluid center" src="{{ $producto['foto'] }}" alt="Imagen destacada">
                 <div class="carousel-caption d-none d-md-block"></div>

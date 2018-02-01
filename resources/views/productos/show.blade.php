@@ -55,21 +55,40 @@
             </div>
 
             <div class="bg-light rounded">
+                @if($producto['negociacion_precio'] === 1)
                 <h3>
-                    Negociación del precio: {{ $producto['negociacion_precio'] }}
+                    Negociación del precio: Sí.
                 </h3>
+                @else
+                    <h3>
+                        Negociación del precio: No.
+                    </h3>
+                @endif
             </div>
 
             <div class="bg-light rounded">
+                @if($producto['intercambio_producto'] === 1)
+
                 <h3>
-                    Intercambio del producto: {{ $producto['intercambio_producto'] }}
+                    Intercambio del producto: Sí.
                 </h3>
+                @else
+                    <h3>
+                        Intercambio del producto: No.
+                    </h3>
+                @endif
             </div>
 
             <div class="bg-light rounded">
+                @if($producto['destacado'] === 1)
                 <h3>
-                    Destacado: {{ $producto['destacado'] }}
+                    Destacado: Sí.
                 </h3>
+                    @else
+                    <h3>
+                        Destacado: No.
+                    </h3>
+                @endif
             </div>
 
         </div>

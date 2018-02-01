@@ -102,7 +102,7 @@
                                         <option value="consolas_videojuegos">Consolas y Videojuegos</option>
                                         <option value="libros_peliculas_musica">Libros, Películas y Música</option>
                                         <option value="moda_accesorios">Moda y Accesorios</option>
-                                        <option value="niños_bebes">Niños y Bebés</option>
+                                        <option value="ninos_bebes">Niños y Bebés</option>
                                         <option value="inmobiliaria">Inmobiliaria</option>
                                         <option value="electrodomesticos">Electrodomésticos</option>
                                         <option value="servicios">Servicios</option>
