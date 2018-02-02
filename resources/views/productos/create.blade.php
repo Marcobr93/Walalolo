@@ -97,16 +97,16 @@
                                 <div class="col-md-6">
                                     <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria" title="Categoría">
                                         <option selected>Selecciona</option>
-                                        <option value="deporte_ocio">Deporte y Ocio</option>
-                                        <option value="muebles_deco_jardin">Muebles, Deco y Jardín</option>
-                                        <option value="consolas_videojuegos">Consolas y Videojuegos</option>
-                                        <option value="libros_peliculas_musica">Libros, Películas y Música</option>
-                                        <option value="moda_accesorios">Moda y Accesorios</option>
-                                        <option value="ninos_bebes">Niños y Bebés</option>
-                                        <option value="inmobiliaria">Inmobiliaria</option>
-                                        <option value="electrodomesticos">Electrodomésticos</option>
-                                        <option value="servicios">Servicios</option>
-                                        <option value="otros">Otros</option>
+                                        <option value="Deporte y Ocio">Deporte y Ocio</option>
+                                        <option value="Muebles, Deco y Jardín">Muebles, Deco y Jardín</option>
+                                        <option value="Consolas y Videojuegos">Consolas y Videojuegos</option>
+                                        <option value="Libros, Películas y Música">Libros, Películas y Música</option>
+                                        <option value="Moda y Accesorios">Moda y Accesorios</option>
+                                        <option value="Niños y Bebés">Niños y Bebés</option>
+                                        <option value="Inmobiliaria">Inmobiliaria</option>
+                                        <option value="Electrodomésticos">Electrodomésticos</option>
+                                        <option value="Servicios">Servicios</option>
+                                        <option value="Otros">Otros</option>
                                     </select>
 
                                     @if($errors->has('categoria'))
@@ -125,11 +125,11 @@
                                 <div class="col-md-6">
                                     <select name="tipo_envio" class="custom-select custom-select-lg mb-3" id="tipo_envio" title="Tipo de envío">
                                         <option selected>Selecciona</option>
-                                        <option value="sin_envio">Sin envío</option>
-                                        <option value="5_kg_max">5 kg max.</option>
-                                        <option value="10_kg_max">10 kg max.</option>
-                                        <option value="20_kg_max">20 kg max.</option>
-                                        <option value="30_kg_max">30 kg max.</option>
+                                        <option value="Sin envío">Sin envío</option>
+                                        <option value="5 kg max">5 kg max.</option>
+                                        <option value="10 kg max">10 kg max.</option>
+                                        <option value="20 kg max">20 kg max.</option>
+                                        <option value="30 kg max">30 kg max.</option>
                                     </select>
 
                                     @if($errors->has('tipo_envio'))
