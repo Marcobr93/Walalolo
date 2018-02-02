@@ -43,6 +43,6 @@
 
       @include('productos.producto')
 
-    <div class="text-center">{{ $productos->links('pagination::bootstrap-4') }}</div>
+        <div class="centro">{{ $productos->links('pagination::bootstrap-4') }}</div>
     </div>
 @endsection
