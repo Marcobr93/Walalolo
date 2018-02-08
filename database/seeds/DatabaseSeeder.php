@@ -11,10 +11,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        factory(App\User::class, 20)->create()->each(function (App\User $user){
 
-            factory(\App\Producto::class,10)->create(['user_id' => $user->id]);
+        $users = factory(App\User::class, 20)->create();
+
+        $users->each(function (App\User $user) use ($users) {
+            $productos = factory(App\Producto::class, 10)->create([
+                'user_id' => $user->id,
+            ]);
+
+            $productos->each(function (App\Producto $producto) use ($user) {
+                $contraofertas = factory(App\Contraoferta::class, 1)->create([
+                    'vendedor_user_id' => $user->id,
+                    'comprador_user_id' => rand(1, 20),
+                    'producto_id' => $producto->id,
+                ]);
+
+            });
+
+            $valoraciones = factory(App\Valoracion::class, 1)->create([
+                'valora_user_id' => $user->id,
+                'valorado_user_id' => rand(1, 20),
+            ]);
+
+            $reviews = factory(App\Review::class, 1)->create([
+                'user_id' => $user->id,
+                'review_user_id' => rand(1, 20),
+            ]);
+
         });
 
     }

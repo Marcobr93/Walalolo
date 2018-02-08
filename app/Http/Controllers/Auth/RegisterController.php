@@ -109,6 +109,7 @@ class RegisterController extends Controller
             'nombre_usuario' => $data['nombre_usuario'],
             'name' => $data['name'],
             'apellido' => $data['apellido'],
+            'slug' => str_slug($data['name'].$data['apellido']),
             'email' => $data['email'],
             'avatar' => $data['avatar'],
             'password' => bcrypt($data['password']),

@@ -2,6 +2,7 @@
     <p>No hay productos para mostrar.</p>
 @endif
 
+
 @foreach($productos->chunk(3) as $chunk)
     <div class="card-group row course-set courses__row producto">
     @foreach($chunk as $producto)

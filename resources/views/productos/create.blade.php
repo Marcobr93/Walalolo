@@ -79,7 +79,7 @@
                                 <label for="precio" class="col-lg-4 col-form-label text-lg-right">Precio</label>
 
                                 <div class="col-md-6">
-                                    <input id="precio" type="number" step="any" class="form-control" name="precio" value="{{ old('precio') }}" autofocus>
+                                    <input id="precio" type="number" step="any" min="0" class="form-control" name="precio" value="{{ old('precio') }}" autofocus>
 
                                     @if($errors->has('precio'))
                                         @foreach($errors->get('precio') as $message)

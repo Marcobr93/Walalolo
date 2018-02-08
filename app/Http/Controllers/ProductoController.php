@@ -8,11 +8,9 @@ use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
-    /**
-     * Método que muestra la información de un mensaje. Utiliza Route Binding
-     * para coneguir el Chusqer facilitado por el parámetro.
-     *
-     * @param Producto $productos
+    /**Método que muestra la información de un producto. Utiliza Route Binding
+     * para coneguir el Producto facilitado por el parámetro.
+     * @param Producto $producto
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(Producto $producto)
@@ -45,7 +43,7 @@ class ProductoController extends Controller
         $user = $request->user();
 
         Producto::create([
-            'user_id'   => $user->id,
+            'user_id'     => $user->id,
             'titulo'      => $request->input('titulo'),
             'foto'        => $request->input('foto'),
             'descripcion' => $request->input('descripcion'),

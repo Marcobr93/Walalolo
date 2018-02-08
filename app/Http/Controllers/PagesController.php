@@ -12,11 +12,22 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function home(){
+    public function home()
+    {
         $productos = Producto::orderBy('created_at', 'desc')->paginate(9);
 
+        $destacado = 0;
+        foreach ($productos as $producto) {
+            if ($producto->destacado == 1) {
+                $destacado = $producto->id;
+                break;
+            }
+        }
+
+
         return view('home', [
-            'productos' => $productos
+            'productos' => $productos,
+            'elementoActivo' => $destacado
         ]);
     }
 
@@ -25,13 +36,14 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function saludo(){
+    public function saludo()
+    {
         $saludo = "Bienvenidos a Walalolo";
         $usuario = "Marco";
 
         return view('saludo', [
             'saludo' => $saludo,
-            'usuario'=> $usuario
+            'usuario' => $usuario
         ]);
     }
 }

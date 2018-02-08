@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Contraoferta;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -14,7 +17,8 @@ class UsersController extends Controller
     public function index($user)
     {
         $user = User::where('slug', $user)->first();
-        $productos = $user->productos()->latest()->paginate(9);
+
+        $productos = $user->productos()->latest()->paginate(6);
 
         return view('users.index', [
             'productos' => $productos,

@@ -11,12 +11,14 @@
             </div>
             <div class="card-body">
                 <h3 class="card-title">
-                    {{ $producto->user->name }}
-
+                    <a class="btn pull-right" href="/user/{{ $producto->user->slug }}">
+                        {{ $producto->user->name }}
+                    </a>
                 </h3>
 
                 <h5 class="card-img">
-                    <img class="img-responsive img-fluid img-portfolio img-hover mb-3" src="{{ $producto['foto'] }}" alt="Foto del producto." />
+                    <img class="img-responsive img-fluid img-portfolio img-hover mb-3" src="{{ $producto['foto'] }}"
+                         alt="Foto del producto."/>
                 </h5>
 
                 <h3 class="card-text">Precio: {{ $producto['precio'] }} €</h3>
@@ -56,19 +58,20 @@
 
                 <h3 class="card-text">Descripción: {{ $producto['descripcion'] }}</h3>
 
-                <div class="card-footer bg-transparent border-primary">
-                    @if($producto['negociacion_precio'] === 1)
-                        <h3>
-                            Negociación del precio: Sí.
-                        </h3>
-                        <a href="#" class="btn btn-primary">Oferta</a>
-                    @else
-                        <h3>
-                            Negociación del precio: No.
-                        </h3>
-                    @endif
-                </div>
-
+            </div>
+            <div class="card-footer bg-transparent border-primary">
+                @if($producto['negociacion_precio'] === 1)
+                    <h3>
+                        Negociación del precio: Sí.
+                    </h3>
+                    @auth()
+                        @include('contraofertas.contraoferta')
+                    @endauth
+                @else
+                    <h3>
+                        Negociación del precio: No.
+                    </h3>
+                @endif
             </div>
         </div>
     </div>

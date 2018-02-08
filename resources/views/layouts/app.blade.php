@@ -34,6 +34,7 @@
                     @auth()
                         <li class="nav-item active"><a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a></li>
                         <li class="nav-item active"><a href="{{ url('/') }}/profile" class="nav-link">Perfil</a></li>
+                        <li class="nav-item active"><a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}" class="nav-link">Ofertas</a></li>
                     @endauth
                 </ul>
             </div>
@@ -77,5 +78,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/walalolo.js') }}"></script>
+
 </body>
 </html>

@@ -84,7 +84,7 @@
                                 <label for="direccion" class="col-lg-4 col-form-label text-lg-right">Dirección</label>
 
                                 <div class="col-md-6">
-                                    <input id="direccion" type="text" class="form-control" name="direccion" value="{{ old('name') }}"  autofocus>
+                                    <input id="direccion" type="text" class="form-control" name="direccion" value="{{ old('direccion') }}"  autofocus>
 
                                     @if ($errors->has('direccion'))
                                         <div class="alert alert-danger">
@@ -98,7 +98,7 @@
                                 <label for="poblacion" class="col-lg-4 col-form-label text-lg-right">Población</label>
 
                                 <div class="col-md-6">
-                                    <input id="poblacion" type="text" class="form-control" name="poblacion" value="{{ old('name') }}"  autofocus>
+                                    <input id="poblacion" type="text" class="form-control" name="poblacion" value="{{ old('poblacion') }}"  autofocus>
 
                                     @if ($errors->has('poblacion'))
                                         <div class="alert alert-danger">
