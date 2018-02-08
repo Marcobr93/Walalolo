@@ -1,5 +1,5 @@
 <div id="reviews">
-    @foreach($user->reviews->chunk(3) as $chunk)
+    @foreach($user->reviews()->paginate(9)->chunk(3) as $chunk)
         <div class="card-group row course-set courses__row producto">
             @foreach($chunk as $review)
                 <div class="card col-md-4">
@@ -20,4 +20,7 @@
             @endforeach
         </div>
     @endforeach
+        <div class="centro">{{ $user->reviews()->paginate(9)->links('pagination::bootstrap-4') }}</div>
+
+
 </div>
