@@ -18,15 +18,22 @@ class ValoracionController extends Controller
             'valoracion'  => $request->input('valoracion')
         ]);
 
-        return redirect('/');
+        return back();
+        return redirect()->back();
     }
 
     public function valoracion($nombre_usuario)
     {
         $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
 
+        dd($userLogeado);
+        $seguidores = $userLogeado->valoraciones->toArray();
+
+        $valoraciones = Valoracion::whereIn('user_id', $seguidores)->sum();
+
         return view('valoraciones.valoracion', [
-            'user' => $userLogeado
+            'user' => $userLogeado,
+            'valoraciones' => $valoraciones
         ]);
     }
 

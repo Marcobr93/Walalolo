@@ -5,18 +5,20 @@
         @auth
             @include('valoraciones.valorar')
             @include('reviews.review')
-            <a class="nav-item nav-link active btn-primary" data-toggle="modal"
+        @if($user->id !== Auth::user()->id)
+            <a class="nav-item nav-link active btn-primary mx-4" data-toggle="modal"
                data-target="#valorar">Valorar</a>
 
-            <a class="nav-item nav-link active btn-primary" data-toggle="modal"
+            <a class="nav-item nav-link active btn-primary mx-4" data-toggle="modal"
                data-target="#comentar">Comentar</a>
+            @endif
         @endauth
     </ul>
 
     <div class="text-center producto">
-        <h1>Productos de {{ $user['name'] }}</h1>
+        <h1>Productos de {{ $user['nombre_usuario'] }}</h1>
     </div>
-    {{-- @include('valoraciones.valoracion')--}}
+     {{--@include('valoraciones.valoracion')--}}
 
     @include('productos.producto')
 

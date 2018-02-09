@@ -16,7 +16,7 @@
 </head>
 <body class="bg-light">
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light color-fondo">
+    <nav class="navbar navbar-expand-md navbar-light color-fondo">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -28,13 +28,14 @@
 
             <div class="collapse navbar-collapse justify-content-start">
                 <ul class="navbar-nav">
-                    <li>
+                    <li class="nav-item dropdown">
                         <img class="nav-item img-responsive img-fluid img-portfolio img-hover mb-3" src="/images/wololopequeño.png" alt="Logo" />
                     </li>
                     @auth()
                         <li class="nav-item active"><a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a></li>
                         <li class="nav-item active"><a href="{{ url('/') }}/profile" class="nav-link">Perfil</a></li>
                         <li class="nav-item active"><a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}" class="nav-link">Ofertas</a></li>
+                        <li class="nav-item active"><a href="{{ url('/') }}/user/{{Auth::user()->nombre_usuario}}" class="nav-link">Tus productos</a></li>
                     @endauth
                 </ul>
             </div>
@@ -48,7 +49,7 @@
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->nombre_usuario }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a href="{{ url('/') }}/profile" class="dropdown-item">

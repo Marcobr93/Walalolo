@@ -23,6 +23,7 @@ Auth::routes();
 
 // Rutas de usuarios
 Route::get('/user/{user}', 'UsersController@index');
+Route::get('/user/{user}', 'UsersController@index')->middleware('auth');
 Route::get('/profile/', 'ProfileController@index')->middleware('auth');
 
 // Rutas de contraofertas/ofertas
@@ -31,6 +32,7 @@ Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta')->middle
 
 // Rutas de valoraciones
 Route::post('valoraciones/valorar', 'ValoracionController@store')->name('valoracion.create')->middleware('auth');
+Route::get('valoraciones/{nombre_usuario}', 'ValoracionController@valoracion');
 
 // Rutas de reviews
 Route::post('reviews/review', 'ReviewController@store')->name('review.create')->middleware('auth');

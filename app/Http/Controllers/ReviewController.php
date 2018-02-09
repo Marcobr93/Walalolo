@@ -17,7 +17,8 @@ class ReviewController extends Controller
             'comentario'  => $request->input('comentario')
         ]);
 
-        return redirect('/');
+        return back();
+        return redirect()->back();
     }
 
     public function review($nombre_usuario)

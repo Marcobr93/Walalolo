@@ -45,7 +45,7 @@ class ProductoController extends Controller
         Producto::create([
             'user_id'     => $user->id,
             'titulo'      => $request->input('titulo'),
-            'foto'        => $request->input('foto'),
+            'foto'        => '/images/default_product.jpeg',
             'descripcion' => $request->input('descripcion'),
             'direccion'   => $request->input('direccion'),
             'poblacion'   => $request->input('poblacion'),

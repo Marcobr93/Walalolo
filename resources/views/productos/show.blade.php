@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h3 class="card-title">
                     <a class="btn pull-right" href="/user/{{ $producto->user->slug }}">
-                        {{ $producto->user->name }}
+                        {{ $producto->user->nombre_usuario }}
                     </a>
                 </h3>
 

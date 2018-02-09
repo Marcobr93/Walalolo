@@ -25,7 +25,6 @@ class CreateProductoRequest extends FormRequest
     {
         return [
             'titulo' => 'required|string|max:255',
-            'foto' => 'required|string|max:255',
             'descripcion' => 'required|string|max:500',
             'direccion' => 'required|string|max:255',
             'poblacion' => 'required|string|max:255',
@@ -51,9 +50,6 @@ class CreateProductoRequest extends FormRequest
             'titulo.required' => 'Es necesario completar el campo "título".',
             'titulo.max' => 'Has sobrepasado los 255 caracteres disponibles para el "título".',
             'titulo.string' => 'El título debe ser una cadena de caracteres.',
-            'foto.required' => 'Es necesario completar el campo "foto".',
-            'foto.max' => 'Has sobrepasado los 255 caracteres disponibles para la "foto".',
-            'foto.string' => 'La foto debe ser una cadena de caracteres.',
             'descripcion.required' => 'Es necesario completar el campo "descripción".',
             'descripcion.max' => 'Has sobrepasado los 500 caracteres disponibles para la "descripción".',
             'descripcion.string' => 'La descripción debe ser una cadena de caracteres.',

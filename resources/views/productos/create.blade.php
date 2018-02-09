@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-md-center mt-5">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Añadir producto</div>
                     <div class="card-body">
@@ -18,22 +18,6 @@
 
                                     @if($errors->has('titulo'))
                                         @foreach($errors->get('titulo') as $message)
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row{{ $errors->has('foto') ? ' has-error' : '' }}">
-                                <label for="foto" class="col-lg-4 col-form-label text-lg-right">Foto</label>
-
-                                <div class="col-md-6">
-                                    <input id="foto" type="text" class="form-control" name="foto" value="{{ old('foto') }}" autofocus>
-
-                                    @if($errors->has('foto'))
-                                        @foreach($errors->get('foto') as $message)
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
                                             </div>
