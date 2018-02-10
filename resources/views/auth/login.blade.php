@@ -15,7 +15,7 @@
 
                             <div class="col-lg-6">
                                 <input
-                                        id="email"
+                                        id="emailLogin"
                                         type="email"
                                         class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                         name="email"

@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Registro de Usuario</div>
                     <div class="card-body">
-                        <form role="form" method="POST" action="{{ url('/register') }}">
+                        <form role="form" id="formularioRegistro" method="POST" action="{{ url('/register') }}">
                             {!! csrf_field() !!}
 
                             <div class="form-group row{{ $errors->has('nombre_usuario') ? ' has-error' : '' }}">
@@ -24,6 +24,7 @@
                                         </div>
                                     @endif
                                 </div>
+                                @include('layouts.spinner')
                             </div>
 
                             <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -39,6 +40,7 @@
                                         </div>
                                     @endif
                                 </div>
+                                @include('layouts.spinner')
                             </div>
 
                             <div class="form-group row{{ $errors->has('password') ? ' has-error' : '' }}">
@@ -53,6 +55,7 @@
                                         </div>
                                     @endif
                                 </div>
+                                @include('layouts.spinner')
                             </div>
 
                             <div class="form-group row">
@@ -64,6 +67,7 @@
                                             class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}"
                                             name="password_confirmation"
                                     >
+                                    @include('layouts.spinner')
                                     @if ($errors->has('password_confirmation'))
                                         <div class="invalid-feedback">
                                             <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -74,7 +78,7 @@
 
                             <div class="form-group row">
                                 <div class="col-lg-6 offset-lg-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" id="botonRegistro" class="btn btn-primary">
                                         Registrarse
                                     </button>
                                 </div>
@@ -85,4 +89,7 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script src="{{ asset('js/validacionRegistro.js') }}"></script>
+    @endpush
 @endsection

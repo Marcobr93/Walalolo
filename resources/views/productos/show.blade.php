@@ -23,9 +23,9 @@
 
                 <h3 class="card-text">Precio: {{ $producto['precio'] }} €</h3>
 
-                <h3 class="card-text">Dirección: {{ $producto['direccion'] }}</h3>
+                <h3 class="card-text">Dirección: {{ $user['direccion'] }}</h3>
 
-                <h3 class="card-text">Población: {{ $producto['poblacion'] }}</h3>
+                <h3 class="card-text">Población: {{ $user['poblacion'] }}</h3>
 
                 <h3 class="card-text">Categoría: {{ $producto['categoria'] }}</h3>
 
@@ -65,7 +65,9 @@
                         Negociación del precio: Sí.
                     </h3>
                     @auth()
+                        @if(!\App\User::soyYo($user))
                         @include('contraofertas.contraoferta')
+                            @endif
                     @endauth
                 @else
                     <h3>

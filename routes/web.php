@@ -23,7 +23,6 @@ Auth::routes();
 
 // Rutas de usuarios
 Route::get('/user/{user}', 'UsersController@index');
-Route::get('/user/{user}', 'UsersController@index')->middleware('auth');
 Route::get('/profile/', 'ProfileController@index')->middleware('auth');
 
 // Rutas de contraofertas/ofertas
@@ -37,5 +36,11 @@ Route::get('valoraciones/{nombre_usuario}', 'ValoracionController@valoracion');
 // Rutas de reviews
 Route::post('reviews/review', 'ReviewController@store')->name('review.create')->middleware('auth');
 
+// Rutas de validación
+Route::post('/registro/validar', 'Auth\RegisterController@validacionAjax');
+Route::post('/producto/validar', 'ProductoController@validacionAjax');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/dameProductos/', 'PagesController@damePaginaProductos');

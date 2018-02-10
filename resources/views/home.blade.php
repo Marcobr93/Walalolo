@@ -37,9 +37,8 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
+        <div id="paginacion">
       @include('productos.producto')
-
-        <div class="centro">{{ $productos->links('pagination::bootstrap-4') }}</div>
+        </div>
     </div>
 @endsection

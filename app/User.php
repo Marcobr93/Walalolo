@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
@@ -82,6 +83,19 @@ class User extends Authenticatable
     public function reviews()
     {
         return $this->hasMany(Review::class, 'user_id');
+    }
+
+    /** Función para saber si el usuario logeado es el mismo que el que comprobamos
+     * @param $user
+     * @return bool
+     */
+    public static function soyYo($user)
+    {
+        if(Auth::user()->id == $user->id){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

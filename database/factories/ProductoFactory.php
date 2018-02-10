@@ -12,8 +12,6 @@ $factory->define(App\Producto::class, function (Faker $faker) {
         'titulo'     => $faker->sentence(6,true),
         'foto'      => 'https://picsum.photos/300/300/?image='.mt_rand(0,1000),
         'descripcion' => $faker->realText(255),
-        'direccion' => $faker->address,
-        'poblacion' => $faker->country,
         'precio'    => $faker->randomFloat(2,0.01,10000),
         'categoria' => $faker->randomElement(['Deporte y Ocio' ,'Muebles, Deco y jardín', 'Consolas y Videojuegos',
             'Libros películas y música','Moda y Accesorios','Niños y bebés','Inmobiliaria','Electrodomésticos',

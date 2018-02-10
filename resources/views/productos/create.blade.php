@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Añadir producto</div>
                     <div class="card-body">
-                        <form action="{{ url('/') }}/productos/create" method="post" class="form-horizontal">
+                        <form action="{{ url('/') }}/productos/create" id="formularioCreacionProducto" method="post" class="form-horizontal">
                             {{ csrf_field() }}
 
                             <div class="form-group row{{ $errors->has('titulo') ? ' has-error' : '' }}">
@@ -18,39 +18,6 @@
 
                                     @if($errors->has('titulo'))
                                         @foreach($errors->get('titulo') as $message)
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row{{ $errors->has('direccion') ? ' has-error' : '' }}">
-                                <label for="direccion" class="col-lg-4 col-form-label text-lg-right">Dirección</label>
-
-                                <div class="col-md-6">
-                                    <input id="direccion" type="text" class="form-control" name="direccion" value="{{ old('direccion') }}" autofocus>
-
-                                    @if($errors->has('direccion'))
-                                        @foreach($errors->get('direccion') as $message)
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row{{ $errors->has('poblacion') ? ' has-error' : '' }}">
-                                <label for="poblacion" class="col-lg-4 col-form-label text-lg-right">Población</label>
-
-                                <div class="col-md-6">
-                                    <input id="poblacion" type="text" class="form-control" name="poblacion" value="{{ old('name') }}" autofocus>
-
-                                    @if($errors->has('poblacion'))
-                                        @foreach($errors->get('poblacion') as $message)
                                             <div class="alert alert-danger" role="alert">
                                                 {{ $message }}
                                             </div>
@@ -204,7 +171,7 @@
 
                             <div class="form-group row">
                                 <div class="col-lg-7 col-form-label text-lg-right">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" id="botonCreacionProducto" class="btn btn-primary">
                                         Añadir producto
                                     </button>
                                 </div>
@@ -215,4 +182,7 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script src="{{ asset('js/validacionProducto.js') }}"></script>
+    @endpush
 @endsection

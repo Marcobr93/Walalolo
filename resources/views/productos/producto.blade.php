@@ -2,7 +2,6 @@
     <p>No hay productos para mostrar.</p>
 @endif
 
-
 @foreach($productos->chunk(3) as $chunk)
     <div class="card-group row course-set courses__row producto">
     @foreach($chunk as $producto)
@@ -32,3 +31,11 @@
         @endforeach
     </div>
 @endforeach
+
+<div class="text-center">
+    {{ $productos->links('pagination::bootstrap-4') }}
+</div>
+
+@push('scripts')
+    <script src="{{ asset('js/datos.js') }}" defer></script>
+@endpush

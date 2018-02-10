@@ -22,6 +22,8 @@
 
     @include('productos.producto')
 
+    <script src="{{ asset('js/walalolo.js') }}"></script>
+
     <ul class="nav nav-pills nav-justified producto">
         <a class="nav-item nav-link active btn-primary" onClick="muestra_oculta('reviews')">Mostrar {{$user->reviews->count()}}
             Comentarios</a>
@@ -29,5 +31,6 @@
 
     @include('reviews.reviews')
 
-    <div class="text-center">{{ $productos->links('pagination::bootstrap-4') }}</div>
+    <div class="dev-flex mx-auto">{{ $productos->links('pagination::bootstrap-4') }}</div>
+
 @endsection

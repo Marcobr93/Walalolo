@@ -13,6 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/walalolo.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
 </head>
 <body class="bg-light">
 <div id="app">
@@ -35,7 +38,7 @@
                         <li class="nav-item active"><a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a></li>
                         <li class="nav-item active"><a href="{{ url('/') }}/profile" class="nav-link">Perfil</a></li>
                         <li class="nav-item active"><a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}" class="nav-link">Ofertas</a></li>
-                        <li class="nav-item active"><a href="{{ url('/') }}/user/{{Auth::user()->nombre_usuario}}" class="nav-link">Tus productos</a></li>
+                        <li class="nav-item active"><a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="nav-link">Tus productos</a></li>
                     @endauth
                 </ul>
             </div>
@@ -46,12 +49,8 @@
                         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Registro</a></li>
                     @else
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->nombre_usuario }}
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+
+                            <div class="" aria-labelledby="navbarDropdownMenuLink">
                                 <a href="{{ url('/') }}/profile" class="dropdown-item">
                                     Perfil
                                 </a>
@@ -64,7 +63,7 @@
                                     {{ csrf_field() }}
                                 </form>
                             </div>
-                        </li>
+
                     @endif
                 </ul>
             </div>
@@ -79,7 +78,9 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/walalolo.js') }}"></script>
+<script src="{{ asset('js/validacionRegistro.js') }}"></script>
+<script src="{{ asset('js/validacionProducto.js') }}"></script>
+<script src="{{ asset('js/datos.js') }}"></script>
 
 </body>
 </html>

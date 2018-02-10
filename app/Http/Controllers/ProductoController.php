@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProductoAjaxFormRequest;
 use App\Producto;
 use App\Http\Requests\CreateProductoRequest;
+use App\User;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -15,9 +17,18 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
+        $user = User::where('id', $producto['user_id'])->first();
+
         return view('productos.show', [
-            'producto' => $producto
+            'producto' => $producto,
+            'user' => $user
         ]);
+    }
+
+    /*Validacion por Ajax con FormRquest*/
+    protected function validacionAjax(CreateProductoAjaxFormRequest $request){
+        //Obtenermos todos los valores y devolvemos un array vacio
+        return array();
     }
 
 
@@ -47,8 +58,6 @@ class ProductoController extends Controller
             'titulo'      => $request->input('titulo'),
             'foto'        => '/images/default_product.jpeg',
             'descripcion' => $request->input('descripcion'),
-            'direccion'   => $request->input('direccion'),
-            'poblacion'   => $request->input('poblacion'),
             'precio'      => $request->input('precio'),
             'categoria'   => $request->input('categoria'),
             'tipo_envio'  => $request->input('tipo_envio'),

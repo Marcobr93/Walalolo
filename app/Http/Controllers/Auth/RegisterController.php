@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUserAjaxFormRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -51,20 +52,13 @@ class RegisterController extends Controller
             'nombre_usuario' => 'required|string|max:255|unique:users',
             'email' => 'required|max:255|email|unique:users',
             'password' => 'required|string|min:6|confirmed',
-        ], [
-            'nombre_usuario.required' => 'Es necesario completar el campo "nombre de usuario".',
-            'nombre_usuario.max' => 'Has sobrepasado los 255 caracteres disponibles para el "nombre de usuario".',
-            'nombre_usuario.string' => 'El nombre de usuario debe ser una cadena de caracteres.',
-            'email.required' => 'Es necesario completar el campo "email".',
-            'email.max' => 'Has sobrepasado los 255 caracteres disponibles para el "email".',
-            'email.email' => 'El email debe ser un email válido.',
-            'email.unique' => 'El email debe ser un email disponible.',
-            'password.required' => 'El password de usuario es obligatorio.',
-            'password.string' => 'El password debe ser una cadena de caracteres',
-            'password.max' => 'El nombre debe tener 6 caracteres como mínimo',
-            'password.confirmed' => 'Las contraseñas no coinciden',
-
         ]);
+    }
+
+    /*Validacion por Ajax con FormRquest*/
+    protected function validacionAjax(CreateUserAjaxFormRequest $request){
+        //Obtenermos todos los valores y devolvemos un array vacio
+        return array();
     }
 
     /**
@@ -75,12 +69,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $indefinido = 'Campo no definido.';
+
         return User::create([
-            'nombre_usuario' => $data['nombre_usuario'],
+            'nombre_usuario' => ucwords(strtolower($data['nombre_usuario'])),
             'slug' => str_slug($data['nombre_usuario']),
             'avatar'        => '/images/userXDefecto.jpeg',
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'name' => $indefinido,
+            'apellido' => $indefinido,
+            'dni' => $indefinido,
+            'num_telefono' => $indefinido,
+            'direccion' => $indefinido,
+            'poblacion' => $indefinido,
+            'website' => $indefinido,
+            'descripcion' => $indefinido
         ]);
     }
 }
