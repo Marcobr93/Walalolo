@@ -29,16 +29,35 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-start">
+            <img class="nav-item img-responsive img-fluid img-portfolio img-hover mb-3" src="/images/wololopequeño.png"
+                 alt="Logo"/>
+
+            <div class="pos-f-t">
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="bg-inverse p-4">
+                        <h4 class="text-white">Collapsed content</h4>
+                        <span class="text-muted">Toggleable via the navbar brand.</span>
+                    </div>
+                </div>
+                <nav class="navbar navbar-inverse bg-inverse">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"
+                            aria-controls="navbarToggleExternalContent" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-start" id="menu">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <img class="nav-item img-responsive img-fluid img-portfolio img-hover mb-3" src="/images/wololopequeño.png" alt="Logo" />
-                    </li>
                     @auth()
-                        <li class="nav-item active"><a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a></li>
+                        <li class="nav-item active"><a href="{{ url('/') }}/productos/create" class="nav-link">Añadir
+                                Producto</a></li>
                         <li class="nav-item active"><a href="{{ url('/') }}/profile" class="nav-link">Perfil</a></li>
-                        <li class="nav-item active"><a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}" class="nav-link">Ofertas</a></li>
-                        <li class="nav-item active"><a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="nav-link">Tus productos</a></li>
+                        <li class="nav-item active"><a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}"
+                                                       class="nav-link">Ofertas</a></li>
+                        <li class="nav-item active"><a href="{{ url('/') }}/user/{{Auth::user()->slug}}"
+                                                       class="nav-link">Tus productos</a></li>
                     @endauth
                 </ul>
             </div>
@@ -49,8 +68,13 @@
                         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Registro</a></li>
                     @else
-
-                            <div class="" aria-labelledby="navbarDropdownMenuLink">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->slug}}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a href="{{ url('/') }}/profile" class="dropdown-item">
                                     Perfil
                                 </a>
@@ -63,7 +87,7 @@
                                     {{ csrf_field() }}
                                 </form>
                             </div>
-
+                        </li>
                     @endif
                 </ul>
             </div>
@@ -81,6 +105,16 @@
 <script src="{{ asset('js/validacionRegistro.js') }}"></script>
 <script src="{{ asset('js/validacionProducto.js') }}"></script>
 <script src="{{ asset('js/datos.js') }}"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
