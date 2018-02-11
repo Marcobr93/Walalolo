@@ -24,14 +24,18 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_usuario' => 'required|string|max:255|unique:users',
+            'nombre_usuario' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
-            'email' => 'required|max:255|email|unique:users',
+            'email' => 'required|max:255|email',
+            'avatar' => 'string|max:255',
+            'num_telefono' => 'string|max:255',
             'password' => 'required|string|min:6|confirmed',
             'dni' => 'required|string|max:255',
             'direccion' => 'required|string|max:255',
-            'poblacion' => 'required|string|max:255'
+            'poblacion' => 'required|string|max:255',
+            'website'   => 'string|max:255',
+            'descripcion' => 'max:255'
         ];
     }
 
@@ -57,7 +61,10 @@ class CreateUserRequest extends FormRequest
             'email.required' => 'Es necesario completar el campo "email".',
             'email.max' => 'Has sobrepasado los 255 caracteres disponibles para el "email".',
             'email.email' => 'El email debe ser un email válido.',
-            'email.unique' => 'El email debe ser un email disponible.',
+            'avatar.string' => 'El avatar debe ser una cadena de caracteres',
+            'avatar.max' => 'El avatar debe tener 6 caracteres como mínimo',
+            'num_telefono.string' => 'El número de teléfono debe ser una cadena de caracteres',
+            'num_telefono.max' => 'El número de teléfono debe tener 6 caracteres como mínimo',
             'password.required' => 'El password de usuario es obligatorio.',
             'password.string' => 'El password debe ser una cadena de caracteres',
             'password.max' => 'El nombre debe tener 6 caracteres como mínimo',
@@ -68,11 +75,12 @@ class CreateUserRequest extends FormRequest
             'poblacion.required' => 'Es necesario completar el campo "población".',
             'poblacion.max' => 'Has sobrepasado los 255 caracteres disponibles para la "población".',
             'poblacion.string' => 'La población debe ser una cadena de caracteres.',
-            'precio.required' => 'Es necesario completar el campo "precio".',
-            'precio.numeric' => 'El "precio" debe ser un número',
             'dni.required' => 'Es necesario completar el campo "DNI".',
             'dni.max' => 'Has sobrepasado los 255 caracteres disponibles para el "DNI".',
-            'dni.string' => 'El DNI debe ser una cadena de caracteres.'
+            'dni.string' => 'El DNI debe ser una cadena de caracteres.',
+            'website.string' => 'El website debe ser una cadena de caracteres',
+            'website.max' => 'El website debe tener 6 caracteres como mínimo',
+            'descripcion.max' => 'La descripción debe tener 6 caracteres como mínimo',
         ];
     }
 }

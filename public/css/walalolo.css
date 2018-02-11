@@ -6,6 +6,10 @@
     padding: 50px;
 }
 
+.btnespacio{
+    padding: 10px;
+}
+
 .center{
     display:block;
     margin:auto;

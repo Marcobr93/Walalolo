@@ -32,21 +32,6 @@ class PagesController extends Controller
         ]);
     }
 
-    /**
-     * Página de saludo.
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function saludo()
-    {
-        $saludo = "Bienvenidos a Walalolo";
-        $usuario = "Marco";
-
-        return view('saludo', [
-            'saludo' => $saludo,
-            'usuario' => $usuario
-        ]);
-    }
 
     public function damePaginaProductos(){
         if (request()->ajax()){

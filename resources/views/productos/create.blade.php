@@ -3,18 +3,20 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-md-center mt-5">
-            <div class="col-md-12">
+            <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-header">Añadir producto</div>
+                    <div class="text-center card-header">Añadir producto</div>
                     <div class="card-body">
-                        <form action="{{ url('/') }}/productos/create" id="formularioCreacionProducto" method="post" class="form-horizontal">
+                        <form action="{{ url('/') }}/productos/create" id="formularioCreacionProducto" method="post"
+                              class="form-horizontal">
                             {{ csrf_field() }}
 
                             <div class="form-group row{{ $errors->has('titulo') ? ' has-error' : '' }}">
-                                <label for="titulo" class="col-lg-4 col-form-label text-lg-right">Título</label>
+                                <label for="titulo" class="col-lg-2 col-form-label text-lg-right">Título</label>
 
-                                <div class="col-md-6">
-                                    <input id="titulo" type="text" class="form-control" name="titulo" value="{{ old('titulo') }}" autofocus>
+                                <div class="col-lg-9">
+                                    <input id="titulo" type="text" class="form-control" name="titulo"
+                                           value="{{ old('titulo') }}" autofocus>
 
                                     @if($errors->has('titulo'))
                                         @foreach($errors->get('titulo') as $message)
@@ -27,10 +29,11 @@
                             </div>
 
                             <div class="form-group row{{ $errors->has('precio') ? ' has-error' : '' }}">
-                                <label for="precio" class="col-lg-4 col-form-label text-lg-right">Precio</label>
+                                <label for="precio" class="col-lg-2 col-form-label text-lg-right">Precio</label>
 
-                                <div class="col-md-6">
-                                    <input id="precio" type="number" step="any" min="0" class="form-control" name="precio" value="{{ old('precio') }}" autofocus>
+                                <div class="col-lg-9">
+                                    <input id="precio" type="number" step="any" min="0" class="form-control"
+                                           name="precio" value="{{ old('precio') }}" autofocus>
 
                                     @if($errors->has('precio'))
                                         @foreach($errors->get('precio') as $message)
@@ -42,11 +45,110 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row{{ $errors->has('categoria') ? ' has-error' : '' }}">
-                                <label for="categoria" class="col-lg-4 col-form-label text-lg-right">Categoría</label>
+                            <div class="row">
+                                <div class="col-lg-6 form-group row{{ $errors->has('destacado') ? ' has-error' : '' }}">
+                                    <label for="destacado"
+                                           class="col-lg-6 col-form-label text-lg-right">Destacado</label>
 
-                                <div class="col-md-6">
-                                    <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria" title="Categoría">
+                                    <div class="col-lg-6">
+                                        <select name="destacado" class="custom-select custom-select-lg mb-3"
+                                                id="destacado" title="Destacado">
+                                            <option selected>Selecciona</option>
+                                            <option value="1">Sí</option>
+                                            <option value="0">No</option>
+                                        </select>
+
+                                        @if($errors->has('destacado'))
+                                            @foreach($errors->get('destacado') as $message)
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 form-group row{{ $errors->has('tipo_envio') ? ' has-error' : '' }}">
+                                    <label for="tipo_envio" class="col-lg-6 col-form-label text-lg-right">Tipo de
+                                        envío</label>
+
+                                    <div class="col-lg-6">
+                                        <select name="tipo_envio" class="custom-select custom-select-lg mb-3"
+                                                id="tipo_envio" title="Tipo de envío">
+                                            <option selected>Selecciona</option>
+                                            <option value="Sin envío">Sin envío</option>
+                                            <option value="5 kg max">5 kg max.</option>
+                                            <option value="10 kg max">10 kg max.</option>
+                                            <option value="20 kg max">20 kg max.</option>
+                                            <option value="30 kg max">30 kg max.</option>
+                                        </select>
+
+                                        @if($errors->has('tipo_envio'))
+                                            @foreach($errors->get('tipo_envio') as $message)
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-6 form-group row{{ $errors->has('negociacion_precio') ? ' has-error' : '' }}">
+                                    <label for="negociacion_precio" class="col-lg-6 col-form-label text-lg-right">Negociación
+                                        precio</label>
+
+                                    <div class="col-lg-6">
+                                        <select name="negociacion_precio" class="custom-select custom-select-lg mb-3"
+                                                id="negociacion_precio" title="Tipo de envío">
+                                            <option selected>Selecciona</option>
+                                            <option value="1">Sí</option>
+                                            <option value="0">No</option>
+                                        </select>
+
+                                        @if($errors->has('negociacion_precio'))
+                                            @foreach($errors->get('negociacion_precio') as $message)
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6 form-group row{{ $errors->has('intercambio_producto') ? ' has-error' : '' }}">
+                                    <label for="intercambio_producto" class="col-lg-6 col-form-label text-lg-right">Intercambio
+                                        producto</label>
+
+                                    <div class="col-lg-6">
+                                        <select name="intercambio_producto" class="custom-select custom-select-lg mb-3"
+                                                id="intercambio_producto" title="Intercambio producto">
+                                            <option selected>Selecciona</option>
+                                            <option value="1">Sí</option>
+                                            <option value="0">No</option>
+                                        </select>
+
+                                        @if($errors->has('intercambio_producto'))
+                                            @foreach($errors->get('intercambio_producto') as $message)
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row{{ $errors->has('categoria') ? ' has-error' : '' }}">
+                                <label for="categoria" class="col-lg-2 col-form-label text-lg-right">Categoría</label>
+
+                                <div class="col-lg-9">
+                                    <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria"
+                                            title="Categoría">
                                         <option selected>Selecciona</option>
                                         <option value="Deporte y Ocio">Deporte y Ocio</option>
                                         <option value="Muebles, Deco y Jardín">Muebles, Deco y Jardín</option>
@@ -70,94 +172,14 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row{{ $errors->has('tipo_envio') ? ' has-error' : '' }}">
-                                <label for="tipo_envio" class="col-lg-4 col-form-label text-lg-right">Tipo de envío</label>
-
-                                <div class="col-md-6">
-                                    <select name="tipo_envio" class="custom-select custom-select-lg mb-3" id="tipo_envio" title="Tipo de envío">
-                                        <option selected>Selecciona</option>
-                                        <option value="Sin envío">Sin envío</option>
-                                        <option value="5 kg max">5 kg max.</option>
-                                        <option value="10 kg max">10 kg max.</option>
-                                        <option value="20 kg max">20 kg max.</option>
-                                        <option value="30 kg max">30 kg max.</option>
-                                    </select>
-
-                                    @if($errors->has('tipo_envio'))
-                                        @foreach($errors->get('tipo_envio') as $message)
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row{{ $errors->has('negociacion_precio') ? ' has-error' : '' }}">
-                                <label for="negociacion_precio" class="col-lg-4 col-form-label text-lg-right">Negociación precio</label>
-
-                                <div class="col-md-6">
-                                    <select name="negociacion_precio" class="custom-select custom-select-lg mb-3" id="negociacion_precio" title="Tipo de envío">
-                                        <option selected>Selecciona</option>
-                                        <option value="1">Sí</option>
-                                        <option value="0">No</option>
-                                    </select>
-
-                                    @if($errors->has('negociacion_precio'))
-                                        @foreach($errors->get('negociacion_precio') as $message)
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row{{ $errors->has('intercambio_producto') ? ' has-error' : '' }}">
-                                <label for="intercambio_producto" class="col-lg-4 col-form-label text-lg-right">Intercambio producto</label>
-
-                                <div class="col-md-6">
-                                    <select name="intercambio_producto" class="custom-select custom-select-lg mb-3" id="intercambio_producto" title="Intercambio producto">
-                                        <option selected>Selecciona</option>
-                                        <option value="1">Sí</option>
-                                        <option value="0">No</option>
-                                    </select>
-
-                                    @if($errors->has('intercambio_producto'))
-                                        @foreach($errors->get('intercambio_producto') as $message)
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row{{ $errors->has('destacado') ? ' has-error' : '' }}">
-                                <label for="destacado" class="col-lg-4 col-form-label text-lg-right">Destacado</label>
-
-                                <div class="col-md-6">
-                                    <select name="destacado" class="custom-select custom-select-lg mb-3" id="destacado" title="Destacado">
-                                        <option selected>Selecciona</option>
-                                        <option value="1">Sí</option>
-                                        <option value="0">No</option>
-                                    </select>
-
-                                    @if($errors->has('destacado'))
-                                        @foreach($errors->get('destacado') as $message)
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ $message }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
 
                             <div class="form-group row{{ $errors->has('descripcion') ? ' has-error' : '' }}">
-                                <label for="descripcion" class="col-lg-4 col-form-label text-lg-right">Descripción</label>
+                                <label for="descripcion"
+                                       class="col-lg-2 col-form-label text-lg-right">Descripción</label>
 
-                                <div class="col-md-6">
-                                    <textarea id="descripcion" class="form-control" name="descripcion" rows="5" autofocus></textarea>
+                                <div class="col-lg-9">
+                                    <textarea id="descripcion" class="form-control" name="descripcion" rows="5"
+                                              autofocus></textarea>
 
                                     @if($errors->has('descripcion'))
                                         @foreach($errors->get('descripcion') as $message)
@@ -169,13 +191,12 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-lg-7 col-form-label text-lg-right">
-                                    <button type="submit" id="botonCreacionProducto" class="btn btn-primary">
-                                        Añadir producto
-                                    </button>
-                                </div>
+                            <div class="text-center">
+                                <button type="submit" id="botonCreacionProducto" class="btn btn-primary">
+                                    Añadir producto
+                                </button>
                             </div>
+
                         </form>
                     </div>
                 </div>

@@ -27,10 +27,19 @@ class ContraofertaController extends Controller
 
     public function oferta($nombre_usuario)
     {
+
         $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
 
+        $ofertas = $userLogeado->contraofertas->pluck('vendedor_user_id')->toArray();
+
+        $productosUsuario = Producto::where('user_id', $ofertas)->latest()->paginate(9);
+
+        $contraofertas = $userLogeado->contraofertas()->paginate(9);
+
         return view('contraofertas.oferta', [
-            'user' => $userLogeado
+            'user' => $userLogeado,
+            'productosUsuario' => $productosUsuario,
+            'contraofertas' => $contraofertas
         ]);
     }
 

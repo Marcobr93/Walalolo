@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CreateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -12,9 +14,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user)
     {
-        $user = Auth::user();
+        $user = DB::table('users')->where('nombre_usuario',$user)->first();
+
         return view('users.profile', [
             'user' => $user
         ]);
@@ -53,26 +56,43 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $nombre_usuario
+     * @return $this
      */
-    public function edit($id)
+    public function edit($nombre_usuario)
     {
-        //
+        $user= DB::table('users')->where('nombre_usuario', $nombre_usuario)->first();
+        return view('users.edit')->with('user', $user);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param CreateUserRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(CreateUserRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        dd($user);
+        //$user = User::where('slug', $user)->first();
+
+
+        $user->nombre_usuario = $_POST['nombre_usuario']?$_POST['nombre_usuario']:null;
+        $user->name = $_POST['name']?$_POST['name']:null;
+        $user->apellido = $_POST['apellido']?$_POST['apellido']:null;
+        $user->avatar = $_POST['avatar']?$_POST['avatar']:null;
+        $user->email = $request->input('email');
+        $user->dni = $_POST['dni']?$_POST['dni']:null;
+        $user->num_telefono = $request->input('num_telefono');
+        $user->direccion = $_POST['direccion']?$_POST['direccion']:null;
+        $user->poblacion = $_POST['poblacion']?$_POST['poblacion']:null;
+        $user->website = $_POST['website']?$_POST['website']:null;
+        $user->descripcion = $_POST['descripcion']?$_POST['descripcion']:null;
+
+        $user->save();
+
+        return redirect('/');
     }
 
     /**

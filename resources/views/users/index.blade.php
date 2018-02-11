@@ -31,6 +31,4 @@
 
     @include('reviews.reviews')
 
-    <div class="dev-flex mx-auto">{{ $productos->links('pagination::bootstrap-4') }}</div>
-
 @endsection

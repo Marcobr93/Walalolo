@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @foreach($user->contraofertas()->paginate(9)->chunk(3) as $chunk)
+    @foreach($contraofertas->chunk(3) as $chunk)
         <div class="card-group row course-set courses__row producto">
             @foreach($chunk as $contraoferta)
                 <div class="card col-md-4 mr-4">
@@ -10,8 +10,10 @@
                         {{ \App\User::where('id', $contraoferta['comprador_user_id'])->first()->nombre_usuario}}
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Producto: {{ $contraoferta['producto_id'] }}</p>
-
+                        <p class="card-text">Producto: {{ \App\Producto::where('id', $contraoferta['producto_id'])->first()->titulo}}</p>
+                        <div class="card-img">
+                            <img class="img-responsive img-fluid img-portfolio img-hover mb-3" src="{{ \App\Producto::where('id', $contraoferta['producto_id'])->first()->foto}}" alt="Foto del producto." />
+                    </div>
                         <p class="card-text">Oferta: {{ $contraoferta['oferta'] }} €</p>
                     </div>
                     <div class="card-footer bg-transparent border-primary">

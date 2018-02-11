@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'PagesController@home');
-Route::get('/saludo', 'PagesController@saludo');
 
 // Rutas de productos
 Route::get('/productos/create', 'ProductoController@create')->middleware('auth');
@@ -23,7 +22,9 @@ Auth::routes();
 
 // Rutas de usuarios
 Route::get('/user/{user}', 'UsersController@index');
-Route::get('/profile/', 'ProfileController@index')->middleware('auth');
+Route::get('/perfil/{user}', 'ProfileController@index')->middleware('auth');
+Route::get('/perfil/{user}/editar','ProfileController@edit')->name('user.edit')->middleware('auth');
+Route::put('/perfil/{user}/editado','ProfileController@update')->name('user.update')->middleware('auth');
 
 // Rutas de contraofertas/ofertas
 Route::post('/productos/contraoferta/', 'ContraofertaController@store')->name('contraoferta.create')->middleware('auth');

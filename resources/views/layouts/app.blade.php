@@ -53,7 +53,7 @@
                     @auth()
                         <li class="nav-item active"><a href="{{ url('/') }}/productos/create" class="nav-link">Añadir
                                 Producto</a></li>
-                        <li class="nav-item active"><a href="{{ url('/') }}/profile" class="nav-link">Perfil</a></li>
+                        <li class="nav-item active"><a href="{{ url('/') }}/perfil/{{Auth::user()->nombre_usuario}}" class="nav-link">Perfil</a></li>
                         <li class="nav-item active"><a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}"
                                                        class="nav-link">Ofertas</a></li>
                         <li class="nav-item active"><a href="{{ url('/') }}/user/{{Auth::user()->slug}}"

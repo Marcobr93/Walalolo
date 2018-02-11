@@ -43,7 +43,7 @@ class ProductoController extends Controller
     }
 
     /**
-     * Guarda en la base de datos la información facilitada para un nuevo mensaje.
+     * Guarda en la base de datos la información facilitada para un nuevo producto.
      * Utiliza la definición personalizada de un Request para validar los datos.
      *
      * @param CreateProductoRequest $request
