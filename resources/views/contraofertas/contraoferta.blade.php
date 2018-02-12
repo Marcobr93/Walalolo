@@ -1,4 +1,7 @@
-<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#contraoferta">Contraoferta</a>
+<button class="btn btn-dark">
+    <a href="#" class="nav-link" data-toggle="modal" data-target="#contraoferta">Contraoferta</a>
+</button>
+
 <form class="form-horizontal" action="{{ route('contraoferta.create', array('comprador_user_id' => Auth::user()->id,
 'vendedor_user_id' => $producto['user_id'], 'producto_id' => $producto['id']))}}" method="post">
     {{ csrf_field() }}

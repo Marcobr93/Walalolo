@@ -5,27 +5,36 @@
         @auth
             @include('valoraciones.valorar')
             @include('reviews.review')
-        @if($user->id !== Auth::user()->id)
-            <a class="nav-item nav-link active btn-primary mx-4" data-toggle="modal"
-               data-target="#valorar">Valorar</a>
+            @if($user->id !== Auth::user()->id)
+                <a class="nav-item nav-link active btn-primary mx-4" data-toggle="modal"
+                   data-target="#valorar">Valorar</a>
 
-            <a class="nav-item nav-link active btn-primary mx-4" data-toggle="modal"
-               data-target="#comentar">Comentar</a>
+                <a class="nav-item nav-link active btn-primary mx-4" data-toggle="modal"
+                   data-target="#comentar">Comentar</a>
             @endif
         @endauth
     </ul>
 
+    @include('valoraciones.valoracion')
+
+
     <div class="text-center producto">
         <h1>Productos de {{ $user['nombre_usuario'] }}</h1>
     </div>
-     {{--@include('valoraciones.valoracion')--}}
 
     @include('productos.producto')
 
     <script src="{{ asset('js/walalolo.js') }}"></script>
 
+    @if($user->id !== Auth::user()->id)
+        <a class="nav-item nav-link active btn-primary mx-4 text-center mt-4" data-toggle="modal"
+           data-target="#comentar">Comentar</a>
+    @endif
+
+
     <ul class="nav nav-pills nav-justified producto">
-        <a class="nav-item nav-link active btn-primary" onClick="muestra_oculta('reviews')">Mostrar {{$user->reviews->count()}}
+        <a class="nav-item nav-link active btn-primary"
+           onClick="muestra_oculta('reviews')">Mostrar {{$user->reviews->count()}}
             Comentarios</a>
     </ul>
 

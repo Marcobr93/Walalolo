@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -16,13 +15,19 @@ class UsersController extends Controller
      */
     public function index($user)
     {
-        $user = User::where('slug', $user)->first();
+        $user1 = User::where('slug', $user)->first();
 
-        $productos = $user->productos()->latest()->paginate(6);
+        $productos = $user1->productos()->latest()->paginate(6);
+
+        $usuario = $this->buscarPorNombre($user);
+
+        $media = $usuario->valoracionMedia();
 
         return view('users.index', [
             'productos' => $productos,
-            'user' => $user
+            'user' => $user1,
+            'media' => $media
+
         ]);
     }
 
@@ -40,7 +45,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -51,7 +56,7 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,17 +80,22 @@ class UsersController extends Controller
      */
     public function update(CreateUserRequest $request, $id)
     {
-      //
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function buscarPorNombre($slug)
+    {
+        return User::where('slug', $slug)->first();
     }
 }

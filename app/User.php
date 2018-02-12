@@ -76,6 +76,30 @@ class User extends Authenticatable
         return $this->hasMany(Valoracion::class, 'valorado_user_id');
     }
 
+    /** Calcula la valoración media de un usuario
+     * @return int|string
+     */
+    public function valoracionMedia(){
+
+        $valoraciones = $this->valoraciones->pluck('valoracion')->toArray();
+
+        $sumaValoraciones = array_sum($valoraciones);
+
+        if ($this->valoraciones->count() > 0) {
+            $count = $this->valoraciones->count();
+        } else {
+            $count = 0;
+        }
+
+        if($count === 0){
+            $media = 0;
+        }else{
+            $media = number_format($sumaValoraciones / $count,'2');
+        }
+
+        return $media;
+    }
+
 
     /** Un usuario tiene muchas reviews de otros usuarios
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

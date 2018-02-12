@@ -31,8 +31,7 @@ Route::post('/productos/contraoferta/', 'ContraofertaController@store')->name('c
 Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta')->middleware('auth');
 
 // Rutas de valoraciones
-Route::post('valoraciones/valorar', 'ValoracionController@store')->name('valoracion.create')->middleware('auth');
-Route::get('valoraciones/{nombre_usuario}', 'ValoracionController@valoracion');
+Route::post('valoracion/valorar', 'ValoracionController@store')->name('valoracion.create')->middleware('auth');
 
 // Rutas de reviews
 Route::post('reviews/review', 'ReviewController@store')->name('review.create')->middleware('auth');

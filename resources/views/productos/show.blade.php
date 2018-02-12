@@ -36,28 +36,32 @@
                     <div class="card-body">
                         <div class="col-lg-12">
 
-                            <div class="col-lg-10 form-group row">
-                                <label class="col-lg-6 col-form-label text-lg-right ng">Usuario:</label>
+                            <div class="row border border-primary">
 
-                                <div class="col-lg-6">
-                                    <a class="btn pull-right" href="/user/{{ $producto->user->slug }}">
-                                        {{ $producto->user->nombre_usuario }}
-                                    </a>
-                                </div>
-                            </div>
+                                <div class="col-lg-6 form-group row">
+                                    <label class="col-lg-6 col-form-label text-lg-right ng">Usuario:</label>
 
-                            <div class="row">
-
-                                <div class="col-lg-4 form-group row">
-                                    <label class="col-lg-4 col-form-label text-lg-right ng">Precio:</label>
-
-                                    <div class="col-lg-8">
-                                        <h3 class="card-text">{{ $producto['precio'] }} €</h3>
+                                    <div class="col-lg-6">
+                                        <a class="btn pull-right card-text" href="/user/{{ $producto->user->slug }}">
+                                            {{ $producto->user->nombre_usuario }}
+                                        </a>
                                     </div>
                                 </div>
 
 
-                                <div class="col-lg-4 form-group row">
+                                <div class="col-lg-6 form-group row">
+                                    <label class="col-lg-6 col-form-label text-lg-right ng">Precio:</label>
+
+                                    <div class="col-lg-6">
+                                        <h3 class="card-text">{{ $producto['precio'] }} €</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row border border-primary">
+
+
+                                <div class="col-lg-6 form-group row">
                                     <label class="col-lg-6 col-form-label text-lg-right ng">Tipo de envío:</label>
 
                                     <div class="col-lg-6">
@@ -65,11 +69,11 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 form-group row">
-                                    <label class="col-lg-8 col-form-label text-lg-right ng">Intercambio del
+                                <div class="col-lg-6 form-group row">
+                                    <label class="col-lg-6 col-form-label text-lg-right ng">Intercambio del
                                         producto:</label>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <h3 class="card-text">
                                             @if($producto['intercambio_producto'] === 1)
 
@@ -87,20 +91,20 @@
 
                             </div>
 
-                            <div class="row">
+                            <div class="row border border-primary">
 
                                 <div class="col-lg-6 form-group row">
-                                    <label class="col-lg-4 col-form-label text-lg-right ng">Categoría:</label>
+                                    <label class="col-lg-6 col-form-label text-lg-right ng">Categoría:</label>
 
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-6">
                                         <h3 class="card-text">{{ $producto['categoria'] }}</h3>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 form-group row">
-                                    <label class="col-lg-4 col-form-label text-lg-right ng">Destacado:</label>
+                                    <label class="col-lg-6 col-form-label text-lg-right ng">Destacado:</label>
 
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-6">
                                         <h3 class="card-text">
                                             @if($producto['destacado'] === 1)
                                                 <h3>
@@ -116,23 +120,26 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-lg-6 form-group row">
-                                    <label class="col-lg-4 col-form-label text-lg-right ng">Población:</label>
+                            <div class="row border border-primary">
 
-                                    <div class="col-lg-8">
-                                        <h3 class="card-text">{{ $user['poblacion'] }}</h3>
+                                <div class="row">
+                                    <div class="col-lg-6 form-group row">
+                                        <label class="col-lg-6 col-form-label text-lg-right ng">Población:</label>
+
+                                        <div class="col-lg-6">
+                                            <h3 class="card-text">{{ $user['poblacion'] }}</h3>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-6 form-group row">
-                                    <label class="col-lg-3 col-form-label text-lg-right ng">Dirección:</label>
+                                    <div class="col-lg-6 form-group row">
+                                        <label class="col-lg-6 col-form-label text-lg-right ng">Dirección:</label>
 
-                                    <div class="col-lg-9">
-                                        <h3 class="card-text">{{ $user['direccion'] }}</h3>
+                                        <div class="col-lg-6">
+                                            <h3 class="card-text">{{ $user['direccion'] }}</h3>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
                     </div>

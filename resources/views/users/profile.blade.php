@@ -25,17 +25,20 @@
                     <div class="card-body">
                         <div class="col-lg-12">
 
-                            <div class="col-lg-12 form-group row">
-                                <label class="col-lg-6 col-form-label text-lg-right ng">Usuario:</label>
+                            <div class="row border border-primary">
 
-                                <div class="col-lg-6">
-                                    <h4 class="card-text">{{ Auth::user()->nombre_usuario }}</h4>
+                                <div class="col-lg-12 form-group row">
+                                    <label class="col-lg-6 col-form-label text-lg-right ng">Usuario:</label>
+
+                                    <div class="col-lg-6">
+                                        <h4 class="card-text">{{ Auth::user()->nombre_usuario }}</h4>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row border border-primary">
 
-                                <div class="col-lg-4 form-group row">
+                                <div class="col-lg-6 form-group row">
                                     <label class="col-lg-4 col-form-label text-lg-right ng">Nombre:</label>
 
                                     <div class="col-lg-8">
@@ -43,29 +46,43 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 form-group row">
+                                <div class="col-lg-6 form-group row">
                                     <label class="col-lg-4 col-form-label text-lg-right ng">Apellidos:</label>
 
                                     <div class="col-lg-8">
                                         <h3 class="card-text">{{ Auth::user()->apellido }}</h3>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 form-group row">
+                            </div>
+
+
+                            <div class="row border border-primary">
+
+                                <div class="col-lg-6 form-group row">
                                     <label class="col-lg-3 col-form-label text-lg-right ng">Email:</label>
 
                                     <div class="col-lg-9">
                                         <h3 class="card-text">{{ Auth::user()->email }}</h3>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
 
                                 <div class="col-lg-6 form-group row">
                                     <label class="col-lg-4 col-form-label text-lg-right ng">Website:</label>
 
                                     <div class="col-lg-8">
                                         <h3 class="card-text">{{ Auth::user()->website}}</h3>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row border border-primary">
+
+                                <div class="col-lg-6 form-group row">
+                                    <label class="col-lg-4 col-form-label text-lg-right ng">Población:</label>
+
+                                    <div class="col-lg-8">
+                                        <h3 class="card-text">{{Auth::user()->poblacion }}</h3>
                                     </div>
                                 </div>
 
@@ -79,16 +96,10 @@
 
                             </div>
 
-                            <div class="row">
-                                <div class="col-lg-4 form-group row">
-                                    <label class="col-lg-4 col-form-label text-lg-right ng">Población:</label>
+                            <div class="row border border-primary">
 
-                                    <div class="col-lg-7">
-                                        <h3 class="card-text">{{Auth::user()->poblacion }}</h3>
-                                    </div>
-                                </div>
 
-                                <div class="col-lg-4 form-group row">
+                                <div class="col-lg-6 form-group row">
                                     <label class="col-lg-4 col-form-label text-lg-right ng">Número teléfono:</label>
 
                                     <div class="col-lg-8">
@@ -96,7 +107,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 form-group row">
+                                <div class="col-lg-6 form-group row">
                                     <label class="col-lg-4 col-form-label text-lg-right ng">DNI:</label>
 
                                     <div class="col-lg-8">
@@ -115,6 +126,7 @@
                             Descripción: {{ Auth::user()->descripcion}}
                         </h3>
                     </div>
+
                 </div>
             </div>
         </div>

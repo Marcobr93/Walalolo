@@ -22,7 +22,8 @@ class ContraofertaController extends Controller
             'oferta' => $request->input('oferta'),
         ]);
 
-        return redirect('/');
+        return back();
+        return redirect()->back();
     }
 
     public function oferta($nombre_usuario)

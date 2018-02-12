@@ -62,6 +62,7 @@ class ProfileController extends Controller
     public function edit($nombre_usuario)
     {
         $user= DB::table('users')->where('nombre_usuario', $nombre_usuario)->first();
+
         return view('users.edit')->with('user', $user);
     }
 
@@ -74,17 +75,15 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
 
-        dd($user);
         //$user = User::where('slug', $user)->first();
-
 
         $user->nombre_usuario = $_POST['nombre_usuario']?$_POST['nombre_usuario']:null;
         $user->name = $_POST['name']?$_POST['name']:null;
         $user->apellido = $_POST['apellido']?$_POST['apellido']:null;
+        $user->email = $_POST['email']?$_POST['email']:null;
         $user->avatar = $_POST['avatar']?$_POST['avatar']:null;
-        $user->email = $request->input('email');
         $user->dni = $_POST['dni']?$_POST['dni']:null;
-        $user->num_telefono = $request->input('num_telefono');
+        $user->num_telefono = $_POST['num_telefono']?$_POST['num_telefono']:null;
         $user->direccion = $_POST['direccion']?$_POST['direccion']:null;
         $user->poblacion = $_POST['poblacion']?$_POST['poblacion']:null;
         $user->website = $_POST['website']?$_POST['website']:null;
