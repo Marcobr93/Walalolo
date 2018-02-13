@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="text-center card-header">Editar datos</div>
                     <div class="card-body">
-                        <form action="{{route('user.update',array('id'=>Auth::user()->id))}}" method="post">
+                        <form role="form" id="formularioEditar" action="{{route('user.update',array('id'=>Auth::user()->id))}}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
 
@@ -176,7 +176,7 @@
 
                                 <div class="col-lg-9">
 
-                                    <textarea class="form-control" name="desecripcion" id="descripcion" rows="5">
+                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="5">
                                         {{Auth::user()->descripcion}}
                                     </textarea>
                                     @if ($errors->has('descripcion'))
@@ -188,7 +188,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button class="btn btn-primary" type="submit">Enviar</button>
+                                <button class="btn btn-primary" id="botonEditar" type="submit">Enviar</button>
                             </div>
 
                         </form>
@@ -197,5 +197,7 @@
             </div>
         </div>
     </div>
-
+    {{--@push('scripts')--}}
+        {{--<script src="{{ asset('js/validacionEditar.js') }}"></script>--}}
+    {{--@endpush--}}
 @endsection

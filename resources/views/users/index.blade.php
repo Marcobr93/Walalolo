@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @push('scripts')
+        <script src="{{ asset('js/walalolo.js') }}"></script>
+    @endpush
+
     <ul class="nav nav-pills nav-justified">
         @auth
             @include('valoraciones.valorar')
@@ -23,8 +28,6 @@
     </div>
 
     @include('productos.producto')
-
-    <script src="{{ asset('js/walalolo.js') }}"></script>
 
     @if($user->id !== Auth::user()->id)
         <a class="nav-item nav-link active btn-primary mx-4 text-center mt-4" data-toggle="modal"

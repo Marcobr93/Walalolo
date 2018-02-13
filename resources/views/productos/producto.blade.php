@@ -36,6 +36,6 @@
     {{ $productos->links('pagination::bootstrap-4') }}
 </div>
 
-@push('scripts')
-    <script src="{{ asset('js/datos.js') }}" defer></script>
-@endpush
+{{--@push('scripts')--}}
+    {{--<script src="{{ asset('js/datos.js') }}" defer></script>--}}
+{{--@endpush--}}

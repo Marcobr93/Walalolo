@@ -7,6 +7,7 @@ use App\Producto;
 use App\Http\Requests\CreateProductoRequest;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -25,11 +26,50 @@ class ProductoController extends Controller
         ]);
     }
 
+
     /*Validacion por Ajax con FormRquest*/
     protected function validacionAjax(CreateProductoAjaxFormRequest $request){
         //Obtenermos todos los valores y devolvemos un array vacio
         return array();
     }
+
+
+    /**
+     * @param $id
+     * @return $this
+     */
+    public function edit($id)
+    {
+        $producto = DB::table('productos')->where('id', $id)->first();
+
+        return view('productos.edit')->with('producto', $producto);
+    }
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update($id)
+    {
+
+        $producto = Producto::find($id);
+
+        $producto->titulo = $_POST['titulo'];
+        $producto->foto = $_POST['foto'];
+        $producto->precio = $_POST['precio'];
+        $producto->categoria = $_POST['categoria'];
+        $producto->tipo_envio = $_POST['tipo_envio'];
+        $producto->negociacion_precio = $_POST['negociacion_precio'];
+        $producto->intercambio_producto = $_POST['intercambio_producto'];
+        $producto->destacado = $_POST['destacado'];
+        $producto->descripcion = $_POST['descripcion'];
+
+        $producto->save();
+
+        return redirect('/');
+    }
+
 
 
     /**

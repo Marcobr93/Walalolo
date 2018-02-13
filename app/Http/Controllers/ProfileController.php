@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CreateProfileEditAjaxFormRequest;
 use App\Http\Requests\CreateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -55,32 +56,44 @@ class ProfileController extends Controller
         //
     }
 
+    /*Validacion por Ajax con FormRquest*/
+    protected function validacionAjax(CreateProfileEditAjaxFormRequest $request){
+        //Obtenermos todos los valores y devolvemos un array vacio
+        return array();
+    }
+
     /**
      * @param $nombre_usuario
      * @return $this
      */
     public function edit($nombre_usuario)
     {
-        $user= DB::table('users')->where('nombre_usuario', $nombre_usuario)->first();
+        $user = DB::table('users')->where('nombre_usuario', $nombre_usuario)->first();
 
         return view('users.edit')->with('user', $user);
     }
 
     /**
-     * @param CreateUserRequest $request
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(CreateUserRequest $request, $id)
+    public function update($id)
     {
         $user = User::find($id);
 
-        //$user = User::where('slug', $user)->first();
+//        $nombreUsuario = Auth::user()->nombre_usuario;
+//        $emailUsuario = Auth::user()->email;
 
+//        if($user->nombre_usuario === $nombreUsuario && $user->email === $emailUsuario){
+//
+//        }else{
+//            $user->nombre_usuario = $_POST['nombre_usuario']?$_POST['nombre_usuario']:null;
+//            $user->email = $_POST['email']?$_POST['email']:null;
+//        }
         $user->nombre_usuario = $_POST['nombre_usuario']?$_POST['nombre_usuario']:null;
+        $user->email = $_POST['email']?$_POST['email']:null;
         $user->name = $_POST['name']?$_POST['name']:null;
         $user->apellido = $_POST['apellido']?$_POST['apellido']:null;
-        $user->email = $_POST['email']?$_POST['email']:null;
         $user->avatar = $_POST['avatar']?$_POST['avatar']:null;
         $user->dni = $_POST['dni']?$_POST['dni']:null;
         $user->num_telefono = $_POST['num_telefono']?$_POST['num_telefono']:null;

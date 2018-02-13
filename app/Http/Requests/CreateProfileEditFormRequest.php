@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateUserFormRequest extends FormRequest
+class CreateProfileEditFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -45,14 +45,13 @@ class CreateUserFormRequest extends FormRequest
     }
 
     protected function validarNombreUsuario(){
-        return 'required|string|regex:/^[\pL\s\-]+$/u|max:20|unique:users';
+        return 'required|string|max:20|unique:users';
     }
 
     protected function mensajesNombreUsuario(){
         $mensajes = array();
         $mensajes["nombre_usuario.required"] = 'Introduzca el nombre';
         $mensajes["nombre_usuario.string"] = 'Introduzca el nombre';
-        $mensajes["nombre_usuario.regex"] = 'El nombre sólo acepta letras y espacios';
         $mensajes["nombre_usuario.max"] = 'Has superado el límite de 12 caracteres.';
         $mensajes["nombre_usuario.unique"] = 'El nombre de usuario no está disponible';
         return $mensajes;

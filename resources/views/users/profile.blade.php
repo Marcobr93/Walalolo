@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="col-lg-12">
 
-                            <div class="row border border-primary">
+                            <div class="row border border-primary rounded">
 
                                 <div class="col-lg-12 form-group row">
                                     <label class="col-lg-6 col-form-label text-lg-right ng">Usuario:</label>
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
 
-                            <div class="row border border-primary">
+                            <div class="row border border-primary rounded">
 
                                 <div class="col-lg-6 form-group row">
                                     <label class="col-lg-4 col-form-label text-lg-right ng">Nombre:</label>
@@ -56,7 +56,7 @@
                             </div>
 
 
-                            <div class="row border border-primary">
+                            <div class="row border border-primary rounded">
 
                                 <div class="col-lg-6 form-group row">
                                     <label class="col-lg-3 col-form-label text-lg-right ng">Email:</label>
@@ -76,7 +76,7 @@
 
                             </div>
 
-                            <div class="row border border-primary">
+                            <div class="row border border-primary rounded">
 
                                 <div class="col-lg-6 form-group row">
                                     <label class="col-lg-4 col-form-label text-lg-right ng">Población:</label>
@@ -96,7 +96,7 @@
 
                             </div>
 
-                            <div class="row border border-primary">
+                            <div class="row border border-primary rounded">
 
 
                                 <div class="col-lg-6 form-group row">
@@ -121,7 +121,7 @@
                         </div>
                     </div>
 
-                    <div class="card-footer bg-transparent border-primary">
+                    <div class="card-footer bg-transparent border-primary rounded">
                         <h3 class="card-text">
                             Descripción: {{ Auth::user()->descripcion}}
                         </h3>

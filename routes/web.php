@@ -17,6 +17,8 @@ Route::get('/', 'PagesController@home');
 Route::get('/productos/create', 'ProductoController@create')->middleware('auth');
 Route::get('/productos/show/{producto}', 'ProductoController@show');
 Route::post('/productos/create', 'ProductoController@store')->middleware('auth');
+Route::get('/producto/{producto}/editar','ProductoController@edit')->name('producto.edit')->middleware('auth');
+Route::put('/producto/{producto}/editado','ProductoController@update')->name('producto.update')->middleware('auth');
 
 Auth::routes();
 
@@ -39,6 +41,7 @@ Route::post('reviews/review', 'ReviewController@store')->name('review.create')->
 // Rutas de validación
 Route::post('/registro/validar', 'Auth\RegisterController@validacionAjax');
 Route::post('/producto/validar', 'ProductoController@validacionAjax');
+Route::post('/editar/validar', 'ProfileController@validacionAjax');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -76,6 +76,7 @@ class User extends Authenticatable
         return $this->hasMany(Valoracion::class, 'valorado_user_id');
     }
 
+
     /** Calcula la valoración media de un usuario
      * @return int|string
      */

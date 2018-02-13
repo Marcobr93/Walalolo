@@ -24,10 +24,10 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_usuario' => 'required|string|max:255',
+            'nombre_usuario' => 'required|string|max:255|unique:users',
             'name' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
-            'email' => 'required|max:255|email',
+            'email' => 'required|max:255|email|unique:users',
             'avatar' => 'string|max:255',
             'num_telefono' => 'string|max:255',
             'password' => 'required|string|min:6|confirmed',
@@ -52,6 +52,7 @@ class CreateUserRequest extends FormRequest
             'nombre_usuario.required' => 'Es necesario completar el campo "nombre de usuario".',
             'nombre_usuario.max' => 'Has sobrepasado los 255 caracteres disponibles para el "nombre de usuario".',
             'nombre_usuario.string' => 'El nombre de usuario debe ser una cadena de caracteres.',
+            'nombre_usuario.unique' => 'El nombre de usuario no está disponible.',
             'name.required' => 'Es necesario completar el campo "nombre".',
             'name.max' => 'Has sobrepasado los 255 caracteres disponibles para el "nombre".',
             'name.string' => 'El nombre debe ser una cadena de caracteres.',
@@ -61,6 +62,7 @@ class CreateUserRequest extends FormRequest
             'email.required' => 'Es necesario completar el campo "email".',
             'email.max' => 'Has sobrepasado los 255 caracteres disponibles para el "email".',
             'email.email' => 'El email debe ser un email válido.',
+            'email.unique' => 'El email no está disponible.',
             'avatar.string' => 'El avatar debe ser una cadena de caracteres',
             'avatar.max' => 'El avatar debe tener 6 caracteres como mínimo',
             'num_telefono.string' => 'El número de teléfono debe ser una cadena de caracteres',

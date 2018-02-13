@@ -22,7 +22,7 @@
                         </h4>
                         <div class="text-center">
                         <button type="submit" class="btn btn-primary">ACEPTAR</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">RECHAZAR</button>
+                        <button type="button" class="btn btn-danger">RECHAZAR</button>
                         </div>
                     </div>
                 </div>
