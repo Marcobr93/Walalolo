@@ -81,15 +81,6 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
 
-//        $nombreUsuario = Auth::user()->nombre_usuario;
-//        $emailUsuario = Auth::user()->email;
-
-//        if($user->nombre_usuario === $nombreUsuario && $user->email === $emailUsuario){
-//
-//        }else{
-//            $user->nombre_usuario = $_POST['nombre_usuario']?$_POST['nombre_usuario']:null;
-//            $user->email = $_POST['email']?$_POST['email']:null;
-//        }
         $user->nombre_usuario = $_POST['nombre_usuario']?$_POST['nombre_usuario']:null;
         $user->email = $_POST['email']?$_POST['email']:null;
         $user->name = $_POST['name']?$_POST['name']:null;

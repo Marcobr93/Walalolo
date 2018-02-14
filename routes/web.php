@@ -31,6 +31,8 @@ Route::put('/perfil/{user}/editado','ProfileController@update')->name('user.upda
 // Rutas de contraofertas/ofertas
 Route::post('/productos/contraoferta/', 'ContraofertaController@store')->name('contraoferta.create')->middleware('auth');
 Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta')->middleware('auth');
+Route::get('/ofertas-aceptadas/{nombre_usuario}', 'ContraofertaController@ofertaAceptada')->name('contraoferta.aceptada')->middleware('auth');
+Route::put('/ofertas/{nombre_usuario}/editado','ContraofertaController@update')->name('contraoferta.update')->middleware('auth');
 
 // Rutas de valoraciones
 Route::post('valoracion/valorar', 'ValoracionController@store')->name('valoracion.create')->middleware('auth');

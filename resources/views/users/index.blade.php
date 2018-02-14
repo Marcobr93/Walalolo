@@ -27,13 +27,16 @@
         <h1>Productos de {{ $user['nombre_usuario'] }}</h1>
     </div>
 
-    @include('productos.producto')
+    <div id="paginacion">
+        @include('productos.producto')
+    </div>
 
-    @if($user->id !== Auth::user()->id)
-        <a class="nav-item nav-link active btn-primary mx-4 text-center mt-4" data-toggle="modal"
-           data-target="#comentar">Comentar</a>
-    @endif
-
+    @auth
+        @if($user->id !== Auth::user()->id)
+            <a class="nav-item nav-link active btn-primary mx-4 text-center mt-4" data-toggle="modal"
+               data-target="#comentar">Comentar</a>
+        @endif
+    @endauth
 
     <ul class="nav nav-pills nav-justified producto">
         <a class="nav-item nav-link active btn-primary"

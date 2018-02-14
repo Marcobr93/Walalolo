@@ -1,42 +1,36 @@
-<button class="btn btn-dark">
-    <a href="#" class="nav-link" data-toggle="modal" data-target="#contraoferta">Contraoferta</a>
-</button>
-
-<form class="form-horizontal" action="{{ route('contraoferta.create', array('comprador_user_id' => Auth::user()->id,
-'vendedor_user_id' => $producto['user_id'], 'producto_id' => $producto['id']))}}" method="post">
-    {{ csrf_field() }}
-    <div class="modal fade" id="contraoferta" tabindex="-1" data-backdrop="static" data-show="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ejemploLabel">Contraoferta</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group row{{ $errors->has('oferta') ? ' has-error' : '' }}">
-                            <label for="oferta" class="col-sm-2 col-form-label">Oferta</label>
-                            <div class="col-sm-10">
-                                <input type="number" name="oferta" id="oferta" step="any" min="0" class="form-control"
-                                       placeholder="Cantidad" autofocus>
-                                @if($errors->has('oferta'))
-                                    @foreach($errors->get('oferta') as $message)
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $message }}
-                                        </div>
-                                    @endforeach
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">ENVIAR</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
-                </div>
-            </div>
-        </div>
+<div class="card col-md-4 mr-4">
+    <div class="card-header bg-transparent border-primary">
+        {{ \App\User::where('id', $contraoferta['comprador_user_id'])->first()->nombre_usuario}}
     </div>
-</form>
+    <div class="card-body">
+        <p class="card-text">
+            Producto: {{ \App\Producto::where('id', $contraoferta['producto_id'])->first()->titulo}}</p>
+        <div class="card-img">
+            <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad"
+                 data-src="{{ \App\Producto::where('id', $contraoferta['producto_id'])->first()->foto}}"
+                 alt="Foto del producto."/>
+        </div>
+        <p class="card-text">Oferta: {{ $contraoferta['oferta'] }} €</p>
+    </div>
+    <div class="card-footer bg-transparent border-primary">
+        <h4 class="price ng">
+            Realizado el: {{ $contraoferta['created_at'] }}
+        </h4>
+        @if($contraoferta['estado_oferta'] === null)
+            <div class="text-center">
+                <form role="form" id="formularioEditar"
+                      action="{{route('contraoferta.update',array($contraoferta->id))}}" method="post">
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+                    <button type="submit" class="btn btn-primary" name="estado_oferta" value="1">
+                        ACEPTAR
+                    </button>
+                    <button type="submit" class="btn btn-danger" name="estado_oferta" value="0">
+                        RECHAZAR
+                    </button>
+                </form>
+            </div>
+        @endif
+    </div>
+</div>
+

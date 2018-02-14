@@ -11,7 +11,7 @@
                                 @auth()
                                     @if(!\App\User::soyYo($user))
                                         @if($producto['negociacion_precio'] === 1)
-                                            @include('contraofertas.contraoferta')
+                                            @include('contraofertas.create')
                                         @endif
                                     @else
                                         <button class="btn btn-dark">
@@ -24,8 +24,8 @@
 
                             </div>
                             <div class="text-center btnespacio">
-                                <img class="img-responsive img-fluid img-portfolio img-hover mb-3"
-                                     src="{{ $producto['foto'] }}"
+                                <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad"
+                                     data-src="{{ $producto['foto'] }}"
                                      alt="Foto del producto."/>
                             </div>
                             <div class="col-lg-12 form-group row">
@@ -165,3 +165,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/lozad.js') }}" defer ></script>
+@endpush

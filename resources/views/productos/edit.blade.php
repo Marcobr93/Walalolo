@@ -49,7 +49,7 @@
 
                                     <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria"
                                             title="Categoría">
-                                        <option selected>Selecciona</option>
+                                        <option selected value="Sin determinar.">Selecciona</option>
                                         <option value="Deporte y Ocio">Deporte y Ocio</option>
                                         <option value="Muebles, Deco y Jardín">Muebles, Deco y Jardín</option>
                                         <option value="Consolas y Videojuegos">Consolas y Videojuegos</option>
@@ -90,7 +90,7 @@
 
                                         <select name="tipo_envio" class="custom-select custom-select-lg mb-3"
                                                 id="tipo_envio" title="Tipo de envío">
-                                            <option selected>Selecciona</option>
+                                            <option selected value="Sin determinar.">Selecciona</option>
                                             <option value="Sin envío">Sin envío</option>
                                             <option value="5 kg max">5 kg max.</option>
                                             <option value="10 kg max">10 kg max.</option>
@@ -117,7 +117,7 @@
 
                                         <select name="negociacion_precio" class="custom-select custom-select-lg mb-3"
                                                 id="negociacion_precio" title="Tipo de envío">
-                                            <option selected>Selecciona</option>
+                                            <option selected value="0">Selecciona</option>
                                             <option value="1">Sí</option>
                                             <option value="0">No</option>
                                         </select>
@@ -137,7 +137,7 @@
 
                                         <select name="intercambio_producto" class="custom-select custom-select-lg mb-3"
                                                 id="intercambio_producto" title="Intercambio producto">
-                                            <option selected>Selecciona</option>
+                                            <option selected value="0">Selecciona</option>
                                             <option value="1">Sí</option>
                                             <option value="0">No</option>
                                         </select>
@@ -162,7 +162,7 @@
 
                                         <select name="destacado" class="custom-select custom-select-lg mb-3"
                                                 id="destacado" title="Destacado">
-                                            <option selected>Selecciona</option>
+                                            <option selected value="0">Selecciona</option>
                                             <option value="1">Sí</option>
                                             <option value="0">No</option>
                                         </select>

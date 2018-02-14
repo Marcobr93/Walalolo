@@ -26,22 +26,63 @@ class ContraofertaController extends Controller
         return redirect()->back();
     }
 
+
+    /** Mostramos todas las ofertas que el usuario recibe.
+     * @param $nombre_usuario
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function oferta($nombre_usuario)
     {
-
         $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
 
-        $ofertas = $userLogeado->contraofertas->pluck('vendedor_user_id')->toArray();
-
-        $productosUsuario = Producto::where('user_id', $ofertas)->latest()->paginate(9);
+//        $ofertas = $userLogeado->contraofertas->pluck('vendedor_user_id')->toArray();
+//
+//        $productosUsuario = Producto::where('user_id', $ofertas)->latest()->paginate(9);
 
         $contraofertas = $userLogeado->contraofertas()->paginate(9);
 
         return view('contraofertas.oferta', [
             'user' => $userLogeado,
-            'productosUsuario' => $productosUsuario,
             'contraofertas' => $contraofertas
         ]);
+    }
+
+
+    /** Muestra todas las ofertas que el usuario ha aceptado.
+     * @param $nombre_usuario
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function ofertaAceptada($nombre_usuario)
+    {
+        $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
+
+//        $ofertas = $userLogeado->contraofertas->pluck('vendedor_user_id')->toArray();
+//
+//        $productosUsuario = Producto::where('user_id', $ofertas)->latest()->paginate(9);
+
+        $contraofertasAceptadas = $userLogeado->contraofertasAceptadas()->paginate(9);
+
+
+        return view('contraofertas.aceptadas', [
+            'user' => $userLogeado,
+            'contraofertas' => $contraofertasAceptadas
+        ]);
+    }
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update($id)
+    {
+        $contraoferta = Contraoferta::find($id);
+
+        $contraoferta->estado_oferta = $_POST['estado_oferta'];
+
+        $contraoferta->save();
+
+        return redirect('/');
     }
 
 }

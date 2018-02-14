@@ -109,35 +109,35 @@ class CreateProductoFormRequest extends FormRequest
     }
 
     protected function validarNegociacionPrecio(){
-        return 'required|boolean';
+        return 'required|numeric';
     }
 
     protected function mensajesNegociacionPrecio(){
         $mensajes = array();
         $mensajes["negociacion_precio.required"] = 'Introduzca si desea o no negociar el precio del producto.';
-        $mensajes["negociacion_precio.boolean"] = 'El campo negociación del precio debe ser de tipo boolean.';
+        $mensajes["negociacion_precio.numeric"] = 'El campo negociación del precio debe ser de tipo boolean.';
         return $mensajes;
     }
 
     protected function validarIntercambioProducto(){
-        return 'required|boolean';
+        return 'required|numeric';
     }
 
     protected function mensajesIntercambioProducto(){
         $mensajes = array();
-        $mensajes["negociacion_precio.required"] = 'Introduzca si desea o no un intercambio de productos.';
-        $mensajes["negociacion_precio.boolean"] = 'El campo negociación del precio debe ser de tipo boolean.';
+        $mensajes["intercambio_producto.required"] = 'Introduzca si desea o no un intercambio de productos.';
+        $mensajes["intercambio_producto.numeric"] = 'El campo negociación del precio debe ser de tipo boolean.';
         return $mensajes;
     }
 
     protected function validarDestacado(){
-        return 'required|boolean';
+        return 'required|numeric';
     }
 
     protected function mensajesDestacado(){
         $mensajes = array();
         $mensajes["destacado.required"] = 'Introduzca si desea que su producto salga en "destacados".';
-        $mensajes["destacado.boolean"] = 'El campo destacado debe ser de tipo boolean.';
+        $mensajes["destacado.numeric"] = 'El campo destacado debe ser de tipo boolean.';
         return $mensajes;
     }
 

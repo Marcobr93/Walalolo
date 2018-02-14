@@ -18,6 +18,7 @@ class PagesController extends Controller
         $productos = Producto::orderBy('created_at', 'desc')->paginate(9);
 
         $destacado = 0;
+
         foreach ($productos as $producto) {
             if ($producto->destacado == 1) {
                 $destacado = $producto->id;

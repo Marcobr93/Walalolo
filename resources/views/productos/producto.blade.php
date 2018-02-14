@@ -17,7 +17,7 @@
                         </h5>
                         <h5 class="card-img">
                             <a href="/productos/show/{{ $producto['id'] }}">
-                                <img class="img-responsive img-fluid img-portfolio img-hover mb-3" src="{{ $producto['foto'] }}" alt="Foto del producto." />
+                                <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad" data-src="{{ $producto['foto'] }}" alt="Foto del producto." />
                             </a>
                         </h5>
                         <p class="card-text">{{ $producto['descripcion'] }}</p>
@@ -35,6 +35,10 @@
 <div class="text-center">
     {{ $productos->links('pagination::bootstrap-4') }}
 </div>
+
+@push('scripts')
+<script src="{{ asset('js/lozad.js') }}" defer ></script>
+@endpush
 
 {{--@push('scripts')--}}
     {{--<script src="{{ asset('js/datos.js') }}" defer></script>--}}

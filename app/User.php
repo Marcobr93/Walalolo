@@ -54,7 +54,12 @@ class User extends Authenticatable
      */
     public function contraofertas()
     {
-        return $this->hasMany(Contraoferta::class, 'vendedor_user_id');
+        return $this->hasMany(Contraoferta::class, 'vendedor_user_id')->where('estado_oferta', null);
+    }
+
+    public function contraofertasAceptadas()
+    {
+        return $this->hasMany(Contraoferta::class, 'vendedor_user_id')->where('estado_oferta', 1);
     }
 
 

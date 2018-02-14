@@ -15,8 +15,8 @@
                                 </button>
                             </div>
                             <div class="text-center btnespacio">
-                                <img class="img-responsive img-fluid img-portfolio img-hover mb-3"
-                                     src="{{ Auth::user()->avatar }}"
+                                <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad"
+                                     data-src="{{ Auth::user()->avatar }}"
                                      alt="Avatar del usuario."/>
                             </div>
                         </div>
@@ -132,3 +132,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/lozad.js') }}" defer ></script>
+@endpush
