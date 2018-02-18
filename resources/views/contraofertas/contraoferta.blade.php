@@ -1,4 +1,4 @@
-<div class="card col-md-4 mr-4">
+<div class="card col-md-4 mr-4 bg-light">
     <div class="card-header bg-transparent border-primary">
         {{ \App\User::where('id', $contraoferta['comprador_user_id'])->first()->nombre_usuario}}
     </div>

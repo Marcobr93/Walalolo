@@ -22,11 +22,11 @@ function gestionarErrores(input, errores) {
 function validateTarget(target) {
     let formData = new FormData();
     formData.append(target.id, target.value);
-    $(target).parent().next(".spinner").addClass("sk-circle");
+    $(target).parent().next(".spinner").addClass("loader");
     axios.post('/producto/validar',
         formData
     ).then(function (response) {
-        $(target).parent().next(".spinner").removeClass("sk-circle");
+        $(target).parent().next(".spinner").removeClass("loader");
         switch (target.id) {
             case "titulo":
                 gestionarErrores(target, response.data.titulo);

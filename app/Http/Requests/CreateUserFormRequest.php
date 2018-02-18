@@ -53,7 +53,7 @@ class CreateUserFormRequest extends FormRequest
         $mensajes["nombre_usuario.required"] = 'Introduzca el nombre';
         $mensajes["nombre_usuario.string"] = 'Introduzca el nombre';
         $mensajes["nombre_usuario.regex"] = 'El nombre sólo acepta letras y espacios';
-        $mensajes["nombre_usuario.max"] = 'Has superado el límite de 12 caracteres.';
+        $mensajes["nombre_usuario.max"] = 'Has superado el límite de 20 caracteres.';
         $mensajes["nombre_usuario.unique"] = 'El nombre de usuario no está disponible';
         return $mensajes;
     }

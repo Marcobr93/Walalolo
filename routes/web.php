@@ -14,36 +14,48 @@
 Route::get('/', 'PagesController@home');
 
 // Rutas de productos
-Route::get('/productos/create', 'ProductoController@create')->middleware('auth');
+
 Route::get('/productos/show/{producto}', 'ProductoController@show');
-Route::post('/productos/create', 'ProductoController@store')->middleware('auth');
-Route::get('/producto/{producto}/editar','ProductoController@edit')->name('producto.edit')->middleware('auth');
-Route::put('/producto/{producto}/editado','ProductoController@update')->name('producto.update')->middleware('auth');
+
 
 Auth::routes();
 
 // Rutas de usuarios
 Route::get('/user/{user}', 'UsersController@index');
-Route::get('/perfil/{user}', 'ProfileController@index')->middleware('auth');
-Route::get('/perfil/{user}/editar','ProfileController@edit')->name('user.edit')->middleware('auth');
-Route::put('/perfil/{user}/editado','ProfileController@update')->name('user.update')->middleware('auth');
 
-// Rutas de contraofertas/ofertas
-Route::post('/productos/contraoferta/', 'ContraofertaController@store')->name('contraoferta.create')->middleware('auth');
-Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta')->middleware('auth');
-Route::get('/ofertas-aceptadas/{nombre_usuario}', 'ContraofertaController@ofertaAceptada')->name('contraoferta.aceptada')->middleware('auth');
-Route::put('/ofertas/{nombre_usuario}/editado','ContraofertaController@update')->name('contraoferta.update')->middleware('auth');
-
-// Rutas de valoraciones
-Route::post('valoracion/valorar', 'ValoracionController@store')->name('valoracion.create')->middleware('auth');
-
-// Rutas de reviews
-Route::post('reviews/review', 'ReviewController@store')->name('review.create')->middleware('auth');
 
 // Rutas de validación
 Route::post('/registro/validar', 'Auth\RegisterController@validacionAjax');
 Route::post('/producto/validar', 'ProductoController@validacionAjax');
 Route::post('/editar/validar', 'ProfileController@validacionAjax');
+
+Route::group(['middleware' => 'auth'], function () {
+    // Rutas de productos
+    Route::get('/productos/create', 'ProductoController@create');
+    Route::post('/productos/create', 'ProductoController@store');
+    Route::get('/producto/{producto}/editar', 'ProductoController@edit')->name('producto.edit');
+    Route::put('/producto/{producto}/editado', 'ProductoController@update')->name('producto.update');
+
+    // Rutas de usuarios
+    Route::get('/perfil/{user}', 'ProfileController@index');
+    Route::get('/perfil/{user}/editar', 'ProfileController@edit')->name('user.edit');
+    Route::put('/perfil/{user}/editado', 'ProfileController@update')->name('user.update');
+    Route::get('/user/conversations/{conversation}', 'UsersController@showConversation');
+    Route::post('/user/{user}/dms', 'UsersController@sendPrivateMessage');
+
+
+    // Rutas de contraofertas/ofertas
+    Route::post('/productos/contraoferta/', 'ContraofertaController@store')->name('contraoferta.create');
+    Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta');
+    Route::get('/ofertas-aceptadas/{nombre_usuario}', 'ContraofertaController@ofertaAceptada')->name('contraoferta.aceptada');
+    Route::put('/ofertas/{nombre_usuario}/editado', 'ContraofertaController@update')->name('contraoferta.update');
+
+    // Rutas de valoraciones
+    Route::post('valoracion/valorar', 'ValoracionController@store')->name('valoracion.create');
+
+    // Rutas de reviews
+    Route::post('reviews/review', 'ReviewController@store')->name('review.create');
+});
 
 
 Route::get('/home', 'HomeController@index')->name('home');

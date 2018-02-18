@@ -13,71 +13,65 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/walalolo.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/spinner.css') }}" rel="stylesheet">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 </head>
-<body class="bg-light">
+<body class="bg-color2">
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light color-fondo">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                @auth()
+                    <li class="nav-item">
+                        <a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/') }}/perfil/{{Auth::user()->nombre_usuario}}" class="nav-link">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}" class="nav-link">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="nav-link">Tus productos</a>
+                    </li>
 
-            <img class="nav-item img-responsive img-fluid img-portfolio img-hover mb-3" src="/images/wololopequeño.png"
-                 alt="Logo"/>
+                @endauth
 
-            <div class="pos-f-t">
-                <div class="collapse" id="navbarToggleExternalContent">
-                    <div class="bg-inverse p-4">
-                        <h4 class="text-white">Collapsed content</h4>
-                        <span class="text-muted">Toggleable via the navbar brand.</span>
-                    </div>
-                </div>
-                <nav class="navbar navbar-inverse bg-inverse">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"
-                            aria-controls="navbarToggleExternalContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </nav>
-            </div>
+                {{--<form class="form-inline my-2 my-lg-0">--}}
+                {{--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--}}
+                {{--<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>--}}
+                {{--</form>--}}
 
-            <div class="collapse navbar-collapse justify-content-start" id="menu">
-                <ul class="navbar-nav">
-                    @auth()
-                        <li class="nav-item active"><a href="{{ url('/') }}/productos/create" class="nav-link">Añadir
-                                Producto</a></li>
-                        <li class="nav-item active"><a href="{{ url('/') }}/perfil/{{Auth::user()->nombre_usuario}}" class="nav-link">Perfil</a></li>
-                        <li class="nav-item active"><a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}"
-                                                       class="nav-link">Ofertas</a></li>
-                        <li class="nav-item active"><a href="{{ url('/') }}/user/{{Auth::user()->slug}}"
-                                                       class="nav-link">Tus productos</a></li>
-                    @endauth
-                </ul>
-            </div>
-
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            </ul>
+            <div class="justify-content-end">
                 <ul class="navbar-nav">
                     @if (Auth::guest())
                         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Registro</a></li>
                     @else
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                            <a href="#" class="nav-link-active dropdown-toggle" id="navbarDropdownMenuLink"
                                data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->slug}}
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a href="{{ url('/') }}/profile" class="dropdown-item">
+                            <div class="dropdown-menu dropdown-menu-right bg-color" aria-labelledby="navbarDropdownMenuLink">
+                                <a href="{{ url('/') }}/perfil/{{Auth::user()->nombre_usuario}}" class="dropdown-item">
                                     Perfil
                                 </a>
+                                <a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}" class="dropdown-item">
+                                    Ofertas</a>
+                                <a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="dropdown-item">
+                                    Tus productos</a>
+
+                                <div class="dropdown-divider"></div>
                                 <a href="{{ route('logout') }}" class="dropdown-item"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     Logout
@@ -91,7 +85,6 @@
                     @endif
                 </ul>
             </div>
-
         </div>
     </nav>
 
@@ -109,6 +102,9 @@
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"
 ></script>
+
+{{--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>--}}
+{{--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>--}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

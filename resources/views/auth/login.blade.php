@@ -5,7 +5,7 @@
     <div class="row justify-content-md-center mt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Login</div>
+                <div class="card-header bg-dark blanco">Login</div>
                 <div class="card-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -64,7 +64,7 @@
 
                         <div class="form-group row">
                             <div class="col-lg-8 offset-lg-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark blanco">
                                     Entrar
                                 </button>
 

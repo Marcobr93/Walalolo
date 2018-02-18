@@ -5,7 +5,7 @@
         <div class="row justify-content-md-center mt-5">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="text-center card-header">Editar datos</div>
+                    <div class="text-center card-header bg-dark blanco">Editar datos</div>
                     <div class="card-body">
                         <form role="form" id="formularioEditar" action="{{route('user.update',array('id'=>Auth::user()->id))}}" method="post">
                             {{ csrf_field() }}
@@ -136,7 +136,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 form-group row @if( $errors->has('poblacion'))has-error @endif">
+                                <div class="col-lg-6 form-group row widget @if( $errors->has('poblacion'))has-error @endif">
                                     <label class="col-lg-5 col-form-label text-lg-right"
                                            for="poblacion">Población</label>
 
@@ -188,7 +188,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button class="btn btn-primary" id="botonEditar" type="submit">Enviar</button>
+                                <button class="btn btn-dark" id="botonEditar" type="submit">Enviar</button>
                             </div>
 
                         </form>
@@ -199,5 +199,8 @@
     </div>
     {{--@push('scripts')--}}
         {{--<script src="{{ asset('js/validacionEditar.js') }}"></script>--}}
+    {{--@endpush--}}
+    {{--@push('scripts')--}}
+    {{--<script src="{{ asset('js/search.js') }}" defer></script>--}}
     {{--@endpush--}}
 @endsection

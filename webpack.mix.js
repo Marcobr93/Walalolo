@@ -11,12 +11,14 @@ let mix = require('laravel-mix');
  |
  */
 
-mixc
+mix
     .sass('resources/assets/sass/app.scss', 'public/css')
     .js('node_modules/izimodal/js/iziModal.js', 'public/js')
     .styles(['node_modules/izimodal/css/iziModal.css'], 'public/css/iziModal.css')
+    .styles(['resources/assets/css/spinner.css'], 'public/css/spinner.css')
     .js('resources/assets/js/walalolo.js', 'public/js')
     .js('resources/assets/js/datos.js', 'public/js')
     .js('resources/assets/js/validacionEditar.js', 'public/js')
     .js('resources/assets/js/validacionProducto.js', 'public/js')
     .js('resources/assets/js/validacionRegistro.js', 'public/js');
+

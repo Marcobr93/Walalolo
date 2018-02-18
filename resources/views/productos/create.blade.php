@@ -5,8 +5,8 @@
         <div class="row justify-content-md-center mt-5">
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="text-center card-header">Añadir producto</div>
-                    <div class="card-body">
+                    <div class="text-center card-header bg-dark blanco">Añadir producto</div>
+                    <div class="card-body bg-light">
                         <form action="{{ url('/') }}/productos/create" id="formularioCreacionProducto" method="post"
                               class="form-horizontal">
                             {{ csrf_field() }}
@@ -14,7 +14,7 @@
                             <div class="form-group row{{ $errors->has('titulo') ? ' has-error' : '' }}">
                                 <label for="titulo" class="col-lg-2 col-form-label text-lg-right">Título</label>
 
-                                <div class="col-lg-9">
+                                <div class="col-lg-8">
                                     <input id="titulo" type="text" class="form-control" name="titulo"
                                            value="{{ old('titulo') }}" autofocus>
 
@@ -26,12 +26,13 @@
                                         @endforeach
                                     @endif
                                 </div>
+                                @include('layouts.spinner')
                             </div>
 
                             <div class="form-group row{{ $errors->has('precio') ? ' has-error' : '' }}">
                                 <label for="precio" class="col-lg-2 col-form-label text-lg-right">Precio</label>
 
-                                <div class="col-lg-9">
+                                <div class="col-lg-8">
                                     <input id="precio" type="number" step="any" min="0" class="form-control"
                                            name="precio" value="{{ old('precio') }}" autofocus>
 
@@ -43,12 +44,13 @@
                                         @endforeach
                                     @endif
                                 </div>
+                                @include('layouts.spinner')
                             </div>
 
                             <div class="row">
                                 <div class="col-lg-6 form-group row{{ $errors->has('destacado') ? ' has-error' : '' }}">
                                     <label for="destacado"
-                                           class="col-lg-6 col-form-label text-lg-right">Destacado</label>
+                                           class="col-lg-4 col-form-label text-lg-right">Destacado</label>
 
                                     <div class="col-lg-6">
                                         <select name="destacado" class="custom-select custom-select-lg mb-3"
@@ -66,10 +68,11 @@
                                             @endforeach
                                         @endif
                                     </div>
+                                    @include('layouts.spinner')
                                 </div>
 
                                 <div class="col-lg-6 form-group row{{ $errors->has('tipo_envio') ? ' has-error' : '' }}">
-                                    <label for="tipo_envio" class="col-lg-6 col-form-label text-lg-right">Tipo de
+                                    <label for="tipo_envio" class="col-lg-4 col-form-label text-lg-right">Tipo de
                                         envío</label>
 
                                     <div class="col-lg-6">
@@ -91,13 +94,14 @@
                                             @endforeach
                                         @endif
                                     </div>
+                                    @include('layouts.spinner')
                                 </div>
                             </div>
 
                             <div class="row">
 
                                 <div class="col-lg-6 form-group row{{ $errors->has('negociacion_precio') ? ' has-error' : '' }}">
-                                    <label for="negociacion_precio" class="col-lg-6 col-form-label text-lg-right">Negociación
+                                    <label for="negociacion_precio" class="col-lg-4 col-form-label text-lg-right">Negociación
                                         precio</label>
 
                                     <div class="col-lg-6">
@@ -116,11 +120,12 @@
                                             @endforeach
                                         @endif
                                     </div>
+                                    @include('layouts.spinner')
                                 </div>
 
 
                                 <div class="col-lg-6 form-group row{{ $errors->has('intercambio_producto') ? ' has-error' : '' }}">
-                                    <label for="intercambio_producto" class="col-lg-6 col-form-label text-lg-right">Intercambio
+                                    <label for="intercambio_producto" class="col-lg-4 col-form-label text-lg-right">Intercambio
                                         producto</label>
 
                                     <div class="col-lg-6">
@@ -139,6 +144,7 @@
                                             @endforeach
                                         @endif
                                     </div>
+                                    @include('layouts.spinner')
                                 </div>
 
                             </div>
@@ -146,7 +152,7 @@
                             <div class="form-group row{{ $errors->has('categoria') ? ' has-error' : '' }}">
                                 <label for="categoria" class="col-lg-2 col-form-label text-lg-right">Categoría</label>
 
-                                <div class="col-lg-9">
+                                <div class="col-lg-8">
                                     <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria"
                                             title="Categoría">
                                         <option selected>Selecciona</option>
@@ -170,6 +176,7 @@
                                         @endforeach
                                     @endif
                                 </div>
+                                @include('layouts.spinner')
                             </div>
 
 
@@ -177,7 +184,7 @@
                                 <label for="descripcion"
                                        class="col-lg-2 col-form-label text-lg-right">Descripción</label>
 
-                                <div class="col-lg-9">
+                                <div class="col-lg-8">
                                     <textarea id="descripcion" class="form-control" name="descripcion" rows="5"
                                               autofocus></textarea>
 
@@ -189,10 +196,11 @@
                                         @endforeach
                                     @endif
                                 </div>
+                                @include('layouts.spinner')
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" id="botonCreacionProducto" class="btn btn-primary">
+                                <button type="submit" id="botonCreacionProducto" class="btn btn-dark">
                                     Añadir producto
                                 </button>
                             </div>

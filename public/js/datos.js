@@ -60,35 +60,44 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 4:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(7);
 
 
 /***/ }),
 
-/***/ 5:
+/***/ 7:
 /***/ (function(module, exports) {
 
-function muestra_oculta(id) {
-    if (document.getElementById) {
-        //se obtiene el id
-        var form = document.getElementById(id); //se define la variable "form" igual a nuestro div
-        form.style.display = form.style.display === 'none' ? 'block' : 'none'; //damos un atributo display:none que oculta el div
-    }
+function obtenerDatosPagina() {
+    event.preventDefault();
+
+    var enlace = $(event.target);
+    var valor = parseInt(enlace.text());
+
+    $(event.target).addClass("active");
+    axios.get('/dameProductos?page=' + valor).then(function (response) {
+        $("#paginacion").html(response.data);
+        asociarEventoAsincrono();
+    }).catch(function (error) {
+        console.log(error);
+    });
 }
-/*
-Hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente
- */
-window.onload = function () {
-    muestra_oculta('reviews');
-};
+
+function asociarEventoAsincrono() {
+    $(".pagination > li > a").on("click", obtenerDatosPagina);
+}
+
+$(function () {
+    asociarEventoAsincrono();
+});
 
 /***/ })
 

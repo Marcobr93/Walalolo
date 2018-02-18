@@ -7,7 +7,8 @@
                 <div class="card">
                     <div class="text-center card-header">Editar datos</div>
                     <div class="card-body">
-                        <form role="form" id="formularioEditar" action="{{route('producto.update',array($producto->id))}}" method="post">
+                        <form role="form" id="formularioEditar"
+                              action="{{route('producto.update',array($producto->id))}}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
 
@@ -32,7 +33,8 @@
 
                                 <div class="col-lg-9">
 
-                                    <input type="number" class="form-control" name="precio" id="precio" placeholder="Precio"
+                                    <input type="number" class="form-control" name="precio" id="precio"
+                                           placeholder="Precio"
                                            value="{{ $producto->precio }}">
                                     @if ($errors->has('precio'))
                                         <div class="alert alert-danger">
@@ -84,7 +86,8 @@
                                 </div>
 
                                 <div class="col-lg-6 form-group row @if( $errors->has('tipo_envio'))has-error @endif">
-                                    <label class="col-lg-5 col-form-label text-lg-right" for="num_telefono">Tipo de envío</label>
+                                    <label class="col-lg-5 col-form-label text-lg-right" for="num_telefono">Tipo de
+                                        envío</label>
 
                                     <div class="col-lg-6">
 
@@ -111,7 +114,8 @@
                             <div class="row">
 
                                 <div class="col-lg-6 form-group row @if( $errors->has('negociacion_precio'))has-error @endif">
-                                    <label class="col-lg-5 col-form-label text-lg-right" for="negociacion_precio">Negociación del precio</label>
+                                    <label class="col-lg-5 col-form-label text-lg-right" for="negociacion_precio">Negociación
+                                        del precio</label>
 
                                     <div class="col-lg-6">
 
@@ -131,7 +135,8 @@
                                 </div>
 
                                 <div class="col-lg-6 form-group row @if( $errors->has('intercambio_producto'))has-error @endif">
-                                    <label class="col-lg-5 col-form-label text-lg-right" for="dni">Intercambio del producto</label>
+                                    <label class="col-lg-5 col-form-label text-lg-right" for="dni">Intercambio del
+                                        producto</label>
 
                                     <div class="col-lg-6">
 
@@ -205,6 +210,6 @@
         </div>
     </div>
     @push('scripts')
-    <script src="{{ asset('js/validacionProducto.js') }}"></script>
+        <script src="{{ asset('js/validacionProducto.js') }}"></script>
     @endpush
 @endsection

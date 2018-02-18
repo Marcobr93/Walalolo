@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Conversation;
 use App\Http\Requests\CreateUserRequest;
+use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -97,5 +99,35 @@ class UsersController extends Controller
     public function buscarPorNombre($slug)
     {
         return User::where('slug', $slug)->first();
+    }
+
+    public function sendPrivateMessage($username, Request $request)
+    {
+        $user = $this->buscarPorNombre($username);
+        $me = $request->user();
+
+        $message = $request->input('message');
+
+        $conversation = Conversation::between($me, $user);
+
+        $private_message = PrivateMessage::create([
+            'conversation_id' => $conversation->id,
+            'user_id' => $me->id,
+            'content' => $message,
+        ]);
+
+        return redirect('/user/conversations/'.$conversation->id);
+    }
+
+
+    public function encontrarConversacion(){
+
+    }
+
+    public function showConversation(Conversation $conversation)
+    {
+        return view('users.conversation', [
+            'conversation' => $conversation
+        ]);
     }
 }

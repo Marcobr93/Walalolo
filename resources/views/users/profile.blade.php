@@ -5,7 +5,7 @@
         <div class="row justify-content-md-center mt-5">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header bg-transparent border-primary text-center">
+                    <div class="card-header bg-color border-primary text-center">
                         <div class="text-center">
                             <div class="text-center btnespacio">
                                 <button class="btn btn-dark">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body bg-dark blanco">
                         <div class="col-lg-12">
 
                             <div class="row border border-primary rounded">
@@ -121,7 +121,7 @@
                         </div>
                     </div>
 
-                    <div class="card-footer bg-transparent border-primary rounded">
+                    <div class="card-footer bg-dark blanco border-primary rounded">
                         <h3 class="card-text">
                             Descripción: {{ Auth::user()->descripcion}}
                         </h3>

@@ -5,7 +5,7 @@
 @foreach($productos->chunk(3) as $chunk)
     <div class="card-group row course-set courses__row producto">
     @foreach($chunk as $producto)
-                <div class="card col-md-4 mr-2">
+                <div class="card col-md-4 mr-2 bg-light">
                     <div class="card-header bg-transparent border-primary">
                         <a href="/productos/show/{{ $producto['id'] }}">{{ $producto['titulo'] }} </a>
                     </div>
