@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/perfil/{user}/editar', 'ProfileController@edit')->name('user.edit');
     Route::put('/perfil/{user}/editado', 'ProfileController@update')->name('user.update');
     Route::get('/user/conversations/{conversation}', 'UsersController@showConversation');
-    Route::post('/user/{user}/dms', 'UsersController@sendPrivateMessage');
+    Route::post('/user/{user}/dms', 'UsersController@create');
     Route::get('/user/{user}/conversation', 'UsersController@showUserConversation');
 
 

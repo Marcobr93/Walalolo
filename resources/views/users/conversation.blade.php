@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if($conversation->privateMessages->isEmpty())
+        <div class="col-lg-12 text-center mt-4">
+            <h3>No hay mensajes directos con este usuario.</h3>
+        </div>
+    @endif
     @foreach($conversation->privateMessages as $message)
         <div class="card col-lg-4 my-1 container justify-content-md-center">
             <div class="card-header bg-transparent border-primary">
@@ -18,4 +23,3 @@
         </div>
     @endforeach
 @endsection
-

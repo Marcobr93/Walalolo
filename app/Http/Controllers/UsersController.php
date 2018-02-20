@@ -7,6 +7,7 @@ use App\Http\Requests\CreateUserRequest;
 use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -39,9 +40,24 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($username, Request $request)
     {
-        //
+        $user = $this->buscarPorNombre($username);
+
+        $me = $request->user();
+
+        $message = $request->input('message');
+
+        $conversation = Conversation::between($me, $user);
+
+       PrivateMessage::create([
+            'conversation_id' => $conversation->id,
+            'user_id' => $me->id,
+            'content' => $message,
+        ]);
+
+        return redirect('/user/conversations/'.$conversation->id);
+
     }
 
     /**
@@ -102,28 +118,6 @@ class UsersController extends Controller
         return User::where('slug', $slug)->first();
     }
 
-    /** Envía un mensaje a un usuario.
-     * @param $username
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function sendPrivateMessage($username, Request $request)
-    {
-        $user = $this->buscarPorNombre($username);
-        $me = $request->user();
-
-        $message = $request->input('message');
-
-        $conversation = Conversation::between($me, $user);
-
-        $private_message = PrivateMessage::create([
-            'conversation_id' => $conversation->id,
-            'user_id' => $me->id,
-            'content' => $message,
-        ]);
-
-        return redirect('/user/conversations/'.$conversation->id);
-    }
 
 
     /** Muestra los mensajes privados de un usuario.
@@ -146,8 +140,9 @@ class UsersController extends Controller
 
     public function showConversation(Conversation $conversation)
     {
+
         return view('users.conversation', [
-            'conversation' => $conversation
+            'conversation' => $conversation,
         ]);
     }
 }

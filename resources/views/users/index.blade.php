@@ -7,11 +7,10 @@
     @auth
         @include('valoraciones.valorar')
         @include('users.mensajeDirecto')
+
         @if($user->id !== Auth::user()->id)
             <ul class="nav nav-pills nav-justified">
-
                 <a id="abrirModalValorar" class="nav-item nav-link active btn-primary mx-4 mt-1">Valorar</a>
-
                 <a id="abrirModalMD" class="nav-item nav-link active btn-primary mx-4 mt-1">Mensaje Directo</a>
             </ul>
 
@@ -20,6 +19,7 @@
                     <img src="{{ asset('images/message.png') }}">
                 </a>
             </div>
+
         @endif
     @endauth
 
@@ -33,10 +33,10 @@
 
     <ul class="nav nav-pills nav-justified">
         @auth
-            @include('reviews.create')
             @if($user->id !== Auth::user()->id)
-                <a id="abrirModalComentar" class="nav-item nav-link active btn-primary mx-4 mt-1">Comentar</a>
+                @include('reviews.create')
 
+                <a id="abrirModalComentar" class="nav-item nav-link active btn-primary mx-4 mt-1">Comentar</a>
             @endif
         @endauth
     </ul>
