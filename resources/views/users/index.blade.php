@@ -35,24 +35,28 @@
         @auth
             @if($user->id !== Auth::user()->id)
                 @include('reviews.create')
-
                 <a id="abrirModalComentar" class="nav-item nav-link active btn-primary mx-4 mt-1">Comentar</a>
             @endif
         @endauth
     </ul>
 
-    <ul class="nav nav-pills nav-justified producto">
-        <a class="nav-item nav-link active btn-dark"
-           onClick="muestra_oculta('reviews')">Mostrar {{$user->reviews->count()}}
-            Comentarios</a>
-    </ul>
+    <button id="btntoggle" class="btn btn-warning">Botón toogle</button>
 
-    @include('reviews.reviews')
+    <div class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="elemento1">
+                <div class="card card-body">
+                    @include('reviews.reviews')
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/walalolo.js') }}" defer></script>
+    <script src="{{ asset('js/collapse.js') }}"></script>
     <script src="{{ asset('js/izimodal.min.js') }}"></script>
     <script src="{{ asset('js/modal.js') }}"></script>
 @endpush

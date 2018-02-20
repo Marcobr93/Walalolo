@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-md-center mt-5">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="card">
                     <div class="text-center card-header bg-dark blanco">Añadir producto</div>
                     <div class="card-body bg-light">
@@ -222,5 +222,6 @@
     </div>
     @push('scripts')
         <script src="{{ asset('js/validacionProducto.js') }}"></script>
+        <script src="{{ asset('js/selectMenu.js') }}"></script>
     @endpush
 @endsection

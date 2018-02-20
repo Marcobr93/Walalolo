@@ -15,7 +15,7 @@ mix
     .sass('resources/assets/sass/app.scss', 'public/css')
     .styles(['node_modules/izimodal/css/iziModal.css'], 'public/css/iziModal.css')
     .styles(['resources/assets/css/spinner.css'], 'public/css/spinner.css')
-    .js('resources/assets/js/walalolo.js', 'public/js')
+    .js('resources/assets/js/collapse.js', 'public/js')
     .js('resources/assets/js/modal.js', 'public/js')
     .js('resources/assets/js/datos.js', 'public/js')
     .js('resources/assets/js/validacionEditar.js', 'public/js')
@@ -25,3 +25,6 @@ mix
 
 mix.babel('node_modules/izimodal/js/iziModal.min.js', 'public/js/izimodal.min.js');
 mix.babel('node_modules/lozad/dist/lozad.js', 'public/js/lozad.js');
+
+
+

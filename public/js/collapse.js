@@ -75,19 +75,15 @@ module.exports = __webpack_require__(2);
 /* 1 */
 /***/ (function(module, exports) {
 
-function muestra_oculta(id) {
-    if (document.getElementById) {
-        //se obtiene el id
-        var form = document.getElementById(id); //se define la variable "form" igual a nuestro div
-        form.style.display = form.style.display === 'none' ? 'block' : 'none'; //damos un atributo display:none que oculta el div
-    }
+function toogle() {
+    $("#elemento1").collapse("toggle");
 }
-/*
-Hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente
- */
-window.onload = function () {
-    muestra_oculta('reviews');
-};
+
+$(function () {
+    $("#btntoggle").on('click', function (e) {
+        toogle();
+    });
+});
 
 /***/ }),
 /* 2 */

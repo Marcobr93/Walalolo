@@ -22,7 +22,7 @@
             @foreach($productos as $producto)
                 @if($producto['destacado'] === 1)
             <div class="carousel-item {{ $elementoActivo == $producto['id']?'active':'' }} ">
-                <img class="img-fluid center" src="{{ $producto['foto'] }}" alt="Imagen destacada">
+                <img class="img-fluid center lozad img-size" data-src="{{ $producto['foto'] }}" src="{{ $producto['foto'] }}" alt="Imagen destacada">
                 <div class="carousel-caption d-none d-md-block"></div>
             </div>
                 @endif
@@ -42,3 +42,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/lozad.js') }}" defer></script>
+@endpush
