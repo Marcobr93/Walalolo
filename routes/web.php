@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/perfil/{user}/editado', 'ProfileController@update')->name('user.update');
     Route::get('/user/conversations/{conversation}', 'UsersController@showConversation');
     Route::post('/user/{user}/dms', 'UsersController@sendPrivateMessage');
+    Route::get('/user/{user}/conversation', 'UsersController@showUserConversation');
 
 
     // Rutas de contraofertas/ofertas
@@ -61,3 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dameProductos/', 'PagesController@damePaginaProductos');
+
+Route::get('/autocomplete', array('as' => 'autocomplete', 'uses'=>'CiudadesController@autocomplete'));
+
+Route::get('/prueba', 'ProfileController@prueba');

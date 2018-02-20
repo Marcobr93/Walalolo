@@ -96,11 +96,17 @@ class UsersController extends Controller
         //
     }
 
+
     public function buscarPorNombre($slug)
     {
         return User::where('slug', $slug)->first();
     }
 
+    /** Envía un mensaje a un usuario.
+     * @param $username
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function sendPrivateMessage($username, Request $request)
     {
         $user = $this->buscarPorNombre($username);
@@ -120,9 +126,23 @@ class UsersController extends Controller
     }
 
 
-    public function encontrarConversacion(){
+    /** Muestra los mensajes privados de un usuario.
+     * @param $username
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function showUserConversation($username, Request $request)
+    {
+        $user = $this->buscarPorNombre($username);
+
+        $me = $request->user();
+
+        $conversation = Conversation::between($me, $user);
+
+        return redirect('/user/conversations/'.$conversation->id);
 
     }
+
 
     public function showConversation(Conversation $conversation)
     {

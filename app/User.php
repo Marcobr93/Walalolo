@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -54,12 +55,12 @@ class User extends Authenticatable
      */
     public function contraofertas()
     {
-        return $this->hasMany(Contraoferta::class, 'vendedor_user_id')->where('estado_oferta', null);
+        return $this->hasMany(Contraoferta::class, 'vendedor_user_id')->where('estado_oferta', "En proceso");
     }
 
     public function contraofertasAceptadas()
     {
-        return $this->hasMany(Contraoferta::class, 'vendedor_user_id')->where('estado_oferta', 1);
+        return $this->hasMany(Contraoferta::class, 'vendedor_user_id')->where('estado_oferta', "Aceptada");
     }
 
 
@@ -126,6 +127,19 @@ class User extends Authenticatable
         }else{
             return false;
         }
+    }
+
+
+    public function getAvatarAttribute($avatar)
+    {
+        if( starts_with($avatar, "userXDefecto")){
+            return $avatar;
+        }else if( starts_with($avatar, "https://picsum")){
+            return $avatar;
+        }else if( starts_with($avatar, "/images/userXDefecto")){
+            return $avatar;
+        }
+        return Storage::disk('public')->url($avatar);
     }
 
 }

@@ -20,6 +20,7 @@ class ContraofertaController extends Controller
             'vendedor_user_id' => $request->input('vendedor_user_id'),
             'producto_id' => $request->input('producto_id'),
             'oferta' => $request->input('oferta'),
+            'estado_oferta' => "En proceso",
         ]);
 
         return back();

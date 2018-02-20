@@ -5,10 +5,11 @@
         <div class="row justify-content-md-center mt-5">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="text-center card-header">Editar datos</div>
+                    <div class="text-center card-header bg-dark blanco">Editar datos</div>
                     <div class="card-body">
                         <form role="form" id="formularioEditar"
-                              action="{{route('producto.update',array($producto->id))}}" method="post">
+                              action="{{route('producto.update',array($producto->id))}}" method="post"
+                              enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
 
@@ -75,12 +76,11 @@
                             <div class="row">
 
                                 <div class="col-lg-6 form-group row">
-                                    <label class="col-lg-5 col-form-label text-lg-right" for="avatar">Foto</label>
+                                    <label class="col-lg-5 col-form-label text-lg-right" for="foto">Foto</label>
 
                                     <div class="col-lg-6">
-
-                                        <input type="text" class="form-control" name="foto" id="foto"
-                                               placeholder="Foto"
+                                        <label for="foto"></label>
+                                        <input type="file" name="foto" id="foto" class="text-center"
                                                value="{{ $producto->foto }}">
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button class="btn btn-primary" id="botonEditar" type="submit">Enviar</button>
+                                <button class="btn btn-dark" id="botonEditar" type="submit">Enviar</button>
                             </div>
 
                         </form>

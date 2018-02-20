@@ -50,13 +50,18 @@ class ProductoController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id)
+    public function update($id, CreateProductoRequest $request)
     {
-
         $producto = Producto::find($id);
 
+        if ($foto = $request->file('foto')){
+            $url = $foto->store('image', 'public');
+        }else {
+            $url = '/images/default_product.jpeg';
+        }
+
         $producto->titulo = $_POST['titulo'];
-        $producto->foto = $_POST['foto'];
+        $producto->foto = $url;
         $producto->precio = $_POST['precio'];
         $producto->categoria = $_POST['categoria'];
         $producto->tipo_envio = $_POST['tipo_envio'];
@@ -93,10 +98,16 @@ class ProductoController extends Controller
 
         $user = $request->user();
 
+        if ($foto = $request->file('foto')){
+            $url = $foto->store('image', 'public');
+        }else {
+            $url = '/images/default_product.jpeg';
+        }
+
         Producto::create([
             'user_id'     => $user->id,
             'titulo'      => $request->input('titulo'),
-            'foto'        => '/images/default_product.jpeg',
+            'foto'        => $url,
             'descripcion' => $request->input('descripcion'),
             'precio'      => $request->input('precio'),
             'categoria'   => $request->input('categoria'),

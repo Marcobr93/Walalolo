@@ -4,7 +4,7 @@
     @foreach($conversation->privateMessages as $message)
         <div class="card col-lg-4 my-1 container justify-content-md-center">
             <div class="card-header bg-transparent border-primary">
-                {{ $message->user->name }}
+                {{ $message->user->nombre_usuario }}
             </div>
             <div class="card-body bg-light">
                 <p class="card-text">

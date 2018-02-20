@@ -19,7 +19,7 @@ class CreateContraofertaTable extends Migration
             $table->integer('comprador_user_id')->unsigned();
             $table->integer('producto_id')->unsigned();
             $table->double('oferta');
-            $table->boolean('estado_oferta')->nullable();
+            $table->string('estado_oferta');
             $table->timestamps();
 
             $table->foreign('vendedor_user_id')->references('user_id')->on('productos');

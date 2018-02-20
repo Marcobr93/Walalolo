@@ -7,7 +7,9 @@
                 <div class="card">
                     <div class="text-center card-header bg-dark blanco">Editar datos</div>
                     <div class="card-body">
-                        <form role="form" id="formularioEditar" action="{{route('user.update',array('id'=>Auth::user()->id))}}" method="post">
+                        <form role="form" id="formularioEditar"
+                              action="{{route('user.update',array('id'=>Auth::user()->id))}}" method="post"
+                              enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
 
@@ -64,9 +66,7 @@
                                     <label class="col-lg-5 col-form-label text-lg-right" for="avatar">Avatar</label>
 
                                     <div class="col-lg-6">
-
-                                        <input type="text" class="form-control" name="avatar" id="avatar"
-                                               placeholder="Avatar"
+                                        <input type="file" class="text-center" name="avatar" id="avatar"
                                                value="{{ Auth::user()->avatar }}">
                                     </div>
                                 </div>
@@ -144,6 +144,8 @@
 
                                         <input type="text" class="form-control" name="poblacion" id="poblacion"
                                                placeholder="Población" value="{{Auth::user()->poblacion}}">
+
+
                                         @if ($errors->has('poblacion'))
                                             <div class="alert alert-danger">
                                                 <strong>{{ $errors->first('poblacion') }}</strong>
@@ -198,9 +200,10 @@
         </div>
     </div>
     {{--@push('scripts')--}}
-        {{--<script src="{{ asset('js/validacionEditar.js') }}"></script>--}}
+    {{--<script src="{{ asset('js/validacionEditar.js') }}"></script>--}}
     {{--@endpush--}}
-    {{--@push('scripts')--}}
-    {{--<script src="{{ asset('js/search.js') }}" defer></script>--}}
-    {{--@endpush--}}
+    @push('scripts')
+        {{--<script src="{{ asset('js/autocomplete.js') }}" defer></script>--}}
+        <script src="{{ asset('js/search.js') }}" defer></script>
+    @endpush
 @endsection

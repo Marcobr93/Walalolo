@@ -1,11 +1,13 @@
 {
-    "/js/iziModal.js": "/js/iziModal.js",
-    "/css/app.css": "/css/app.css",
     "/js/walalolo.js": "/js/walalolo.js",
+    "/css/app.css": "/css/app.css",
     "/js/validacionRegistro.js": "/js/validacionRegistro.js",
     "/js/validacionProducto.js": "/js/validacionProducto.js",
     "/js/validacionEditar.js": "/js/validacionEditar.js",
+    "/js/modal.js": "/js/modal.js",
     "/js/datos.js": "/js/datos.js",
     "/css/iziModal.css": "/css/iziModal.css",
-    "/css/spinner.css": "/css/spinner.css"
+    "/css/spinner.css": "/css/spinner.css",
+    "/js/izimodal.min.js": "/js/izimodal.min.js",
+    "/js/lozad.js": "/js/lozad.js"
 }

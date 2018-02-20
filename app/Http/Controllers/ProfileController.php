@@ -77,15 +77,22 @@ class ProfileController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id)
+    public function update($id, CreateUserRequest $request)
     {
         $user = User::find($id);
+        dd($request->file('avatar'));
+
+        if ($avatar = $request->file('avatar')){
+            $url = $avatar->store('image', 'public');
+        }else {
+            $url = '/images/userXDefecto.jpeg';
+        }
 
         $user->nombre_usuario = $_POST['nombre_usuario']?$_POST['nombre_usuario']:null;
         $user->email = $_POST['email']?$_POST['email']:null;
         $user->name = $_POST['name']?$_POST['name']:null;
         $user->apellido = $_POST['apellido']?$_POST['apellido']:null;
-        $user->avatar = $_POST['avatar']?$_POST['avatar']:null;
+        $user->avatar = $_POST[$url]?$_POST[$url]:null;
         $user->dni = $_POST['dni']?$_POST['dni']:null;
         $user->num_telefono = $_POST['num_telefono']?$_POST['num_telefono']:null;
         $user->direccion = $_POST['direccion']?$_POST['direccion']:null;
@@ -107,5 +114,9 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function prueba(){
+        return view('prueba');
     }
 }

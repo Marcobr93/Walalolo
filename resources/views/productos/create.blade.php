@@ -8,7 +8,7 @@
                     <div class="text-center card-header bg-dark blanco">Añadir producto</div>
                     <div class="card-body bg-light">
                         <form action="{{ url('/') }}/productos/create" id="formularioCreacionProducto" method="post"
-                              class="form-horizontal">
+                              enctype="multipart/form-data" class="form-horizontal">
                             {{ csrf_field() }}
 
                             <div class="form-group row{{ $errors->has('titulo') ? ' has-error' : '' }}">
@@ -45,6 +45,15 @@
                                     @endif
                                 </div>
                                 @include('layouts.spinner')
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="foto" class="col-lg-2 col-form-label text-lg-right">Añadir Imagen</label>
+
+                                <div class="col-lg-6">
+                                    <input type="file" name="foto" id="foto" class="text-center">
+
+                                </div>
                             </div>
 
                             <div class="row">

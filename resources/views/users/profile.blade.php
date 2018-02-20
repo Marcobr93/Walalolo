@@ -8,6 +8,7 @@
                     <div class="card-header bg-color border-primary text-center">
                         <div class="text-center">
                             <div class="text-center btnespacio">
+
                                 <button class="btn btn-dark">
                                     <a class="nav-link"
                                        href="{{route('user.edit',array('user' => Auth::user()->slug))}}">Editar
@@ -16,7 +17,7 @@
                             </div>
                             <div class="text-center btnespacio">
                                 <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad"
-                                     data-src="{{ Auth::user()->avatar }}"
+                                     data-src="{{ Auth::user()->avatar }}" src="{{ Auth::user()->avatar }}"
                                      alt="Avatar del usuario."/>
                             </div>
                         </div>

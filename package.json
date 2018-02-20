@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "izimodal": "^1.5.1",
+        "jquery-autocomplete": "^1.2.8",
         "lozad": "^1.2.0"
     }
 }

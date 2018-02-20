@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-md-center mt-5">
             <div class="col-lg-12">
-                <div class="card bg-light">
+                <div class="card bg-color">
                     <div class="card-header bg-transparent border-primary text-center">
                         <div class="text-center">
                             <div class="text-center btnespacio">
@@ -25,7 +25,7 @@
                             </div>
                             <div class="text-center btnespacio">
                                 <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad"
-                                     data-src="{{ $producto['foto'] }}"
+                                     data-src="{{ $producto['foto'] }}" src="{{ $producto['foto'] }}"
                                      alt="Foto del producto."/>
                             </div>
                             <div class="col-lg-12 form-group row">

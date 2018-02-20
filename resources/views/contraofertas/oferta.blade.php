@@ -15,7 +15,7 @@
     @foreach($contraofertas->chunk(3) as $chunk)
         <div class="card-group row course-set courses__row producto">
             @foreach($chunk as $contraoferta)
-                @if($contraoferta['estado_oferta'] === null)
+                @if($contraoferta['estado_oferta'] === "En proceso")
                     @include('contraofertas.contraoferta')
                 @endif
             @endforeach
