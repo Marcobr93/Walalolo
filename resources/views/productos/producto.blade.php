@@ -34,8 +34,10 @@
     </div>
 @endforeach
 
-<div class="text-center mb-4">
-    {{ $productos->links('pagination::bootstrap-4') }}
+<div class="col-lg-6 offset-lg-3">
+    <div class="pagination mx-auto text-center mb-4">
+        {{ $productos->links('pagination::bootstrap-4') }}
+    </div>
 </div>
 
 @push('scripts')
