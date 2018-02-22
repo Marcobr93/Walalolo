@@ -19,7 +19,6 @@
                     <img src="{{ asset('images/message.png') }}">
                 </a>
             </div>
-
         @endif
     @endauth
 
@@ -40,11 +39,11 @@
         @endauth
     </ul>
 
-    <button id="btntoggle" class="btn btn-warning">Botón toogle</button>
+    <button id="btntoggle" class="btn btn-dark center my-4">Mostrar {{$user->reviews->count()}} Comentarios</button>
 
     <div class="row">
         <div class="col">
-            <div class="collapse multi-collapse" id="elemento1">
+            <div class="collapse multi-collapse mb-4" id="elemento1">
                 <div class="card card-body">
                     @include('reviews.reviews')
                 </div>
@@ -56,7 +55,11 @@
 @endsection
 
 @push('scripts')
+    @auth
+        @if($user->id !== Auth::user()->id)
+            <script src="{{ asset('js/izimodal.min.js') }}"></script>
+            <script src="{{ asset('js/modal.js') }}"></script>
+        @endif
+    @endauth
     <script src="{{ asset('js/collapse.js') }}"></script>
-    <script src="{{ asset('js/izimodal.min.js') }}"></script>
-    <script src="{{ asset('js/modal.js') }}"></script>
 @endpush

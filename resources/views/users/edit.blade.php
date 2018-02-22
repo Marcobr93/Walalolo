@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container ">
+    <div class="container mb-4">
         <div class="row justify-content-md-center mt-5">
             <div class="col-lg-12">
                 <div class="card">
@@ -203,7 +203,6 @@
     {{--<script src="{{ asset('js/validacionEditar.js') }}"></script>--}}
     {{--@endpush--}}
     @push('scripts')
-        {{--<script src="{{ asset('js/autocomplete.js') }}" defer></script>--}}
         <script src="{{ asset('js/search.js') }}" defer></script>
     @endpush
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mb-4">
     <div class="row justify-content-md-center mt-5">
         <div class="col-md-8">
             <div class="card">
@@ -30,6 +30,7 @@
                                     </div>
                                 @endif
                             </div>
+                            @include('layouts.spinner')
                         </div>
 
                         <div class="form-group row">
@@ -80,3 +81,6 @@
     </div>
 </div>
 @endsection
+@push('scripts')
+    <script src="{{ asset('js/validacionRegistro.js') }}"></script>
+@endpush

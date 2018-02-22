@@ -34,7 +34,7 @@
     </div>
 @endforeach
 
-<div class="text-center">
+<div class="text-center mb-4">
     {{ $productos->links('pagination::bootstrap-4') }}
 </div>
 

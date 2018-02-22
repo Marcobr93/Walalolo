@@ -1,6 +1,5 @@
 function obtenerDatosPagina(){
     event.preventDefault();
-
     let enlace = $(event.target);
     let valor = parseInt(enlace.text());
 
@@ -15,7 +14,7 @@ function obtenerDatosPagina(){
 }
 
 function asociarEventoAsincrono(){
-    $(".pagination > li > a").on("click",obtenerDatosPagina);
+    $(".pagination > li > a").on("click",obtenerDatosPagina); // $("#contenedor    ").on("click", "#pagination > li > a", llamadaAjax)
 }
 
 $(function(){

@@ -8,6 +8,8 @@ use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+use JavaScript;
 
 class UsersController extends Controller
 {
@@ -144,5 +146,11 @@ class UsersController extends Controller
         return view('users.conversation', [
             'conversation' => $conversation,
         ]);
+    }
+
+    public function returnUser(){
+        $user = Auth::user();
+        Javascript::put(['user' => $user]);
+        return View::make('hello');
     }
 }

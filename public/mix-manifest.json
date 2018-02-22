@@ -1,13 +1,15 @@
 {
-    "/js/collapse.js": "/js/collapse.js",
+    "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/validacionRegistro.js": "/js/validacionRegistro.js",
     "/js/validacionProducto.js": "/js/validacionProducto.js",
     "/js/validacionEditar.js": "/js/validacionEditar.js",
     "/js/modal.js": "/js/modal.js",
     "/js/datos.js": "/js/datos.js",
+    "/js/collapse.js": "/js/collapse.js",
     "/css/iziModal.css": "/css/iziModal.css",
     "/css/spinner.css": "/css/spinner.css",
+    "/js/jquery.min.js": "/js/jquery.min.js",
     "/js/izimodal.min.js": "/js/izimodal.min.js",
     "/js/lozad.js": "/js/lozad.js"
 }

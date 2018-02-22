@@ -60,43 +60,16 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 50);
+/******/ 	return __webpack_require__(__webpack_require__.s = 47);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 50:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(51);
+(function webpackMissingModule() { throw new Error("Cannot find module \"/home/marco/Homestead_projects/Walalolo/resources/assets/js/walalolo.js\""); }());
 
-
-/***/ }),
-
-/***/ 51:
-/***/ (function(module, exports) {
-
-function obtenerDatosPagina() {
-    event.preventDefault();
-    var enlace = $(event.target);
-    var valor = parseInt(enlace.text());
-
-    $(event.target).addClass("active");
-    axios.get('/dameProductos?page=' + valor).then(function (response) {
-        $("#paginacion").html(response.data);
-        asociarEventoAsincrono();
-    }).catch(function (error) {
-        console.log(error);
-    });
-}
-
-function asociarEventoAsincrono() {
-    $(".pagination > li > a").on("click", obtenerDatosPagina); // $("#contenedor    ").on("click", "#pagination > li > a", llamadaAjax)
-}
-
-$(function () {
-    asociarEventoAsincrono();
-});
 
 /***/ })
 

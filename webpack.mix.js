@@ -11,7 +11,7 @@ let mix = require('laravel-mix');
  |
  */
 
-mix
+mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .styles(['node_modules/izimodal/css/iziModal.css'], 'public/css/iziModal.css')
     .styles(['resources/assets/css/spinner.css'], 'public/css/spinner.css')
@@ -21,7 +21,6 @@ mix
     .js('resources/assets/js/validacionEditar.js', 'public/js')
     .js('resources/assets/js/validacionProducto.js', 'public/js')
     .js('resources/assets/js/validacionRegistro.js', 'public/js');
-
 
 mix.babel('node_modules/izimodal/js/iziModal.min.js', 'public/js/izimodal.min.js');
 mix.babel('node_modules/lozad/dist/lozad.js', 'public/js/lozad.js');

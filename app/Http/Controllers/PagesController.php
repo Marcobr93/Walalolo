@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -36,6 +37,7 @@ class PagesController extends Controller
 
     public function damePaginaProductos(){
         if (request()->ajax()){
+
             $productos = Producto::orderBy('created_at', 'desc')->paginate(9);
             return View::make('productos.producto', array('productos' => $productos))->render();
         }else{

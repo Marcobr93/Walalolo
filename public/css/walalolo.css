@@ -5,6 +5,11 @@
 .blanco {
     color: gainsboro;
 }
+
+.negro {
+    color: black;
+}
+
 .bg-image {
     background-image: url("http://www.col323webdesign.com/wp-content/uploads/credit-card-backgrounds-expitrans-accept-credit-cards-today.jpg");
 }
@@ -24,6 +29,7 @@
 .marginTop{
     margin-top: 150px;
 }
+
 
 .btnespacio{
     padding: 10px;
@@ -45,4 +51,16 @@
 .img-size {
     width: 500px;
     height: 300px;
+}
+
+html{ height:100%; }
+body{ min-height:100%; padding:0; margin:0; position:relative; }
+
+body::after{ content:''; display:block; height:100px; }
+
+footer{
+    position:absolute;
+    bottom: 15px;
+    width:100%;
+    height:100px;
 }
