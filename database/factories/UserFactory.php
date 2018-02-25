@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Faker\Generator as Faker;
 
 /*
@@ -29,6 +30,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
         'avatar'      => 'https://picsum.photos/300/300/?image='.mt_rand(0,1000),
         'dni' => $faker->dni,
+        'fecha_nac' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'num_telefono' => $faker->e164PhoneNumber,
         'direccion' => $faker->address,
         'poblacion' => $faker->country,

@@ -88,7 +88,8 @@ class ContraofertaController extends Controller
 
         $contraoferta->save();
 
-        return redirect('/');
+        return back();
+        return redirect()->back();
     }
 
 }

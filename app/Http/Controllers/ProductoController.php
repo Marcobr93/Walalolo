@@ -6,7 +6,7 @@ use App\Http\Requests\CreateProductoAjaxFormRequest;
 use App\Producto;
 use App\Http\Requests\CreateProductoRequest;
 use App\User;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
@@ -104,6 +104,7 @@ class ProductoController extends Controller
             $url = '/images/default_product.jpeg';
         }
 
+
         Producto::create([
             'user_id'     => $user->id,
             'titulo'      => $request->input('titulo'),
@@ -118,5 +119,15 @@ class ProductoController extends Controller
         ]);
 
         return redirect('/');
+    }
+
+
+    public function tabla()
+    {
+        $tablaProductos = Producto::all();
+
+        return view('productos.tabla', [
+        'tablaProductos' => $tablaProductos
+        ]);
     }
 }

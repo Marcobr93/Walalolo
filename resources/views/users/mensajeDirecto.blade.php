@@ -5,8 +5,8 @@
                 {{ csrf_field() }}
 
                 <div class="modal-header">
-                    <h5 class="modal-title center" id="ejemploLabel">Mensaje Directo
-                        a {{ $user->name }} {{ $user->apellido }}</h5>
+                    <h5 class="modal-title center">Mensaje Directo
+                        a {{ $user->nombre_usuario }}</h5>
                 </div>
                 <div class="modal-body">
                     <form>

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\CreateProfileEditAjaxFormRequest;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -15,13 +17,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($user)
+    public function index()
     {
-        $user = DB::table('users')->where('nombre_usuario',$user)->first();
+        return view('users.edit');
 
-        return view('users.profile', [
-            'user' => $user
-        ]);
     }
 
     /**
@@ -66,43 +65,63 @@ class ProfileController extends Controller
      * @param $nombre_usuario
      * @return $this
      */
-    public function edit($nombre_usuario)
+    public function edit()
     {
-        $user = DB::table('users')->where('nombre_usuario', $nombre_usuario)->first();
+        $user = Auth::user();
 
-        return view('users.edit')->with('user', $user);
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
-     * @param $id
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update($id, CreateUserRequest $request)
+    public function update(UpdateUserRequest $request)
     {
-        $user = User::find($id);
-        dd($request->file('avatar'));
+        $path = $request->path();
+        $user = Auth::user();
 
-        if ($avatar = $request->file('avatar')){
+
+        if(strpos($path, 'cuenta')){
+            $data = array_filter($request->all());
+
+            $user = User::findOrFail(Auth::user()->id);
+
+            $user->fill($data);
+        }elseif(strpos($path, 'password')){
+
+            if( ! Hash::check($request->get('current_password'), $user->password ) ){
+                return redirect()->back()->with('error', 'La contraseña actual no es correcta');
+            }
+
+            if( strcmp($request->get('current_password'), $request->get('password')) == 0){
+                return redirect()->back()->with('error', 'La nueva contraseña debe ser diferente de la antigua.');
+            }
+
+            $user->password = bcrypt($request->get('password'));
+        }elseif(strpos($path, 'datos-personales')){
+
+            $data = array_filter($request->all());
+
+            $user = User::findOrFail(Auth::user()->id);
+
+            $user->fill($data);
+        }elseif(strpos($path, 'avatar')){
+
+            $avatar = $request->file('avatar');
+
             $url = $avatar->store('image', 'public');
-        }else {
-            $url = '/images/userXDefecto.jpeg';
-        }
 
-        $user->nombre_usuario = $_POST['nombre_usuario']?$_POST['nombre_usuario']:null;
-        $user->email = $_POST['email']?$_POST['email']:null;
-        $user->name = $_POST['name']?$_POST['name']:null;
-        $user->apellido = $_POST['apellido']?$_POST['apellido']:null;
-        $user->avatar = $_POST[$url]?$_POST[$url]:null;
-        $user->dni = $_POST['dni']?$_POST['dni']:null;
-        $user->num_telefono = $_POST['num_telefono']?$_POST['num_telefono']:null;
-        $user->direccion = $_POST['direccion']?$_POST['direccion']:null;
-        $user->poblacion = $_POST['poblacion']?$_POST['poblacion']:null;
-        $user->website = $_POST['website']?$_POST['website']:null;
-        $user->descripcion = $_POST['descripcion']?$_POST['descripcion']:null;
+            $user = User::findOrFail(Auth::user()->id);
+
+            $user->avatar = $url;
+        }
 
         $user->save();
 
-        return redirect('/');
+        return redirect()
+            ->route('perfil.cuenta')
+            ->with('exito', 'Datos actualizados');
     }
 
     /**

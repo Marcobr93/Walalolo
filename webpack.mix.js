@@ -18,11 +18,15 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/collapse.js', 'public/js')
     .js('resources/assets/js/modal.js', 'public/js')
     .js('resources/assets/js/datos.js', 'public/js')
+    .js('resources/assets/js/datePicker.js', 'public/js')
+    .js('resources/assets/js/selectMenu.js', 'public/js')
+    .js('resources/assets/js/tablaProductos.js', 'public/js')
+    .js('resources/assets/js/search.js', 'public/js')
     .js('resources/assets/js/validacionEditar.js', 'public/js')
     .js('resources/assets/js/validacionProducto.js', 'public/js')
     .js('resources/assets/js/validacionRegistro.js', 'public/js');
 
-mix.babel('node_modules/izimodal/js/iziModal.min.js', 'public/js/izimodal.min.js');
+mix.babel('node_modules/izimodal/js/iziModal.js', 'public/js/iziModal.js');
 mix.babel('node_modules/lozad/dist/lozad.js', 'public/js/lozad.js');
 
 

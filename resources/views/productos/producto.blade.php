@@ -7,7 +7,7 @@
         @foreach($chunk as $producto)
             <div class="card col-md-4 mr-2 bg-light">
                 <div class="card-header bg-transparent border-primary">
-                    <a href="/productos/show/{{ $producto['id'] }}">{{ $producto['titulo'] }} </a>
+                    <a href="/producto/{{ $producto['id'] }}">{{ $producto['titulo'] }} </a>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
@@ -16,7 +16,7 @@
                         </a>
                     </h5>
                     <h5 class="card-img">
-                        <a href="/productos/show/{{ $producto['id'] }}">
+                        <a href="/producto/{{ $producto['id'] }}">
                             <img class="lozad img-responsive img-fluid img-portfolio img-hover mb-3 "
                                  data-src="{{ $producto['foto'] }}" src="{{ $producto['foto'] }}"
                                  alt="Foto del producto."/>

@@ -15,7 +15,7 @@ Route::get('/', 'PagesController@home');
 
 // Rutas de productos
 
-Route::get('/productos/show/{producto}', 'ProductoController@show');
+Route::get('/producto/{producto}', 'ProductoController@show')->name('producto.show');
 
 
 Auth::routes();
@@ -37,9 +37,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/producto/{producto}/editado', 'ProductoController@update')->name('producto.update');
 
     // Rutas de usuarios
-    Route::get('/perfil/{user}', 'ProfileController@index');
-    Route::get('/perfil/{user}/editar', 'ProfileController@edit')->name('user.edit');
-    Route::put('/perfil/{user}/editado', 'ProfileController@update')->name('user.update');
+    Route::get('/perfil', 'ProfileController@index');
+    Route::get('/perfil/cuenta', 'ProfileController@edit')->name('perfil.cuenta');
+    Route::patch('/perfil/cuenta', 'ProfileController@update');
+    Route::get('/perfil/password', 'ProfileController@edit')->name('perfil.password');
+    Route::patch('/perfil/password', 'ProfileController@update');
+    Route::get('/perfil/avatar', 'ProfileController@edit')->name('perfil.avatar');
+    Route::patch('/perfil/avatar', 'ProfileController@update');
+    Route::get('/perfil/datos-personales', 'ProfileController@edit')->name('perfil.personal');
+    Route::patch('/perfil/datos-personales', 'ProfileController@update');
+
+
+
     Route::get('/user/conversations/{conversation}', 'UsersController@showConversation');
     Route::post('/user/{user}/dms', 'UsersController@create');
     Route::get('/user/{user}/conversation', 'UsersController@showUserConversation');
@@ -47,7 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Rutas de contraofertas/ofertas
     Route::post('/productos/contraoferta/', 'ContraofertaController@store')->name('contraoferta.create');
-    Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta');
+    Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta')->name('contraoferta.ofertas');
     Route::get('/ofertas-aceptadas/{nombre_usuario}', 'ContraofertaController@ofertaAceptada')->name('contraoferta.aceptada');
     Route::put('/ofertas/{nombre_usuario}/editado', 'ContraofertaController@update')->name('contraoferta.update');
 
@@ -64,5 +73,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dameProductos/', 'PagesController@damePaginaProductos');
 
 Route::get('/autocomplete', array('as' => 'autocomplete', 'uses'=>'CiudadesController@autocomplete'));
+
+Route::get('/tabla-busqueda', 'ProductoController@tabla');
 
 Route::get('/prueba', 'ProfileController@prueba');

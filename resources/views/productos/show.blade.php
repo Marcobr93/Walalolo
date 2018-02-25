@@ -1,17 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-4">
         <div class="row justify-content-md-center mt-5">
             <div class="col-lg-12">
-                <div class="card bg-color">
+                <div class="card bg-color2">
                     <div class="card-header bg-transparent border-primary text-center">
                         <div class="text-center">
-                            <div class="text-center btnespacio">
+                            <div class="text-center">
                                 @auth()
                                     @if(!\App\User::soyYo($user))
-                                        @if($producto['negociacion_precio'] === 1)
+                                        @if($producto['negociacion_precio'] == 1)
                                             @include('contraofertas.create')
+                                            {{--<button class="btn btn-dark">--}}
+                                            {{--<a id="abrirModalContraoferta" class="nav-item nav-link active mx-4 mt-1">Contraoferta</a>--}}
+                                            {{--</button>--}}
                                         @endif
                                     @else
                                         <button class="btn btn-dark">
@@ -24,7 +27,7 @@
 
                             </div>
                             <div class="text-center btnespacio">
-                                <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad"
+                                <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad ancho_max_imagen"
                                      data-src="{{ $producto['foto'] }}" src="{{ $producto['foto'] }}"
                                      alt="Foto del producto."/>
                             </div>
@@ -166,6 +169,9 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script src="{{ asset('js/lozad.js') }}" defer ></script>
-@endpush
+{{--@push('scripts')--}}
+    {{--@if($user->id !== Auth::user()->id)--}}
+        {{--<script src="{{ asset('js/iziModal.js') }}"></script>--}}
+        {{--<script src="{{ asset('js/modal.js') }}"></script>--}}
+    {{--@endif--}}
+{{--@endpush--}}

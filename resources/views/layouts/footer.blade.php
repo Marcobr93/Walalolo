@@ -2,14 +2,14 @@
     <div class="container-fluid bg-dark py-3">
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-lg-5">
                     <div class="row py-0">
-                        <div class="col-sm-1 hidden-md-down">
+                        <div class="col-lg-1 hidden-md-down">
                             <a href="https://github.com/" TARGET="_BLANK">
                                 <img src="{{ asset('images/icon-github.png') }}">
                             </a>
                         </div>
-                        <div class="col-sm-11 text-white">
+                        <div class="col-lg-10 ml-3 text-white">
                             <div>
                                 <h4>Github</h4>
                                 <a href="https://github.com/Marcobr93" TARGET="_BLANK">https://github.com/Marcobr93/Walalolo</a>
@@ -17,8 +17,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
-                    <div class="d-inline-block">
+                <div class="col-lg-2 text-center">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('images/W.png') }}">
+                    </a>
+                </div>
+                <div class="col-lg-5">
+                    <div class="ml-4">
                         <div class="d-inline-block mr-3">
                             <a href="https://www.facebook.com/" TARGET="_BLANK">
                                 <img src="{{ asset('images/icon-facebook.png') }}">
@@ -43,6 +48,6 @@
                 </div>
             </div>
         </div>
-        <p class="text-center blanco mt-3"> Copyright © Footer Mywebsite Plugin 2018. All right reserved. </p>
+        <p class="text-center blanco mt-3"> Copyright © All right reserved. </p>
     </div>
 </footer>

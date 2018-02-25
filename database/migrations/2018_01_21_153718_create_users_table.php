@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar');
             $table->string('password');
             $table->string('dni');
+            $table->date('fecha_nac');
             $table->string('num_telefono');
             $table->string('direccion');
             $table->string('poblacion');

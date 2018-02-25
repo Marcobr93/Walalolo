@@ -24,6 +24,8 @@ class UsersController extends Controller
 
         $productos = $user1->productos()->latest()->paginate(6);
 
+        $totalProductos = $user1->productos()->count();
+
         $usuario = $this->buscarPorNombre($user);
 
         $media = $usuario->valoracionMedia();
@@ -31,8 +33,8 @@ class UsersController extends Controller
         return view('users.index', [
             'productos' => $productos,
             'user' => $user1,
-            'media' => $media
-
+            'media' => $media,
+            'totalProductos' => $totalProductos
         ]);
     }
 
@@ -148,9 +150,9 @@ class UsersController extends Controller
         ]);
     }
 
-    public function returnUser(){
-        $user = Auth::user();
-        Javascript::put(['user' => $user]);
-        return View::make('hello');
-    }
+//    public function returnUser(){
+//        $user = Auth::user();
+//        Javascript::put(['user' => $user]);
+//        return View::make('hello');
+//    }
 }

@@ -20,6 +20,9 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "datatables.net-bs4": "^1.10.16",
+        "datatables.net-responsive-bs4": "^2.2.1",
+        "datatables.net-scroller-bs4": "^1.4.4",
         "izimodal": "^1.5.1",
         "jquery-autocomplete": "^1.2.8",
         "lozad": "^1.2.0"

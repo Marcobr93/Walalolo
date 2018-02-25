@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'name' => $indefinido,
             'apellido' => $indefinido,
             'dni' => $indefinido,
+            'fecha_nac' => '1970/01/01',
             'num_telefono' => $indefinido,
             'direccion' => $indefinido,
             'poblacion' => $indefinido,

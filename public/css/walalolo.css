@@ -15,12 +15,17 @@
 }
 
 .bg-color {
-    background-color: #F3F3FF;
+    background-color: #E8EAEC;
 }
 
 .bg-color2 {
-    background-color: #EFEFF6;
+    background-color: #E6E6E6;
 }
+
+.bg-color3 {
+    background-color: #1F3346;
+}
+
 
 .producto{
     padding: 50px;
@@ -32,7 +37,7 @@
 
 
 .btnespacio{
-    padding: 10px;
+    padding: 40px;
 }
 
 .center{
@@ -52,6 +57,18 @@
     width: 500px;
     height: 300px;
 }
+
+.ancho_max_imagen {
+    max-width:500px;
+    max-height:500px;
+}
+
+.ancho_max_imagen_tabla {
+    max-width:125px;
+    max-height:125px;
+}
+
+
 
 html{ height:100%; }
 body{ min-height:100%; padding:0; margin:0; position:relative; }

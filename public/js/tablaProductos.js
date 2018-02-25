@@ -60,16 +60,25 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 47);
+/******/ 	return __webpack_require__(__webpack_require__.s = 56);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 47:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
-(function webpackMissingModule() { throw new Error("Cannot find module \"/home/marco/Homestead_projects/Walalolo/resources/assets/js/walalolo.js\""); }());
+module.exports = __webpack_require__(57);
 
+
+/***/ }),
+
+/***/ 57:
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+    $('#tablaProductos').DataTable();
+});
 
 /***/ })
 

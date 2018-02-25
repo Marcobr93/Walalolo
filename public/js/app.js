@@ -11350,6 +11350,10 @@ module.exports = __webpack_require__(45);
 
 __webpack_require__(12);
 
+// require( 'datatables.net-bs4' )();
+// require( 'datatables.net-responsive-bs4' )();
+// require( 'datatables.net-scroller-bs4' )();
+
 window.Vue = __webpack_require__(37);
 
 /**

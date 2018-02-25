@@ -22,8 +22,14 @@
         @endif
     @endauth
 
+    <div class="text-center mt-4">
+        <img class="img-responsive img-fluid img-portfolio img-hover lozad ancho_max_imagen"
+             data-src="{{ $user['avatar']}}" src="{{ $user['avatar']}}"
+             alt="Avatar del usuario."/>
+    </div>
+
     <div class="text-center producto">
-        <h1>Productos de {{ $user['nombre_usuario'] }}</h1>
+        <h1>Productos de {{ $user['nombre_usuario'] }} ({{$totalProductos}})</h1>
     </div>
 
     <div id="paginacion">
@@ -57,7 +63,7 @@
 @push('scripts')
     @auth
         @if($user->id !== Auth::user()->id)
-            <script src="{{ asset('js/izimodal.min.js') }}"></script>
+            <script src="{{ asset('js/iziModal.js') }}"></script>
             <script src="{{ asset('js/modal.js') }}"></script>
         @endif
     @endauth

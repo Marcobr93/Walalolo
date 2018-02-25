@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'nombre_usuario', 'slug','apellido', 'avatar', 'dni', 'num_telefono', 'direccion', 'poblacion', 'website',
+        'name', 'email', 'password', 'nombre_usuario', 'slug','apellido', 'avatar', 'dni', 'fecha_nac', 'num_telefono', 'direccion', 'poblacion', 'website',
         'descripcion'
     ];
 
@@ -30,6 +30,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
 
 
     /** Un usuario tiene muchos productos

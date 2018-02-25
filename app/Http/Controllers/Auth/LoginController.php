@@ -31,9 +31,8 @@ class LoginController extends Controller
 
     protected function authenticated()
     {
-        $user = Auth::user();
 
-        return redirect("/perfil/{$user->slug}");
+        return redirect("/perfil");
     }
 
 

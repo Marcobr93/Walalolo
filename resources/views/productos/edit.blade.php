@@ -188,8 +188,7 @@
 
                                 <div class="col-lg-9">
 
-                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="5">
-                                        {{ $producto->descripcion }}
+                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="5">{{ $producto->descripcion }}
                                     </textarea>
                                     @if ($errors->has('descripcion'))
                                         <div class="alert alert-danger">
