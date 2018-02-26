@@ -18,7 +18,7 @@
                     <h5 class="card-img">
                         <a href="/producto/{{ $producto['id'] }}">
                             <img class="lozad img-responsive img-fluid img-portfolio img-hover mb-3 "
-                                 data-src="{{ $producto['foto'] }}"
+                                 src="{{ $producto['foto'] }}"
                                  alt="Foto del producto {{ $producto['titulo'] }}"/>
                         </a>
                     </h5>
@@ -44,6 +44,3 @@
     <script src="{{ asset('js/lozad.js') }}" defer></script>
 @endpush
 
-@push('scripts')
-<script src="{{ asset('js/datos.js') }}" defer></script>
-@endpush

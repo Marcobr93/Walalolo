@@ -25,7 +25,6 @@ class PagesController extends Controller
             }
         }
 
-
         return view('home', [
             'productos' => $productos,
             'elementoActivo' => $destacado
