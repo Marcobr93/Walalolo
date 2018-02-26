@@ -7,9 +7,6 @@ use App\Http\Requests\CreateUserRequest;
 use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
-use JavaScript;
 
 class UsersController extends Controller
 {
@@ -18,24 +15,9 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($user)
+    public function index()
     {
-        $user1 = User::where('slug', $user)->first();
 
-        $productos = $user1->productos()->latest()->paginate(6);
-
-        $totalProductos = $user1->productos()->count();
-
-        $usuario = $this->buscarPorNombre($user);
-
-        $media = $usuario->valoracionMedia();
-
-        return view('users.index', [
-            'productos' => $productos,
-            'user' => $user1,
-            'media' => $media,
-            'totalProductos' => $totalProductos
-        ]);
     }
 
 
@@ -75,15 +57,28 @@ class UsersController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+    /** Display the specified resource.
+     * @param $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show($user)
     {
-        //
+        $user1 = User::where('slug', $user)->firstOrFail();
+
+        $productos = $user1->productos()->latest()->paginate(6);
+
+        $totalProductos = $user1->productos()->count();
+
+        $usuario = $this->buscarPorNombre($user);
+
+        $media = $usuario->valoracionMedia();
+
+        return view('users.index', [
+            'productos' => $productos,
+            'user' => $user1,
+            'media' => $media,
+            'totalProductos' => $totalProductos
+        ]);
     }
 
     /**
@@ -123,7 +118,7 @@ class UsersController extends Controller
      */
     public function buscarPorNombre($slug)
     {
-        return User::where('slug', $slug)->first();
+        return User::where('slug', $slug)->firstOrFail();
     }
 
 

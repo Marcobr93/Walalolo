@@ -34,7 +34,7 @@ class ContraofertaController extends Controller
      */
     public function oferta($nombre_usuario)
     {
-        $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
+        $userLogeado = $this->userLogeado($nombre_usuario);
 
         $contraofertas = $userLogeado->contraofertas()->paginate(9);
 
@@ -51,7 +51,7 @@ class ContraofertaController extends Controller
      */
     public function ofertaAceptada($nombre_usuario)
     {
-        $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
+        $userLogeado = $this->userLogeado($nombre_usuario);
 
         $contraofertasAceptadas = $userLogeado->contraofertasAceptadas()->paginate(9);
 
@@ -76,6 +76,14 @@ class ContraofertaController extends Controller
         $contraoferta->save();
 
         return redirect()->back();
+    }
+
+    /** Función que devuelve el usuario logeado.
+     * @return mixed
+     */
+    public function userLogeado($nombre_usuario)
+    {
+        return User::where('nombre_usuario', $nombre_usuario)->firstOrFail();
     }
 
 }

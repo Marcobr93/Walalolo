@@ -63,6 +63,11 @@
     max-height:500px;
 }
 
+.ancho_max_imagen_2 {
+    max-width:350px;
+    max-height:350px;
+}
+
 .ancho_max_imagen_tabla {
     max-width:125px;
     max-height:125px;

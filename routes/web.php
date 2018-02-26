@@ -21,7 +21,7 @@ Route::get('/producto/{producto}', 'ProductoController@show')->name('producto.sh
 Auth::routes();
 
 // Rutas de usuarios
-Route::get('/user/{user}', 'UsersController@index');
+Route::get('/user/{user}', 'UsersController@show');
 
 
 // Rutas de validación

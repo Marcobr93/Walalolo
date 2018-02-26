@@ -50,7 +50,7 @@ class UpdateUserRequest extends FormRequest
             ];
         }elseif (strpos($path, 'avatar')){
             $rules = [
-                'avatar' => 'nullable',
+                'avatar' => 'required|image',
             ];
         }
 

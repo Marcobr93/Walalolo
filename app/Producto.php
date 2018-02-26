@@ -9,7 +9,7 @@ class Producto extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    /** Un producto es de un único usuario.
+    /** Un usuario puede tener muchos productos.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateValoracionRequest;
 use App\Valoracion;
 
-
 class ValoracionController extends Controller
 {
     /** Guardamos las valoraciones realizadas por los usuarios logeados sobre un usuario en concreto.

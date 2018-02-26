@@ -18,7 +18,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        $user = User::where('id', $producto['user_id'])->first();
+        $user = User::where('id', $producto['user_id'])->firstOrFail();
 
         return view('productos.show', [
             'producto' => $producto,
@@ -56,7 +56,7 @@ class ProductoController extends Controller
      */
     public function update($id, CreateProductoRequest $request)
     {
-        $producto = Producto::find($id);
+        $producto = Producto::findOrFail($id);
 
         if ($foto = $request->file('foto')) {
             $url = $foto->store('image', 'public');
