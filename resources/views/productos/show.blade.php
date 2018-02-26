@@ -28,8 +28,8 @@
                             </div>
                             <div class="text-center btnespacio">
                                 <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad ancho_max_imagen"
-                                     data-src="{{ $producto['foto'] }}" src="{{ $producto['foto'] }}"
-                                     alt="Foto del producto."/>
+                                     data-src="{{ $producto['foto'] }}"
+                                     alt="Foto del producto {{ $producto['titulo'] }}"/>
                             </div>
                             <div class="col-lg-12 form-group row">
                                 <label class="col-lg-1 col-form-label text-lg-right ng"></label>
@@ -168,6 +168,11 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+<script src="{{ asset('js/lozad.js') }}"></script>
+
+@endpush
 
 {{--@push('scripts')--}}
     {{--@if($user->id !== Auth::user()->id)--}}

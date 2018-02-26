@@ -1,15 +1,14 @@
 <div class="card col-md-4 mr-4 bg-light">
     <div class="card-header bg-transparent border-primary">
-        {{ \App\User::where('id', $contraoferta['comprador_user_id'])->first()->nombre_usuario}}
+        {{ $contraoferta->comprador['nombre_usuario'] }}
     </div>
     <div class="card-body">
         <p class="card-text">
-            Producto: {{ \App\Producto::where('id', $contraoferta['producto_id'])->first()->titulo}}</p>
+            Producto: {{ $contraoferta->producto['titulo']}}</p>
         <div class="card-img">
             <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad"
-                 data-src="{{ \App\Producto::where('id', $contraoferta['producto_id'])->first()->foto}}"
-                 src="{{ \App\Producto::where('id', $contraoferta['producto_id'])->first()->foto}}"
-                 alt="Foto del producto."/>
+                 data-src="{{ $contraoferta->producto['foto']}}"
+                 alt="Foto del producto {{ $contraoferta->producto['titulo'] }}"/>
         </div>
         <p class="card-text">Oferta: {{ $contraoferta['oferta'] }} €</p>
     </div>

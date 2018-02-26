@@ -1,9 +1,9 @@
 {{ method_field('PATCH') }}
-<div class="justify-content-md-center mt-4 ">
+<div class="justify-content-md-center mt-4">
     <div class="form-group row @if( $errors->has('nombre_usuario'))has-error @endif">
-        <label class="col-lg-12 col-form-label" for="nombre_usuario">Nombre de Usuario</label>
+        <label class="col-lg-12 col-form-label text-center ng" for="nombre_usuario">Nombre de Usuario</label>
 
-        <div class="col-lg-8">
+        <div class="col-lg-8 center">
 
             <input type="text" class="form-control" name="nombre_usuario" id="nombre_usuario"
                    placeholder="{{$user->nombre_usuario}}">
@@ -18,9 +18,9 @@
     </div>
 
     <div class="form-group row @if( $errors->has('email'))has-error @endif">
-        <label class="col-lg-12 col-form-label" for="email">Email</label>
+        <label class="col-lg-12 col-form-label text-center ng" for="email">Email</label>
 
-        <div class="col-lg-8">
+        <div class="col-lg-8 center">
 
             <input type="text" class="form-control" name="email" id="email"
                    placeholder="{{$user->email}}">
@@ -35,9 +35,9 @@
     </div>
 
     <div class="form-group row">
-        <label class="col-lg-12 col-form-label" for="website">Website</label>
+        <label class="col-lg-12 col-form-label text-center ng" for="website">Website</label>
 
-        <div class="col-lg-8">
+        <div class="col-lg-8 center">
 
             <input type="text" class="form-control" name="website" id="website"
                    placeholder="{{$user->website}}">
@@ -46,6 +46,6 @@
 
     </div>
 </div>
-<div class="mt-4 ml-3">
+<div class="mt-4 ml-3 text-center">
     <button type="submit" class="btn btn-dark">Actualizar</button>
 </div>

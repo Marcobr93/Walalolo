@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'nombre_usuario', 'slug','apellido', 'avatar', 'dni', 'fecha_nac', 'num_telefono', 'direccion', 'poblacion', 'website',
+        'name', 'email', 'password', 'nombre_usuario', 'slug', 'apellido', 'avatar', 'dni', 'fecha_nac', 'num_telefono', 'direccion', 'poblacion', 'website',
         'descripcion'
     ];
 
@@ -32,8 +32,7 @@ class User extends Authenticatable
     ];
 
 
-
-    /** Un usuario tiene muchos productos
+    /** Un usuario tiene muchos productos.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function productos()
@@ -42,7 +41,7 @@ class User extends Authenticatable
     }
 
 
-    /** Un usuario tiene un perfil
+    /** Un usuario tiene un perfil.
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function profile()
@@ -51,7 +50,7 @@ class User extends Authenticatable
     }
 
 
-    /** Un usuario recibe muchas ofertas
+    /** Un usuario recibe muchas ofertas.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function contraofertas()
@@ -59,6 +58,9 @@ class User extends Authenticatable
         return $this->hasMany(Contraoferta::class, 'vendedor_user_id')->where('estado_oferta', "En proceso");
     }
 
+    /** Ofertas aceptadas por el usuario.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function contraofertasAceptadas()
     {
         return $this->hasMany(Contraoferta::class, 'vendedor_user_id')->where('estado_oferta', "Aceptada");
@@ -74,7 +76,6 @@ class User extends Authenticatable
     }
 
 
-
     /** Un usuario tiene muchas valoraciones
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -87,7 +88,8 @@ class User extends Authenticatable
     /** Calcula la valoración media de un usuario
      * @return int|string
      */
-    public function valoracionMedia(){
+    public function valoracionMedia()
+    {
 
         $valoraciones = $this->valoraciones->pluck('valoracion')->toArray();
 
@@ -99,10 +101,10 @@ class User extends Authenticatable
             $count = 0;
         }
 
-        if($count === 0){
+        if ($count === 0) {
             $media = 0;
-        }else{
-            $media = number_format($sumaValoraciones / $count,'2');
+        } else {
+            $media = number_format($sumaValoraciones / $count, '2');
         }
 
         return $media;
@@ -123,21 +125,24 @@ class User extends Authenticatable
      */
     public static function soyYo($user)
     {
-        if(Auth::user()->id == $user->id){
+        if (Auth::user()->id == $user->id) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-
+    /** Getter del avatar del usuario, para mostrar si el avatar proviene de una por defecto o de una generada con $faker
+     * @param $avatar
+     * @return mixed
+     */
     public function getAvatarAttribute($avatar)
     {
-        if( starts_with($avatar, "userXDefecto")){
+        if (starts_with($avatar, "userXDefecto")) {
             return $avatar;
-        }else if( starts_with($avatar, "https://picsum")){
+        } else if (starts_with($avatar, "https://picsum")) {
             return $avatar;
-        }else if( starts_with($avatar, "/images/userXDefecto")){
+        } else if (starts_with($avatar, "/images/userXDefecto")) {
             return $avatar;
         }
         return Storage::disk('public')->url($avatar);

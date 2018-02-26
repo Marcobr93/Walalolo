@@ -54,13 +54,13 @@ class UsersController extends Controller
 
         $conversation = Conversation::between($me, $user);
 
-       PrivateMessage::create([
+        PrivateMessage::create([
             'conversation_id' => $conversation->id,
             'user_id' => $me->id,
             'content' => $message,
         ]);
 
-        return redirect('/user/conversations/'.$conversation->id);
+        return redirect('/user/conversations/' . $conversation->id);
 
     }
 
@@ -117,11 +117,14 @@ class UsersController extends Controller
     }
 
 
+    /** Función que obtiene un usuario a partir del $slug.
+     * @param $slug
+     * @return mixed
+     */
     public function buscarPorNombre($slug)
     {
         return User::where('slug', $slug)->first();
     }
-
 
 
     /** Muestra los mensajes privados de un usuario.
@@ -137,11 +140,14 @@ class UsersController extends Controller
 
         $conversation = Conversation::between($me, $user);
 
-        return redirect('/user/conversations/'.$conversation->id);
+        return redirect('/user/conversations/' . $conversation->id);
 
     }
 
-
+    /** Devuelve la vista con los mensajes privados entre los dos usuarios.
+     * @param Conversation $conversation
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showConversation(Conversation $conversation)
     {
 
@@ -149,10 +155,4 @@ class UsersController extends Controller
             'conversation' => $conversation,
         ]);
     }
-
-//    public function returnUser(){
-//        $user = Auth::user();
-//        Javascript::put(['user' => $user]);
-//        return View::make('hello');
-//    }
 }

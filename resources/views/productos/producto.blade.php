@@ -18,8 +18,8 @@
                     <h5 class="card-img">
                         <a href="/producto/{{ $producto['id'] }}">
                             <img class="lozad img-responsive img-fluid img-portfolio img-hover mb-3 "
-                                 data-src="{{ $producto['foto'] }}" src="{{ $producto['foto'] }}"
-                                 alt="Foto del producto."/>
+                                 data-src="{{ $producto['foto'] }}"
+                                 alt="Foto del producto {{ $producto['titulo'] }}"/>
                         </a>
                     </h5>
                     <p class="card-text">{{ $producto['descripcion'] }}</p>

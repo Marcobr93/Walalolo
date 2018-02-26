@@ -49,4 +49,5 @@
 
 @push('scripts')
 <script src="{{ asset('js/validacionEditar.js') }}"></script>
+<script src="{{ asset('js/lozad.js') }}"></script>
 @endpush

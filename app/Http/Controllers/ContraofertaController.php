@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Contraoferta;
 use App\Http\Requests\CreateContraofertaRequest;
-use App\Producto;
 use App\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 
 class ContraofertaController extends Controller
 {
+    /** Función que guarda en la base de datos una contraoferta realizada sobre un producto.
+     * @param CreateContraofertaRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(CreateContraofertaRequest $request)
     {
 
@@ -23,12 +24,11 @@ class ContraofertaController extends Controller
             'estado_oferta' => "En proceso",
         ]);
 
-        return back();
         return redirect()->back();
     }
 
 
-    /** Mostramos todas las ofertas que el usuario recibe.
+    /** Mostramos todas las ofertas que el usuario logeado recibe.
      * @param $nombre_usuario
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -36,16 +36,7 @@ class ContraofertaController extends Controller
     {
         $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
 
-        $ofertas = $userLogeado->contraofertas->pluck('comprador_user_id')->toArray();
-
-//        $nombre = User::where('nombre_usuario', $ofertas)->first();
-//
-//        dd($nombre);
-//
-//        $productosUsuario = Producto::where('user_id', $ofertas)->latest()->paginate(9);
-
         $contraofertas = $userLogeado->contraofertas()->paginate(9);
-
 
         return view('contraofertas.oferta', [
             'user' => $userLogeado,
@@ -62,10 +53,6 @@ class ContraofertaController extends Controller
     {
         $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
 
-//        $ofertas = $userLogeado->contraofertas->pluck('vendedor_user_id')->toArray();
-//
-//        $productosUsuario = Producto::where('user_id', $ofertas)->latest()->paginate(9);
-
         $contraofertasAceptadas = $userLogeado->contraofertasAceptadas()->paginate(9);
 
 
@@ -76,7 +63,7 @@ class ContraofertaController extends Controller
     }
 
 
-    /**
+    /** Edita el estado de la oferta de una contraoferta, aceptándola o rechazándola.
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -88,7 +75,6 @@ class ContraofertaController extends Controller
 
         $contraoferta->save();
 
-        return back();
         return redirect()->back();
     }
 

@@ -9,18 +9,26 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function store(CreateReviewRequest $request){
+    /** Función que guarda las reviews realizadas por los usuarios sobre otros usuarios.
+     * @param CreateReviewRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(CreateReviewRequest $request)
+    {
 
         Review::create([
-            'user_id'  => $request->input('user_id'),
-            'review_user_id'  => $request->input('review_user_id'),
-            'comentario'  => $request->input('comentario')
+            'user_id' => $request->input('user_id'),
+            'review_user_id' => $request->input('review_user_id'),
+            'comentario' => $request->input('comentario')
         ]);
 
-        return back();
         return redirect()->back();
     }
 
+    /** Muestra las reviews del usuario en cuestión.
+     * @param $nombre_usuario
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function review($nombre_usuario)
     {
         $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();

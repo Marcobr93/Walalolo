@@ -55,7 +55,10 @@ class RegisterController extends Controller
         ]);
     }
 
-    /*Validacion por Ajax con FormRquest*/
+    /** Validacion por Ajax con FormRquest
+     * @param CreateUserAjaxFormRequest $request
+     * @return array
+     */
     protected function validacionAjax(CreateUserAjaxFormRequest $request){
         //Obtenermos todos los valores y devolvemos un array vacio
         return array();

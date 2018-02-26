@@ -34,13 +34,16 @@ class PagesController extends Controller
         ]);
     }
 
-
-    public function damePaginaProductos(){
-        if (request()->ajax()){
+    /** Paginación asíncrona
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function damePaginaProductos()
+    {
+        if (request()->ajax()) {
 
             $productos = Producto::orderBy('created_at', 'desc')->paginate(9);
             return View::make('productos.producto', array('productos' => $productos))->render();
-        }else{
+        } else {
             return redirect('/');
         }
     }

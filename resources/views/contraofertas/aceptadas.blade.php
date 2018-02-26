@@ -11,6 +11,3 @@
         </div>
     @endforeach
 @endsection
-@push('scripts')
-    <script src="{{ asset('js/lozad.js') }}" defer></script>
-@endpush
