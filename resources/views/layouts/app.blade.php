@@ -48,11 +48,10 @@
                     <li class="nav-item">
                         <a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="nav-link">Tus productos</a>
                     </li>
+                @endauth
                     <li class="nav-item">
                         <a href="/tabla-busqueda" class="nav-link">Tabla de búsqueda</a>
                     </li>
-
-                @endauth
 
                 {{--<form class="form-inline my-2 my-lg-0">--}}
                 {{--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--}}
