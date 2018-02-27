@@ -7,9 +7,25 @@ use App\Http\Requests\CreateUserRequest;
 use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+    private $user;
+
+    public function __construct()
+    {
+        $this->middleware( function($request, $next){
+            $this->user = auth()->user();
+
+            return $next($request);
+        });
+
+        $this->user = auth()->user();
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +42,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($username, Request $request)
+    public function createPrivateMessage($username, Request $request)
     {
         $user = $this->buscarPorNombre($username);
 
@@ -73,11 +89,14 @@ class UsersController extends Controller
 
         $media = $usuario->valoracionMedia();
 
+        $conversation = Conversation::conversationId(Auth::user(), $user1);
+
         return view('users.index', [
             'productos' => $productos,
             'user' => $user1,
             'media' => $media,
-            'totalProductos' => $totalProductos
+            'totalProductos' => $totalProductos,
+            'conversation' => $conversation
         ]);
     }
 
@@ -122,22 +141,6 @@ class UsersController extends Controller
     }
 
 
-    /** Muestra los mensajes privados de un usuario.
-     * @param $username
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function showUserConversation($username, Request $request)
-    {
-        $user = $this->buscarPorNombre($username);
-
-        $me = $request->user();
-
-        $conversation = Conversation::between($me, $user);
-
-        return redirect('/user/conversations/' . $conversation->id);
-
-    }
 
     /** Devuelve la vista con los mensajes privados entre los dos usuarios.
      * @param Conversation $conversation
@@ -145,9 +148,12 @@ class UsersController extends Controller
      */
     public function showConversation(Conversation $conversation)
     {
-
-        return view('users.conversation', [
-            'conversation' => $conversation,
-        ]);
+        if(Conversation::userInConversation($this->user, $conversation)){
+            return view('users.conversation', [
+                'conversation' => $conversation
+            ]);
+        }else{
+            return redirect('/');
+        }
     }
 }

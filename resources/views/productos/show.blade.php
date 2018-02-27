@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mb-4">
-        <div class="row justify-content-md-center mt-5">
+    <div class="container my-4">
+        <div class="row justify-content-md-center mt-4">
             <div class="col-lg-12">
                 <div class="card bg-color2">
                     <div class="card-header bg-transparent border-primary text-center">
@@ -171,7 +171,6 @@
 
 @push('scripts')
 <script src="{{ asset('js/lozad.js') }}"></script>
-
 @endpush
 
 {{--@push('scripts')--}}

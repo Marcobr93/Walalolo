@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductoAjaxFormRequest;
+use App\Http\Requests\UpdateProductoRequest;
 use App\Producto;
 use App\Http\Requests\CreateProductoRequest;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
 
 class ProductoController extends Controller
 {
@@ -46,7 +49,7 @@ class ProductoController extends Controller
     {
         $producto = DB::table('productos')->where('id', $id)->first();
 
-        return view('productos.edit')->with('producto', $producto);
+        return view('productos.edit', ['producto' => $producto]);
     }
 
 
@@ -54,29 +57,33 @@ class ProductoController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id, CreateProductoRequest $request)
+    public function update($id, UpdateProductoRequest $request)
     {
+        $path = $request->path();
         $producto = Producto::findOrFail($id);
 
-        if ($foto = $request->file('foto')) {
-            $url = $foto->store('image', 'public');
-        } else {
-            $url = '/images/default_product.jpeg';
-        }
+        if (strpos($path, 'informacion-general')) {
+            $data = array_filter($request->all());
 
-        $producto->titulo = $_POST['titulo'];
-        $producto->foto = $url;
-        $producto->precio = $_POST['precio'];
-        $producto->categoria = $_POST['categoria'];
-        $producto->tipo_envio = $_POST['tipo_envio'];
-        $producto->negociacion_precio = $_POST['negociacion_precio'];
-        $producto->intercambio_producto = $_POST['intercambio_producto'];
-        $producto->destacado = $_POST['destacado'];
-        $producto->descripcion = $_POST['descripcion'];
+            $producto->fill($data);
+        } elseif (strpos($path, 'otros-datos')) {
+            $data = array_filter($request->all());
+
+            $producto->fill($data);
+        } elseif (strpos($path, 'foto')) {
+
+            $foto = $request->file('foto');
+
+            $url = $foto->store('image', 'public');
+
+            $producto->foto = $url;
+        }
 
         $producto->save();
 
-        return redirect('/');
+        return redirect()
+            ->back()
+            ->with('exito', 'Datos actualizados');
     }
 
 
@@ -109,7 +116,6 @@ class ProductoController extends Controller
             $url = '/images/default_product.jpeg';
         }
 
-
         Producto::create([
             'user_id' => $user->id,
             'titulo' => $request->input('titulo'),
@@ -136,6 +142,15 @@ class ProductoController extends Controller
 
         return view('productos.tabla', [
             'tablaProductos' => $tablaProductos
+        ]);
+    }
+
+    public function search(Request $request){
+        $query = $request->input('busqueda');
+
+        $productos = Producto::with('user')->where('titulo', 'LIKE', "%{$query}%")->paginate(9);
+        return view('productos.busqueda',[
+            'productos' => $productos
         ]);
     }
 }

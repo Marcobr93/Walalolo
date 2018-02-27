@@ -14,7 +14,7 @@
 Route::get('/', 'PagesController@home');
 
 // Rutas de productos
-
+Route::get('/productos', 'ProductoController@search');
 Route::get('/producto/{producto}', 'ProductoController@show')->name('producto.show');
 
 
@@ -30,11 +30,18 @@ Route::post('/producto/validar', 'ProductoController@validacionAjax');
 Route::post('/editar/validar', 'ProfileController@validacionAjax');
 
 Route::group(['middleware' => 'auth'], function () {
+
     // Rutas de productos
     Route::get('/productos/create', 'ProductoController@create');
     Route::post('/productos/create', 'ProductoController@store');
-    Route::get('/producto/{producto}/editar', 'ProductoController@edit')->name('producto.edit');
-    Route::put('/producto/{producto}/editado', 'ProductoController@update')->name('producto.update');
+    Route::get('/producto/{producto}/editar', 'ProductoController@edit');
+    Route::get('/producto/{producto}/editar/informacion-general', 'ProductoController@edit')->name('producto.info');
+    Route::patch('/producto/{producto}/editar/informacion-general', 'ProductoController@update');
+    Route::get('/producto/{producto}/editar/foto', 'ProductoController@edit')->name('producto.foto');
+    Route::patch('/producto/{producto}/editar/foto', 'ProductoController@update');
+    Route::get('/producto/{producto}/editar/otros-datos', 'ProductoController@edit')->name('producto.otros');
+    Route::patch('/producto/{producto}/editar/otros-datos', 'ProductoController@update');
+
 
     // Rutas de usuarios
     Route::get('/perfil', 'ProfileController@index');
@@ -49,8 +56,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-    Route::get('/user/conversations/{conversation}', 'UsersController@showConversation');
-    Route::post('/user/{user}/dms', 'UsersController@create');
+    Route::get('/user/conversations/{conversation}', 'UsersController@showConversation')->name('conversation.show');
+    Route::post('/user/{user}/dms', 'UsersController@createPrivateMessage');
     Route::get('/user/{user}/conversation', 'UsersController@showUserConversation');
 
 
@@ -60,8 +67,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/ofertas-aceptadas/{nombre_usuario}', 'ContraofertaController@ofertaAceptada')->name('contraoferta.aceptada');
     Route::put('/ofertas/{nombre_usuario}/editado', 'ContraofertaController@update')->name('contraoferta.update');
 
+
     // Rutas de valoraciones
     Route::post('valoracion/valorar', 'ValoracionController@store')->name('valoracion.create');
+
 
     // Rutas de reviews
     Route::post('reviews/review', 'ReviewController@store')->name('review.create');

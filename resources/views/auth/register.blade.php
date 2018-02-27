@@ -11,7 +11,7 @@
                             {!! csrf_field() !!}
 
                             <div class="form-group row{{ $errors->has('nombre_usuario') ? ' has-error' : '' }}">
-                                <label for="nombre_usuario" class="col-lg-4 col-form-label text-lg-right">Nombre de
+                                <label for="nombre_usuario" class="col-lg-4 col-form-label text-lg-right ng">Nombre de
                                     usuario</label>
 
                                 <div class="col-md-6">
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-lg-4 col-form-label text-lg-right">E-Mail</label>
+                                <label for="email" class="col-lg-4 col-form-label text-lg-right ng">E-Mail</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email"
@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="form-group row{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-lg-4 col-form-label text-lg-right">Contraseña</label>
+                                <label for="password" class="col-lg-4 col-form-label text-lg-right ng">Contraseña</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password">
@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label text-lg-right">Confirmar contraseña</label>
+                                <label class="col-lg-4 col-form-label text-lg-right ng">Confirmar contraseña</label>
 
                                 <div class="col-lg-6">
                                     <input

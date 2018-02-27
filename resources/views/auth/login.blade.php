@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group row">
-                            <label for="email" class="col-lg-4 col-form-label text-lg-right">E-Mail</label>
+                            <label for="email" class="col-lg-4 col-form-label text-lg-right ng">E-Mail</label>
 
                             <div class="col-lg-6">
                                 <input
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-lg-4 col-form-label text-lg-right">Contraseña</label>
+                            <label for="password" class="col-lg-4 col-form-label text-lg-right ng">Contraseña</label>
 
                             <div class="col-lg-6">
                                 <input

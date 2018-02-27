@@ -22,7 +22,9 @@
             @foreach($productos as $producto)
                 @if($producto['destacado'] === 1)
             <div class="carousel-item {{ $elementoActivo == $producto['id']?'active':'' }} ">
-                <img class="img-fluid center lozad img-size" data-src="{{ $producto['foto'] }}" src="{{ $producto['foto'] }}" alt="Imagen destacada">
+                <a href="/producto/{{ $producto['id'] }}">
+                    <img class="img-fluid center lozad img-size" data-src="{{ $producto['foto'] }}" src="{{ $producto['foto'] }}" alt="Imagen destacada">
+                </a>
                 <div class="carousel-caption d-none d-md-block"></div>
             </div>
                 @endif

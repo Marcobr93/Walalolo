@@ -14,11 +14,14 @@
                 <a id="abrirModalMD" class="nav-item nav-link active btn-primary mx-4 mt-1">Mensaje Directo</a>
             </ul>
 
+            @if( $conversation )
             <div class="text-center">
-                <a href="/user/{{ $user->slug }}/conversation">
+                <a href="{{ route('conversation.show', $conversation->id) }}">
                     <img src="{{ asset('images/message.png') }}">
                 </a>
             </div>
+            @endif
+
         @endif
     @endauth
 
@@ -45,7 +48,7 @@
         @endauth
     </ul>
 
-    <button id="btntoggle" class="btn btn-dark center my-4">Mostrar {{$user->reviews->count()}} Comentarios</button>
+    <button id="btntoggle" data-toggle="collapse" class="btn btn-dark center my-4">Mostrar {{$user->reviews->count()}} Comentarios</button>
 
     <div class="row">
         <div class="col">

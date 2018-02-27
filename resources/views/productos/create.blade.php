@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mb-4">
         <div class="row justify-content-md-center mt-5">
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="text-center card-header bg-dark blanco">Añadir producto</div>
                     <div class="card-body bg-light">
@@ -12,7 +12,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group row{{ $errors->has('titulo') ? ' has-error' : '' }}">
-                                <label for="titulo" class="col-lg-2 col-form-label text-lg-right">Título</label>
+                                <label for="titulo" class="col-lg-2 col-form-label text-lg-right ng">Título</label>
 
                                 <div class="col-lg-8">
                                     <input id="titulo" type="text" class="form-control" name="titulo"
@@ -30,7 +30,7 @@
                             </div>
 
                             <div class="form-group row{{ $errors->has('precio') ? ' has-error' : '' }}">
-                                <label for="precio" class="col-lg-2 col-form-label text-lg-right">Precio</label>
+                                <label for="precio" class="col-lg-2 col-form-label text-lg-right ng">Precio</label>
 
                                 <div class="col-lg-8">
                                     <input id="precio" type="number" step="any" min="0" class="form-control"
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="foto" class="col-lg-2 col-form-label text-lg-right">Añadir Imagen</label>
+                                <label for="foto" class="col-lg-2 col-form-label text-lg-right ng">Añadir Imagen</label>
 
                                 <div class="col-lg-6">
                                     <input type="file" name="foto" id="foto" class="text-center">
@@ -59,7 +59,7 @@
                             <div class="row">
                                 <div class="col-lg-6 form-group row{{ $errors->has('destacado') ? ' has-error' : '' }}">
                                     <label for="destacado"
-                                           class="col-lg-4 col-form-label text-lg-right">Destacado</label>
+                                           class="col-lg-4 col-form-label text-lg-right ng">Destacado</label>
 
                                     <div class="col-lg-6">
                                         <select name="destacado" class="custom-select custom-select-lg mb-3"
@@ -81,7 +81,7 @@
                                 </div>
 
                                 <div class="col-lg-6 form-group row{{ $errors->has('tipo_envio') ? ' has-error' : '' }}">
-                                    <label for="tipo_envio" class="col-lg-4 col-form-label text-lg-right">Tipo de
+                                    <label for="tipo_envio" class="col-lg-4 col-form-label text-lg-right ng">Tipo de
                                         envío</label>
 
                                     <div class="col-lg-6">
@@ -110,7 +110,7 @@
                             <div class="row">
 
                                 <div class="col-lg-6 form-group row{{ $errors->has('negociacion_precio') ? ' has-error' : '' }}">
-                                    <label for="negociacion_precio" class="col-lg-4 col-form-label text-lg-right">Negociación
+                                    <label for="negociacion_precio" class="col-lg-4 col-form-label text-lg-right ng">Negociación
                                         precio</label>
 
                                     <div class="col-lg-6">
@@ -134,7 +134,7 @@
 
 
                                 <div class="col-lg-6 form-group row{{ $errors->has('intercambio_producto') ? ' has-error' : '' }}">
-                                    <label for="intercambio_producto" class="col-lg-4 col-form-label text-lg-right">Intercambio
+                                    <label for="intercambio_producto" class="col-lg-4 col-form-label text-lg-right ng">Intercambio
                                         producto</label>
 
                                     <div class="col-lg-6">
@@ -159,7 +159,7 @@
                             </div>
 
                             <div class="form-group row{{ $errors->has('categoria') ? ' has-error' : '' }}">
-                                <label for="categoria" class="col-lg-2 col-form-label text-lg-right">Categoría</label>
+                                <label for="categoria" class="col-lg-2 col-form-label text-lg-right ng">Categoría</label>
 
                                 <div class="col-lg-8">
                                     <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria"
@@ -191,7 +191,7 @@
 
                             <div class="form-group row{{ $errors->has('descripcion') ? ' has-error' : '' }}">
                                 <label for="descripcion"
-                                       class="col-lg-2 col-form-label text-lg-right">Descripción</label>
+                                       class="col-lg-2 col-form-label text-lg-right ng">Descripción</label>
 
                                 <div class="col-lg-8">
                                     <textarea id="descripcion" class="form-control" name="descripcion" rows="5"
