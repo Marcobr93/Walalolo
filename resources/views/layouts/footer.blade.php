@@ -12,7 +12,7 @@
                         <div class="col-lg-10 ml-3 text-white">
                             <div>
                                 <h4>Github</h4>
-                                <a href="https://github.com/Marcobr93" TARGET="_BLANK">https://github.com/Marcobr93/Walalolo</a>
+                                <a data-toggle="tooltip" data-placement="bottom" title="Enlace a Github" href="https://github.com/Marcobr93" TARGET="_BLANK">https://github.com/Marcobr93/Walalolo</a>
                             </div>
                         </div>
                     </div>

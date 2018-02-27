@@ -87,5 +87,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery-ui" level="application" />
+    <orderEntry type="library" name="datatables" level="application" />
   </component>
 </module>

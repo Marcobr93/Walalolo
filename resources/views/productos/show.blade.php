@@ -52,7 +52,7 @@
                                     <label class="col-lg-6 col-form-label text-lg-right ng">Usuario:</label>
 
                                     <div class="col-lg-6">
-                                        <a class="btn pull-right card-text" href="/user/{{ $producto->user->slug }}">
+                                        <a data-toggle="tooltip" data-placement="top" title="Perfil del usuario" class="btn pull-right card-text" href="/user/{{ $producto->user->slug }}">
                                             {{ $producto->user->nombre_usuario }}
                                         </a>
                                     </div>

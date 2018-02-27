@@ -11368,6 +11368,10 @@ var app = new Vue({
   el: '#app'
 });
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 var lozad = __webpack_require__(44);
 
 var observer = lozad(); // lazy loads elements with default selector as '.lozad'

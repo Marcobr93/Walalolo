@@ -24,12 +24,14 @@
                         </a>
                     </td>
                     <td>
-                        <a href="/producto/{{ $producto['id'] }}" TARGET="_BLANK">{{$producto->titulo}}</a>
+                        <a data-toggle="tooltip" data-placement="top" title="Información del producto"
+                           href="/producto/{{ $producto['id'] }}" TARGET="_BLANK">{{$producto->titulo}}</a>
                     </td>
                     <td>{{$producto->precio}} €</td>
                     <td>{{$producto->categoria}}</td>
                     <td>
-                        <a href="/user/{{ $producto->user->slug }}"
+                        <a data-toggle="tooltip" data-placement="top" title="Perfil del usuario"
+                           href="/user/{{ $producto->user->slug }}"
                            TARGET="_BLANK">{{$producto->user->nombre_usuario }}</a>
                     </td>
                     <td>{{$producto->user->poblacion }}</td>
