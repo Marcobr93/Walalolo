@@ -27,6 +27,16 @@
     background-color: #1F3346;
 }
 
+.bg-color4 {
+    background-color: #f2f2f2;
+}
+
+.text-limit-title{
+    width: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 .producto{
     padding: 50px;
@@ -34,6 +44,10 @@
 
 .marginTop{
     margin-top: 150px;
+}
+
+.marginTopFotoConversation{
+    margin-top: 60px;
 }
 
 
@@ -72,6 +86,11 @@
 .ancho_max_imagen_tabla {
     max-width:125px;
     max-height:125px;
+}
+
+.ancho_max_imagen_conversation {
+    max-width:60px;
+    max-height:60px;
 }
 
 

@@ -89,7 +89,11 @@ class UsersController extends Controller
 
         $media = $usuario->valoracionMedia();
 
-        $conversation = Conversation::conversationId(Auth::user(), $user1);
+        if(Auth::user() !== null){
+            $conversation = Conversation::conversationId(Auth::user(), $user1);
+        }else{
+            $conversation = "Hola";
+        }
 
         return view('users.index', [
             'productos' => $productos,

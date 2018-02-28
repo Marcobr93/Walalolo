@@ -5,8 +5,8 @@
 @foreach($productos->chunk(3) as $chunk)
     <div class="card-group row course-set courses__row producto">
         @foreach($chunk as $producto)
-            <div class="card col-md-4 mr-2 bg-light">
-                <div class="card-header bg-transparent border-primary">
+            <div class="card col-lg-4 mr-2 bg-light">
+                <div class="card-header bg-transparent border-primary text-limit-title">
                     <a data-toggle="tooltip" data-placement="top" title="Información del producto" href="/producto/{{ $producto['id'] }}">{{ $producto['titulo'] }} </a>
                 </div>
                 <div class="card-body">
@@ -39,8 +39,4 @@
         {{ $productos->links('pagination::bootstrap-4') }}
     </div>
 </div>
-
-@push('scripts')
-    <script src="{{ asset('js/lozad.js') }}" defer></script>
-@endpush
 

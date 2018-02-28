@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="row py-0">
-                        <div class="col-lg-1 hidden-md-down">
+                        <div class="col-lg-1 hidden-md-down text-center">
                             <a href="https://github.com/" TARGET="_BLANK">
                                 <img src="{{ asset('images/icon-github.png') }}">
                             </a>
@@ -12,17 +12,18 @@
                         <div class="col-lg-10 ml-3 text-white">
                             <div>
                                 <h4>Github</h4>
-                                <a data-toggle="tooltip" data-placement="bottom" title="Enlace a Github" href="https://github.com/Marcobr93" TARGET="_BLANK">https://github.com/Marcobr93/Walalolo</a>
+                                <a data-toggle="tooltip" data-placement="bottom" title="Enlace a Github"
+                                   href="https://github.com/Marcobr93" TARGET="_BLANK">https://github.com/Marcobr93/Walalolo</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 text-center">
+                <div class="col-lg-2 mt-2 text-center">
                     <a href="{{ url('/') }}">
                         <img src="{{ asset('images/W.png') }}">
                     </a>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-5 mt-2 text-center">
                     <div class="ml-4">
                         <div class="d-inline-block mr-3">
                             <a href="https://www.facebook.com/" TARGET="_BLANK">

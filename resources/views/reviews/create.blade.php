@@ -5,7 +5,7 @@
 'user_id' => $user['id']))}}" method="post">
                 {{ csrf_field() }}
 
-                <div class="modal-header">
+                <div class="modal-header bg-dark blanco">
                     <h5 class="modal-title center">Comentario</h5>
                 </div>
                 <div class="modal-body">

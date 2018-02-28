@@ -4,7 +4,7 @@
             <form class="form-horizontal" action="/user/{{ $user->slug }}/dms" method="post">
                 {{ csrf_field() }}
 
-                <div class="modal-header">
+                <div class="modal-header bg-dark blanco">
                     <h5 class="modal-title center">Mensaje Directo
                         a {{ $user->nombre_usuario }}</h5>
                 </div>

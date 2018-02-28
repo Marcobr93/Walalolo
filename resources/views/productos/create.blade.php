@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="text-center card-header bg-dark blanco">Añadir producto</div>
-                    <div class="card-body bg-light">
+                    <div class="card-body bg-color4">
                         <form action="{{ url('/') }}/productos/create" id="formularioCreacionProducto" method="post"
                               enctype="multipart/form-data" class="form-horizontal">
                             {{ csrf_field() }}
