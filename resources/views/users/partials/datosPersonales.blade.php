@@ -144,7 +144,7 @@
     </div>
 
 </div>
-<div class="mt-4 ml-3">
+<div class="mt-2 mb-4 text-center">
     <button type="submit" class="btn btn-dark">Actualizar</button>
 </div>
 

@@ -26,8 +26,8 @@
 
 </head>
 <body class="bg-color">
-<div id="app"   >
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -102,7 +102,7 @@
         </div>
     </nav>
 
-    <div class="container main-area">
+    <div class="container main-area mt-4">
         @yield('content')
     </div>
 </div>

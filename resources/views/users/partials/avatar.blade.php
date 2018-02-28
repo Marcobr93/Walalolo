@@ -5,7 +5,7 @@
 
         <div class="col-lg-12">
             <div class="text-center">
-                <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad ancho_max_imagen_2 lozad"
+                <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad ancho_max_imagen2 lozad"
                      data-src="{{ $user->avatar }}"
                      alt="Avatar del usuario."/>
             </div>
@@ -19,6 +19,6 @@
         </div>
     </div>
 </div>
-<div class="mt-4 ml-3 text-center">
+<div class="mt-2 mb-4 text-center">
     <button type="submit" class="btn btn-dark">Actualizar</button>
 </div>

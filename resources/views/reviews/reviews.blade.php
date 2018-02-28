@@ -1,5 +1,5 @@
     @foreach($user->reviews()->paginate(9)->chunk(1) as $chunk)
-        <div id="reviews" class="card-group row course-set courses__row mt-4 mb-4">
+        <div id="reviews" class="card-group row course-set courses__row my-4">
             @foreach($chunk as $review)
                 <div class="card col-md-12 bg-light">
                     <div class="card-header bg-transparent border-primary">

@@ -90,7 +90,7 @@ class UsersController extends Controller
         $media = $usuario->valoracionMedia();
 
         if(Auth::user() !== null){
-            $conversation = Conversation::conversationId(Auth::user(), $user1);
+            $conversation = Conversation::conversationId($this->user, $user1);
         }else{
             $conversation = "Hola";
         }

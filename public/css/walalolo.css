@@ -31,6 +31,10 @@
     background-color: #f2f2f2;
 }
 
+.bg-color5 {
+    background-color: #0B3861;
+}
+
 .text-limit-title{
     width: auto;
     text-overflow: ellipsis;
@@ -44,6 +48,10 @@
 
 .marginTop{
     margin-top: 150px;
+}
+
+.marginTopContent{
+    margin-top: 60px;
 }
 
 .marginTopFotoConversation{
@@ -92,7 +100,6 @@
     max-width:60px;
     max-height:60px;
 }
-
 
 
 html{ height:100%; }

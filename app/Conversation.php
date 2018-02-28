@@ -42,6 +42,11 @@ class Conversation extends Model
         return $conversation;
     }
 
+    /** Función que sólo nos mostrará las conversaciones del usuario.
+     * @param User $user
+     * @param User $other
+     * @return mixed
+     */
     public static function conversationId(User $user, User $other)
     {
         $query = Conversation::whereHas('users', function ($query) use ($user) {

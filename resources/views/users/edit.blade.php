@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="container">
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-12 text-center row">
                 <table class="mt-4 table table-striped table-bordered">
                     <thead class="bg-dark">
                     <tr>
-                        <th scope="col" @if(Request::is('perfil/cuenta')) class="bg-color3" @endif><a href="{{route('perfil.cuenta')}}">Cuenta</a></th>
-                        <th scope="col" @if(Request::is('perfil/password')) class="bg-color3" @endif><a href="{{route('perfil.password')}}">Contraseña</a></th>
-                        <th scope="col" @if(Request::is('perfil/avatar')) class="bg-color3" @endif><a href="{{route('perfil.avatar')}}">Foto</a></th>
-                        <th scope="col" @if(Request::is('perfil/datos-personales')) class="bg-color3" @endif><a href="{{route('perfil.personal')}}">Datos personales</a></th>
+                        <th scope="col" @if(Request::is('perfil/cuenta')) class="bg-color5" @endif><a href="{{route('perfil.cuenta')}}">Cuenta</a></th>
+                        <th scope="col" @if(Request::is('perfil/password')) class="bg-color5" @endif><a href="{{route('perfil.password')}}">Contraseña</a></th>
+                        <th scope="col" @if(Request::is('perfil/avatar')) class="bg-color5" @endif><a href="{{route('perfil.avatar')}}">Foto</a></th>
+                        <th scope="col" @if(Request::is('perfil/datos-personales')) class="bg-color5" @endif><a href="{{route('perfil.personal')}}">Datos personales</a></th>
                     </tr>
                     </thead>
                 </table>
