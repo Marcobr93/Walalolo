@@ -78,19 +78,19 @@
                                          data-src="{{ Auth::user()->avatar }}"
                                          alt="Foto del usuario {{ Auth::user()->nombre_usuario }}"/>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right bg-color"
+                                <div class="dropdown-menu dropdown-menu-right bg-dark border-primary"
                                      aria-labelledby="navbarDropdownMenuLink">
-                                    <a href="{{ url('/') }}/perfil" class="dropdown-item">
+                                    <a href="{{ url('/') }}/perfil" class="dropdown-item blanco">
                                         Perfil
                                     </a>
                                     <a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}"
-                                       class="dropdown-item">
+                                       class="dropdown-item blanco">
                                         Ofertas</a>
-                                    <a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="dropdown-item">
+                                    <a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="dropdown-item blanco">
                                         Tus productos</a>
 
                                     <div class="dropdown-divider"></div>
-                                    <a href="{{ route('logout') }}" class="dropdown-item"
+                                    <a href="{{ route('logout') }}" class="dropdown-item blanco"
                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>

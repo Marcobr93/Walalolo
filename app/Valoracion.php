@@ -12,7 +12,7 @@ class Valoracion extends Model
     /** Cada valoración la realiza un único usuario.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function usuarios()
+    public function user()
     {
         return $this->belongsTo(User::class, 'valora_user_id');
     }

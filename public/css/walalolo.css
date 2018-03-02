@@ -99,6 +99,11 @@
     max-height:45px;
 }
 
+.sticky {
+    position: sticky;
+    top: 60px;
+    z-index: 100;
+}
 
 html{ height:100%; }
 body{ min-height:100%; padding:0; margin:0; position:relative; }

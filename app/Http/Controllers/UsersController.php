@@ -92,7 +92,7 @@ class UsersController extends Controller
         if($this->user !== null){
             $conversation = Conversation::conversationId($this->user, $user1);
         }else{
-            $conversation = "Hola";
+            $conversation = null;
         }
 
         return view('users.index', [
