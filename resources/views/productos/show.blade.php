@@ -16,19 +16,22 @@
                                     </button>
                                 @endif
                             @endauth
-
                         </div>
 
                         <div class="col-lg-12 form-group mt-4">
-                                <a href="/user/{{ $producto->user->slug }}">
-                                    <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
-                                         data-src="{{ $producto->user->avatar }}"
-                                         alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
-                                </a>
-                                <a data-toggle="tooltip" data-placement="top" title="Perfil del usuario"
-                                   class="btn card-text text-center" href="/user/{{ $producto->user->slug }}">
-                                    {{ $producto->user->nombre_usuario }}
-                                </a>
+                            <a href="/user/{{ $producto->user->slug }}">
+                                <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
+                                     data-src="{{ $producto->user->avatar }}"
+                                     alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="right" title="Perfil del usuario"
+                               class="btn card-text text-center" href="/user/{{ $producto->user->slug }}">
+                                {{ $producto->user->nombre_usuario }}
+                            </a>
+                            <div class="card-text text-center">
+                                <img src="{{ asset('images/visitas.png') }}">
+                                {{$producto->getVisitasCount()}}
+                            </div>
                         </div>
 
                         <div class="col-lg-12 text-center">

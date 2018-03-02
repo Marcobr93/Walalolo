@@ -26,6 +26,11 @@ class DatabaseSeeder extends Seeder
                     'producto_id' => $producto->id,
                 ]);
 
+                $visitas = factory(\App\Visita::class, rand(0, 50))->create([
+                    'producto_id' => $producto->id,
+                    'user_id' => $user->id
+                ]);
+
             });
 
             $valoraciones = factory(App\Valoracion::class, 1)->create([

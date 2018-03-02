@@ -17,6 +17,20 @@ class Producto extends Model
         return $this->belongsTo(User::class); // con esto hemos conseguido que en la vista home, con {{ $producto->user->name }} podemos mostrar el autor del producto
     }
 
+    /** Los productos tienen muchas visitas.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function visitas() {
+        return $this->hasMany(Visita::class);
+    }
+
+    /** Contabiliza las visitas.
+     * @return int
+     */
+    public function getVisitasCount(){
+        return $this->visitas()->count();
+    }
+
     /** Getter de la foto del producto, para mostrar si la foto proviene de una por defecto o de una generada con $faker
      * @param $foto
      * @return mixed

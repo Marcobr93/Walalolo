@@ -73,6 +73,11 @@
                                    aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->nombre_usuario}}
                                 </a>
+                                <a href="/user/{{ Auth::user()->slug }}">
+                                    <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_navbar"
+                                         data-src="{{ Auth::user()->avatar }}"
+                                         alt="Foto del usuario {{ Auth::user()->nombre_usuario }}"/>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right bg-color"
                                      aria-labelledby="navbarDropdownMenuLink">
                                     <a href="{{ url('/') }}/perfil" class="dropdown-item">

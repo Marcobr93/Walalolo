@@ -6,7 +6,7 @@
     <div class="card-group row course-set courses__row producto">
         @foreach($chunk as $producto)
             <div class="card col-lg-4 mr-2 bg-light">
-                <div class="card-header bg-transparent border-primary text-limit-title">
+                <div class="card-header bg-transparent border-primary text-truncate">
                     <a data-toggle="tooltip" data-placement="top" title="Información del producto"
                        href="/producto/{{ $producto['id'] }}">{{ $producto['titulo'] }} </a>
                 </div>
@@ -21,6 +21,11 @@
                                  data-src="{{ $producto->user->avatar }}"
                                  alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
                         </a>
+
+                        <div class="card-text text-right">
+                            <img src="{{ asset('images/visitas.png') }}" >
+                            {{$producto->getVisitasCount()}}
+                        </div>
                     </h5>
                     <h5 class="card-img">
                         <a href="/producto/{{ $producto['id'] }}">

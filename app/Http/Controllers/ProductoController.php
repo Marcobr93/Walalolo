@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProductoRequest;
 use App\Producto;
 use App\Http\Requests\CreateProductoRequest;
 use App\User;
+use App\Visita;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,16 @@ class ProductoController extends Controller
      * @param Producto $producto
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Producto $producto)
+    public function show(Producto $producto, Request $request)
     {
+        if ($producto) {
+            Visita::create([
+                'producto_id' => $producto->id,
+                'user_id' => $request->user() ? $request->user()->id : null,
+                'ip' => $request->ip(),
+            ]);
+        }
+
         $user = User::where('id', $producto['user_id'])->firstOrFail();
 
         return view('productos.show', [
