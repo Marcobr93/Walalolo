@@ -76,6 +76,15 @@ class User extends Authenticatable
     }
 
 
+    /** Un usuario puede realizar muchas valoraciones
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function valorar()
+    {
+        return $this->hasMany(Valoracion::class, 'valora_user_id');
+    }
+
+
     /** Un usuario tiene muchas valoraciones
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -90,7 +99,6 @@ class User extends Authenticatable
      */
     public function valoracionMedia()
     {
-
         $valoraciones = $this->valoraciones->pluck('valoracion')->toArray();
 
         $sumaValoraciones = array_sum($valoraciones);
@@ -109,6 +117,7 @@ class User extends Authenticatable
 
         return $media;
     }
+
 
 
     /** Un usuario tiene muchas reviews de otros usuarios
@@ -131,6 +140,7 @@ class User extends Authenticatable
             return false;
         }
     }
+
 
     /** Getter del avatar del usuario, para mostrar si el avatar proviene de una por defecto o de una generada con $faker
      * @param $avatar

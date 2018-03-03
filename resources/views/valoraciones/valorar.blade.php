@@ -6,7 +6,9 @@
                 {{ csrf_field() }}
 
                 <div class="modal-header bg-dark blanco">
-                    <h5 class="modal-title center">Valoracion</h5>
+                    <h5 class="modal-title center">
+                        Valorar al usuario
+                    </h5>
                 </div>
                 <div class="modal-body">
                     <form>

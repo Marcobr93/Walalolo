@@ -147,12 +147,13 @@ class ProductoController extends Controller
      */
     public function tabla()
     {
-        $tablaProductos = Producto::all();
+        $tablaProductos = Producto::with('user')->get();
 
         return view('productos.tabla', [
             'tablaProductos' => $tablaProductos
         ]);
     }
+
 
     public function search(Request $request){
         $query = $request->input('busqueda');

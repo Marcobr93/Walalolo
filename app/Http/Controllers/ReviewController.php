@@ -30,7 +30,7 @@ class ReviewController extends Controller
      */
     public function review($nombre_usuario)
     {
-        $userLogeado = User::where('nombre_usuario', $nombre_usuario)->first();
+        $userLogeado = User::with('user')->where('nombre_usuario', $nombre_usuario)->first();
 
         return view('reviews.reviews', [
             'user' => $userLogeado

@@ -7,14 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Valoracion extends Model
 {
 
-    protected $fillable = ['valora_user_id', 'valorado_user_id', 'valoracion'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /** Cada valoración la realiza un único usuario.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'valora_user_id');
+        return $this->belongsTo(User::class,'valora_user_id');
+    }
+
+    public function userValorado()
+    {
+        return $this->belongsTo(User::class,'valorado_user_id');
     }
 
 }

@@ -69,7 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     // Rutas de valoraciones
-    Route::post('valoracion/valorar', 'ValoracionController@store')->name('valoracion.create');
+    Route::post('valoracion/valorar', 'ValoracionController@createOrEdit')->name('valoracion.create');
 
 
     // Rutas de reviews

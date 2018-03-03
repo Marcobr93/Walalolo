@@ -81,7 +81,7 @@ class UsersController extends Controller
     {
         $user1 = User::where('slug', $user)->firstOrFail();
 
-        $productos = $user1->productos()->latest()->paginate(6);
+        $productos = $user1->productos()->latest()->with('user')->paginate(6);
 
         $totalProductos = $user1->productos()->count();
 
@@ -143,8 +143,7 @@ class UsersController extends Controller
     {
         return User::where('slug', $slug)->firstOrFail();
     }
-
-
+    
 
     /** Devuelve la vista con los mensajes privados entre los dos usuarios.
      * @param Conversation $conversation

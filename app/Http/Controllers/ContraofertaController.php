@@ -36,7 +36,7 @@ class ContraofertaController extends Controller
     {
         $userLogeado = $this->userLogeado($nombre_usuario);
 
-        $contraofertas = $userLogeado->contraofertas()->paginate(9);
+        $contraofertas = $userLogeado->contraofertas()->with('comprador')->paginate(9);
 
         return view('contraofertas.oferta', [
             'user' => $userLogeado,
@@ -53,7 +53,7 @@ class ContraofertaController extends Controller
     {
         $userLogeado = $this->userLogeado($nombre_usuario);
 
-        $contraofertasAceptadas = $userLogeado->contraofertasAceptadas()->paginate(9);
+        $contraofertasAceptadas = $userLogeado->contraofertasAceptadas()->with('comprador')->paginate(9);
 
 
         return view('contraofertas.aceptadas', [

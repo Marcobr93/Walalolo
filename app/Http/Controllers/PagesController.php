@@ -14,7 +14,7 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $productos = Producto::orderBy('created_at', 'desc')->paginate(9);
+        $productos = Producto::orderBy('created_at', 'desc')->with('user')->paginate(9);
 
         $destacado = 0;
 
