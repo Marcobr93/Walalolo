@@ -68,11 +68,11 @@
                             <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Registro</a></li>
                         @else
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link-active dropdown-toggle" id="navbarDropdownMenuLink"
+                                <button href="#" class="btn btn-dark nav-link-active dropdown-toggle" id="navbarDropdownMenuLink"
                                    data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->nombre_usuario}}
-                                </a>
+                                </button>
                                 <a href="/user/{{ Auth::user()->slug }}">
                                     <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_navbar"
                                          data-src="{{ Auth::user()->avatar }}"

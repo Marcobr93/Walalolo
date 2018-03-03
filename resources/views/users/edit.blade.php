@@ -17,11 +17,11 @@
 
             <div class="col-lg-12 form-group row center">
                 @if( session('exito') )
-                    <div class="bg-success">
+                    <div class="alert alert-success text-center" role="alert">
                         <h5>Actualización correcta</h5>
                     </div>
                 @elseif( session('error'))
-                    <div class="bg-danger">
+                    <div class="alert alert-danger text-center" role="alert">
                         <h5>{{ session('error') }}</h5>
                     </div>
                 @endif

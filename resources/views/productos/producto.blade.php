@@ -11,13 +11,12 @@
         @foreach($chunk as $producto)
             <div class="card col-lg-4 mr-2 bg-light">
                 <div class="card-header bg-transparent border-primary text-truncate">
-                    <a data-toggle="tooltip" data-placement="top" title="Información del producto"
-                       href="/producto/{{ $producto['id'] }}">{{ $producto['titulo'] }} </a>
+                  {{ $producto['titulo'] }}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
                         <a data-toggle="tooltip" data-placement="bottom" title="Perfil del usuario"
-                           class="btn pull-right" href="/user/{{ $producto->user->slug }}">
+                           class="pull-right badge badge-pill badge-dark" href="/user/{{ $producto->user->slug }}">
                             {{ $producto->user->nombre_usuario }}
                         </a>
                         <a href="/user/{{ $producto->user->slug }}">
@@ -26,7 +25,6 @@
                                  onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                                  alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
                         </a>
-
                         <div class="card-text text-right">
                             <img src="{{ asset('images/visitas.png') }}">
                             {{$producto->getVisitasCount()}}
@@ -40,7 +38,7 @@
                                  alt="Foto del producto {{ $producto['titulo'] }}"/>
                         </a>
                     </h5>
-                    <p class="card-text">{{ $producto['descripcion'] }}</p>
+                    <h5 class="card-text">{{ $producto['descripcion'] }}</h5>
                 </div>
                 <div class="card-footer bg-transparent border-primary">
                     <h4 class="price ng">

@@ -33,7 +33,7 @@
                  alt="Avatar del usuario."/>
         </div>
 
-        <div class="text-center mt-4">
+        <div class="text-center mt-4 jumbotron-fluid">
             <h1>Productos de {{ $user['nombre_usuario'] }} ({{$totalProductos}})</h1>
         </div>
 

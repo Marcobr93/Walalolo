@@ -5,7 +5,7 @@
                 <div class="col-lg-5">
                     <div class="row py-0">
                         <div class="col-lg-1 hidden-md-down text-center">
-                            <a href="https://github.com/" TARGET="_BLANK">
+                            <a href="https://github.com/Marcobr93" TARGET="_BLANK">
                                 <img src="{{ asset('images/icon-github.png') }}">
                             </a>
                         </div>

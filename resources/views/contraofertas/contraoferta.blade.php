@@ -1,5 +1,6 @@
 <div class="card col-md-4 mr-4 bg-light">
     <div class="card-header bg-transparent border-primary">
+        <h5>
         <a href="/user/{{ $contraoferta->comprador->slug }}">
             <img class="mr-2 rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
                  data-src="{{ $contraoferta->comprador->avatar }}"
@@ -7,9 +8,10 @@
                  alt="Foto del usuario {{ $contraoferta->comprador->nombre_usuario }}"/>
         </a>
         <a data-toggle="tooltip" data-placement="bottom" title="Perfil del usuario"
-           class="btn pull-right" href="/user/{{ $contraoferta->comprador->slug }}">
-            {{ $contraoferta->comprador->nombre_usuario }}
+           class="pull-right badge badge-pill badge-dark" href="/user/{{ $contraoferta->comprador->slug }}">
+                {{ $contraoferta->comprador->nombre_usuario }}
         </a>
+        </h5>
     </div>
     <div class="card-body">
         <p class="card-text">

@@ -25,10 +25,12 @@
                                      onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                                      alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
                             </a>
-                            <a data-toggle="tooltip" data-placement="right" title="Perfil del usuario"
-                               class="btn card-text text-center" href="/user/{{ $producto->user->slug }}">
-                                {{ $producto->user->nombre_usuario }}
-                            </a>
+                            <h5 class="mt-1">
+                                <a data-toggle="tooltip" data-placement="right" title="Perfil del usuario"
+                                   class="badge badge-pill badge-dark card-text text-center" href="/user/{{ $producto->user->slug }}">
+                                    {{ $producto->user->nombre_usuario }}
+                                </a>
+                            </h5>
                             <div class="card-text text-center">
                                 <img src="{{ asset('images/visitas.png') }}">
                                 {{$producto->getVisitasCount()}}
