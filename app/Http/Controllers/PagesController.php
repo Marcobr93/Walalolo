@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
+use App\User;
 use Illuminate\Support\Facades\View;
 
 class PagesController extends Controller
@@ -27,7 +28,7 @@ class PagesController extends Controller
 
         return view('home', [
             'productos' => $productos,
-            'elementoActivo' => $destacado
+            'elementoActivo' => $destacado,
         ]);
     }
 
@@ -39,7 +40,17 @@ class PagesController extends Controller
         if (request()->ajax()) {
 
             $productos = Producto::orderBy('created_at', 'desc')->paginate(9);
-            return View::make('productos.producto', array('productos' => $productos))->render();
+
+            $destacado = 0;
+
+            foreach ($productos as $producto) {
+                if ($producto->destacado == 1) {
+                    $destacado = $producto->id;
+                    break;
+                }
+            }
+
+            return View::make('productos.producto', array('productos' => $productos, 'elementoActivo' => $destacado))->render();
         } else {
             return redirect('/');
         }

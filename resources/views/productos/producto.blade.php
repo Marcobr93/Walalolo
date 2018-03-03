@@ -1,3 +1,7 @@
+@if(!Request::is('user/*'))
+    @include('layouts.carousel')
+@endif
+
 @if($productos->isEmpty())
     <p>No hay productos para mostrar.</p>
 @endif
@@ -18,13 +22,13 @@
                         </a>
                         <a href="/user/{{ $producto->user->slug }}">
                             <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
-                                 data-src="{{ $producto->user->avatar }}"
+                                 src="{{ $producto->user->avatar }}"
                                  onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                                  alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
                         </a>
 
                         <div class="card-text text-right">
-                            <img src="{{ asset('images/visitas.png') }}" >
+                            <img src="{{ asset('images/visitas.png') }}">
                             {{$producto->getVisitasCount()}}
                         </div>
                     </h5>
