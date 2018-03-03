@@ -29,10 +29,11 @@
         <div class="text-center mt-4">
             <img class="img-responsive img-fluid img-portfolio img-hover lozad ancho_max_imagen"
                  data-src="{{ $user['avatar']}}" src="{{ $user['avatar']}}"
+                 onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                  alt="Avatar del usuario."/>
         </div>
 
-        <div class="text-center producto">
+        <div class="text-center mt-4">
             <h1>Productos de {{ $user['nombre_usuario'] }} ({{$totalProductos}})</h1>
         </div>
 

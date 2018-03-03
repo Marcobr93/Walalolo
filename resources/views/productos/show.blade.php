@@ -22,6 +22,7 @@
                             <a href="/user/{{ $producto->user->slug }}">
                                 <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
                                      data-src="{{ $producto->user->avatar }}"
+                                     onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                                      alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
                             </a>
                             <a data-toggle="tooltip" data-placement="right" title="Perfil del usuario"
@@ -37,6 +38,7 @@
                         <div class="col-lg-12 text-center">
                             <img class="img-responsive img-fluid img-portfolio img-hover lozad ancho_max_imagen2"
                                  data-src="{{ $producto['foto'] }}"
+                                 onerror="src='{{ asset('images/default_product.jpeg') }}'"
                                  alt="Foto del producto {{ $producto['titulo'] }}"/>
                         </div>
 
@@ -108,7 +110,7 @@
                                 <label class="col-lg-6 col-form-label bg-dark blanco center input-group-text ng">Tipo de
                                     envío</label>
                                 <div class="col-lg-12 center mt-2">
-                                    <img src="{{ asset('images/caja.png') }}">
+                                    <img class="lozad" data-src="{{ asset('images/caja.png') }}">
                                 </div>
                                 <div class="col-lg-12">
                                     <h3 class="card-text">{{ $producto['tipo_envio'] }}</h3>
@@ -120,7 +122,7 @@
                                     del
                                     producto</label>
                                 <div class="col-lg-12 center mt-2">
-                                    <img src="{{ asset('images/intercambio.png') }}">
+                                    <img class="lozad" data-src="{{ asset('images/intercambio.png') }}">
                                 </div>
                                 <div class="col-lg-12">
                                     <h3 class="card-text">
@@ -141,7 +143,7 @@
                             <div class="col-lg-3 form-group">
                                 <label class="col-lg-6 col-form-label bg-dark blanco center input-group-text ng">Destacado</label>
                                 <div class="col-lg-12 center mt-2">
-                                    <img src="{{ asset('images/destacado.png') }}">
+                                    <img class="lozad" data-src="{{ asset('images/destacado.png') }}">
                                 </div>
                                 <div class="col-lg-12">
                                     <h3 class="card-text">
@@ -162,7 +164,7 @@
                                 <label class="col-form-label center bg-dark blanco input-group-text ng">Negociación del
                                     precio</label>
                                 <div class="col-lg-12 center mt-2">
-                                    <img src="{{ asset('images/precio.png') }}">
+                                    <img class="lozad" data-src="{{ asset('images/precio.png') }}">
                                 </div>
                                 <div class="col-lg-12">
                                     <h3 class="card-text">

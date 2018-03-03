@@ -13,6 +13,7 @@
                 <a href="/user/{{ $message->user->slug }}">
                     <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
                          data-src="{{ $message->user->avatar }}"
+                         onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                          alt="Foto del usuario {{ $message->user->nombre_usuario }}"/>
                 </a>
             </div>

@@ -4,7 +4,13 @@
                 <div class="card col-md-12 bg-light">
                     <div class="card-header bg-transparent border-primary">
                         <h4 class="card-title ng">
-                            Usuario: {{ $review->usuario->nombre_usuario }}
+                            <a href="/user/{{ $review->usuario->slug }}">
+                                <img class="mr-2 rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
+                                     data-src="{{ $review->usuario->avatar }}"
+                                     onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
+                                     alt="Foto del usuario {{ $review->usuario->nombre_usuario }}"/>
+                            </a>
+                           {{ $review->usuario->nombre_usuario }}
                         </h4>
                     </div>
                     <div class="card-body">

@@ -6,7 +6,7 @@
 
         <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria"
                 title="Categoría">
-            <option selected value="Sin determinar.">Selecciona</option>
+            <option selected value="{{ $producto->categoria }}">Selecciona</option>
             <option value="Deporte y Ocio">Deporte y Ocio</option>
             <option value="Muebles, Deco y Jardín">Muebles, Deco y Jardín</option>
             <option value="Consolas y Videojuegos">Consolas y Videojuegos</option>
@@ -38,7 +38,7 @@
 
             <select name="destacado" class="custom-select custom-select-lg mb-3"
                     id="destacado" title="Destacado">
-                <option selected value="0">Selecciona</option>
+                <option selected value="{{ $producto->destacado }}">Selecciona</option>
                 <option value="1">Sí</option>
                 <option value="0">No</option>
             </select>
@@ -60,7 +60,7 @@
 
             <select name="tipo_envio" class="custom-select custom-select-lg mb-3"
                     id="tipo_envio" title="Tipo de envío">
-                <option selected value="Sin determinar.">Selecciona</option>
+                <option selected value="{{ $producto->tipo_envio }}">Selecciona</option>
                 <option value="Sin envío">Sin envío</option>
                 <option value="5 kg max">5 kg max.</option>
                 <option value="10 kg max">10 kg max.</option>
@@ -87,8 +87,8 @@
         <div class="col-lg-10 center">
 
             <select name="negociacion_precio" class="custom-select custom-select-lg mb-3"
-                    id="negociacion_precio" title="Tipo de envío">
-                <option selected value="0">Selecciona</option>
+                    id="negociacion_precio" title="Negociación del precio.">
+                <option selected value="{{ $producto->negociacion_precio }}">Selecciona</option>
                 <option value="1">Sí</option>
                 <option value="0">No</option>
             </select>
@@ -110,7 +110,7 @@
 
             <select name="intercambio_producto" class="custom-select custom-select-lg mb-3"
                     id="intercambio_producto" title="Intercambio producto">
-                <option selected value="0">Selecciona</option>
+                <option selected value="{{ $producto->intercambio_producto }}">Selecciona</option>
                 <option value="1">Sí</option>
                 <option value="0">No</option>
             </select>

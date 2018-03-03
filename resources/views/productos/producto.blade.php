@@ -19,6 +19,7 @@
                         <a href="/user/{{ $producto->user->slug }}">
                             <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
                                  data-src="{{ $producto->user->avatar }}"
+                                 onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                                  alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
                         </a>
 
@@ -31,6 +32,7 @@
                         <a href="/producto/{{ $producto['id'] }}">
                             <img class="lozad img-responsive img-fluid img-portfolio img-hover mb-3 "
                                  src="{{ $producto['foto'] }}"
+                                 onerror="src='{{ asset('images/default_product.jpeg') }}'"
                                  alt="Foto del producto {{ $producto['titulo'] }}"/>
                         </a>
                     </h5>

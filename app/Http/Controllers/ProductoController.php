@@ -76,7 +76,7 @@ class ProductoController extends Controller
 
             $producto->fill($data);
         } elseif (strpos($path, 'otros-datos')) {
-            $data = array_filter($request->all());
+            $data = $request->all();
 
             $producto->fill($data);
         } elseif (strpos($path, 'foto')) {

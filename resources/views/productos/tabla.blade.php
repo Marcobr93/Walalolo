@@ -20,6 +20,7 @@
                     <td>
                         <a href="/producto/{{ $producto['id'] }}" TARGET="_BLANK">
                             <img class="ancho_max_imagen_tabla lozad" data-src="{{$producto->foto}}"
+                                 onerror="src='{{ asset('images/default_product.jpeg') }}'"
                                  alt="Foto del producto {{ $producto['titulo'] }}">
                         </a>
                     </td>
