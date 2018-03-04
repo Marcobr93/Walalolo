@@ -51,7 +51,6 @@
         </table>
     </div>
 
-
 @endsection
 @push('scripts')
     <script src="{{ asset('js/tablaProductos.js') }}" defer></script>
