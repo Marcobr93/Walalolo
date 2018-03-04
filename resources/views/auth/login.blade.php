@@ -6,7 +6,7 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-header bg-dark blanco">Login</div>
-                    <div class="card-body">
+                    <div class="card-body mt-2">
                         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
 

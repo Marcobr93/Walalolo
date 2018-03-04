@@ -47,6 +47,16 @@ gusto, yo le mostraré con imágenes como es la configuración en mi caso.
 
 ![hosts](https://user-images.githubusercontent.com/23703557/36948534-743b2914-1fdc-11e8-9e40-708369422bf1.png)
 
+Una vez realizados todos estos pasos, nos dispondremos a **"levantar"** la máquina virtual, al añadir  una base de datos,
+será necesario utilizar el siguiente comando en la carpeta de **Homestead**: 
+```
+vagrant up --provision
+```
+El resto de ocasiones que queramos iniciar vagrant, será necesario utilizar sólo este comando:
+```
+vagrant up
+```
+
 #### .env
 Una vez realizado todos estos pasos, nos faltará configurar el archivo **.env** del proyecto **Walalolo.**
 Para ello podemos renombrar el archivo **.env.example** o crear un nuevo archivo **.env**, en cualquier caso, la 

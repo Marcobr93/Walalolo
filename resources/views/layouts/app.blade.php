@@ -19,10 +19,14 @@
     <link href="{{ asset('css/iziModal.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
 
-
+    <!-- CDN jquery.ui(CSS) -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- CDN datatables.js(CSS) -->
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.1/sc-1.4.4/datatables.min.css"/>
+
+    <!-- CDN leaflet(CSS) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
           integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
           crossorigin=""/>
@@ -31,77 +35,7 @@
 </head>
 <body class="bg-color">
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    @auth()
-                        <li class="nav-item">
-                            <a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a>
-                        </li>
-                    @endauth
-                    <li class="nav-item">
-                        <a href="/tabla-busqueda" class="nav-link">Tabla de productos</a>
-                    </li>
-
-
-                </ul>
-                <div class="justify-content-end">
-                    <ul class="navbar-nav">
-                        <form class="form-inline my-2 my-lg-0 mr-4" action="/productos">
-                            <input class="form-control mr-sm-2" type="search" id="busqueda" name="busqueda"
-                                   placeholder="Búsqueda" aria-label="Search">
-                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Búsqueda</button>
-                        </form>
-                        @if (Auth::guest())
-                            <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                            <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Registro</a></li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <button href="#" class="btn btn-dark nav-link-active dropdown-toggle"
-                                        id="navbarDropdownMenuLink"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->nombre_usuario}}
-                                </button>
-                                <a href="/user/{{ Auth::user()->slug }}">
-                                    <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_navbar"
-                                         data-src="{{ Auth::user()->avatar }}"
-                                         alt="Foto del usuario {{ Auth::user()->nombre_usuario }}"/>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right bg-dark border-primary"
-                                     aria-labelledby="navbarDropdownMenuLink">
-                                    <a href="{{ url('/') }}/perfil" class="dropdown-item blanco">
-                                        Perfil
-                                    </a>
-                                    <a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}"
-                                       class="dropdown-item blanco">
-                                        Ofertas</a>
-                                    <a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="dropdown-item blanco">
-                                        Tus productos</a>
-
-                                    <div class="dropdown-divider"></div>
-                                    <a href="{{ route('logout') }}" class="dropdown-item blanco"
-                                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </div>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    @include('layouts.navbar')
 
     <div class="container main-area mt-4">
         @yield('content')
@@ -113,9 +47,14 @@
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 
+<!-- CDN jquery.ui(JS) -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- CDN datatables.js(JS) -->
 <script type="text/javascript"
         src="https://cdn.datatables.net/v/bs4-4.0.0/dt-1.10.16/af-2.2.2/b-1.5.1/cr-1.4.1/r-2.2.1/sc-1.4.4/datatables.min.js"></script>
+
+<!-- CDN leaflet(JS) -->
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
         integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
         crossorigin=""></script>

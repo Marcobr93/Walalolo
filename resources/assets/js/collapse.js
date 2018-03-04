@@ -1,9 +1,9 @@
 function toogle() {
-    $("#elemento1").collapse("toggle");
+    $("#mostrarReviews").collapse("toggle");
 }
 
 $(function() {
-    $("#btntoggle").on('click', function (e) {
+    $("#btnCollapse").on('click', function (e) {
         toogle();
     })
 });

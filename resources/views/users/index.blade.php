@@ -44,7 +44,7 @@
         @endauth
 
         <div class="text-center mt-4 jumbotron-fluid">
-            <h1>Productos de {{ $user['nombre_usuario'] }} ({{$totalProductos}})</h1>
+            <h1>Productos de {{ $user->nombre_usuario }} ({{$totalProductos}})</h1>
         </div>
 
         <div id="paginacion">
@@ -60,11 +60,11 @@
             @endauth
         </ul>
 
-        <button id="btntoggle" data-toggle="collapse" class="btn btn-dark center my-4">
+        <button id="btnCollapse" data-toggle="collapse" class="btn btn-dark center my-4">
             Mostrar {{$user->reviews->count()}} Comentarios
         </button>
 
-        <div class="col-lg-12 collapse multi-collapse mb-4 bg-color4" id="elemento1">
+        <div class="col-lg-12 collapse multi-collapse mb-4 bg-color4" id="mostrarReviews">
             <div class="card card-body bg-dark">
                 @include('reviews.reviews')
             </div>
