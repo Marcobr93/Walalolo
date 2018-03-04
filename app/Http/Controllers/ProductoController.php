@@ -31,7 +31,7 @@ class ProductoController extends Controller
             ]);
         }
         $data = GeoIP::getLocation($producto->user->ip);
-        dd($data);
+
         $user = User::where('id', $producto['user_id'])->firstOrFail();
 
         return view('productos.show', [
