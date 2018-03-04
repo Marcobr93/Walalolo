@@ -38,7 +38,7 @@ gusto, yo le mostraré con imágenes como es la configuración en mi caso.
 #### Homestead.yaml
 - En primer lugar modificaremos el archivo **Homestead.yaml** ubicado en la carpeta **Homestead.**
 
-![homestead yaml](https://user-images.githubusercontent.com/23703557/36948449-3643268a-1fdb-11e8-8848-b9c17a258032.png)
+![homestead yaml](https://user-images.githubusercontent.com/23703557/36949934-f03936de-1fee-11e8-9cf9-3296d73de393.png)
 
 #### hosts
 - En segundo lugar modificaremos el archivo hosts con permisos de administrador.
