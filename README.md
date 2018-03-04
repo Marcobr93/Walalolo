@@ -1,11 +1,12 @@
 # Walalolo
 
-**Walalolo** es un proyecto realizado en **Laravel 5.5** y **Bootstrap v4.0**, es una tienda de segunda mano que te permite buscar productos o subir 
-los tuyos propios.
+**Walalolo** es un proyecto realizado en **Laravel 5.5** y **Bootstrap v4.0**. Se trata de  una tienda de segunda mano 
+que te permite buscar productos o subir los tuyos propios.
 
 ## Instalación
 
-Para poder usar la aplicacion es necesario que instale previamente **Composer** , **Vagrant** , **Virtualbox** y **_Node.js_**.
+Para poder usar la aplicacion es necesario que instale previamente _**PHP**_, _**Composer**_ , _**Vagrant**_ ,
+_**Virtualbox**_ y **_Node.js_**.
 
 #### Composer
 Instalación de **Composer**: https://getcomposer.org/download/
@@ -52,6 +53,11 @@ Para ello podemos renombrar el archivo **.env.example** o crear un nuevo archivo
 configuración deberá ser así:
 
 ![env](https://user-images.githubusercontent.com/23703557/36948543-a499cc0a-1fdc-11e8-8393-6a032294a339.png)
+
+Para generar 'APP_KEY, deberá utilizar el siguiente comando:'
+```
+php artisan key:generate
+```
 
 ### Base de datos
 Para la configuración de la base de datos, utilizará los datos del archivo **.env**.
