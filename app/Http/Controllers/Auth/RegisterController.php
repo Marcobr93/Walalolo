@@ -8,6 +8,7 @@ use App\Http\Requests\CreateUserAjaxFormRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -88,7 +89,8 @@ class RegisterController extends Controller
             'direccion' => $indefinido,
             'poblacion' => $indefinido,
             'website' => $indefinido,
-            'descripcion' => $indefinido
+            'descripcion' => $indefinido,
+            'ip' =>  request()->ip(),
         ]);
     }
 }

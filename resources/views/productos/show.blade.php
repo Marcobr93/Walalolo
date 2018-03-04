@@ -199,6 +199,16 @@
                     <label class="col-lg-3 col-form-label center bg-dark blanco input-group-text ng mb-2">Descripción</label>
                     <h3 class="card-text">{{ $producto['descripcion'] }}</h3>
                 </div>
+
+                <hr class="bg-primary">
+
+                <div class="col-lg-12 mb-3">
+                    <h4 class="col-lg-12">
+                        <img class="lozad" data-src="{{ asset('images/location.png') }}">
+                    @if($data->postal_code !== ""){{$data->postal_code . ','}} @endif{{$data->city}}
+                    </h4>
+                        <div id="map" class="map col-lg-12"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -206,6 +216,13 @@
 
 @push('scripts')
     <script src="{{ asset('js/lozad.js') }}"></script>
+    <script src="{{ asset('js/map.js') }}"></script>
+
+    <script>
+        $(function () {
+            maps('{{ $data->lat }}', '{{ $data->lon }}', '{{ $data->city }}');
+        })
+    </script>
 @endpush
 
 {{--@push('scripts')--}}

@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('poblacion');
             $table->string('website');
             $table->text('descripcion');
+            $table->string('ip');
             $table->rememberToken();
             $table->timestamps();
         });

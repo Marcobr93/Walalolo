@@ -123,6 +123,8 @@ class ProfileController extends Controller
             $user->avatar = $url;
         }
 
+        $user->ip = $request->ip();
+
         $user->save();
 
         return redirect()

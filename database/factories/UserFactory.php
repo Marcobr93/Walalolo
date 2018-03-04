@@ -36,5 +36,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'poblacion' => $faker->country,
         'website' => $faker->url,
         'descripcion' => $faker->realText(255),
+        'ip' => $faker->ipv4,
     ];
 });

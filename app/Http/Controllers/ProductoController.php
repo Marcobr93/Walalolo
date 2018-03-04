@@ -10,6 +10,7 @@ use App\User;
 use App\Visita;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Torann\GeoIP\Facades\GeoIP;
 
 
 class ProductoController extends Controller
@@ -29,12 +30,14 @@ class ProductoController extends Controller
                 'ip' => $request->ip(),
             ]);
         }
-
+        $data = GeoIP::getLocation($producto->user->ip);
+        dd($data);
         $user = User::where('id', $producto['user_id'])->firstOrFail();
 
         return view('productos.show', [
             'producto' => $producto,
-            'user' => $user
+            'user' => $user,
+            'data' => $data
         ]);
     }
 
