@@ -44,7 +44,8 @@
                             </div>
 
                             <div class="form-group row{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-lg-4 col-form-label text-lg-right ng">Contraseña</label>
+                                <label for="password"
+                                       class="col-lg-4 col-form-label text-lg-right ng">Contraseña</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password">

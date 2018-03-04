@@ -12,15 +12,15 @@ class CreateUserAjaxFormRequest extends CreateUserFormRequest
 
         $rules = array();
 
-        if($this->exists('nombre_usuario')){
+        if ($this->exists('nombre_usuario')) {
             $rules['nombre_usuario'] = $this->validarNombreUsuario();
         }
 
-        if($this->exists('email')) {
+        if ($this->exists('email')) {
             $rules['email'] = $this->validarEmail();
         }
 
-        if($this->exists('emailLogin')) {
+        if ($this->exists('emailLogin')) {
             $rules['emailLogin'] = $this->validarEmailLogin();
         }
 

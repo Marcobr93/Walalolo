@@ -10,7 +10,8 @@
         <div class="row form-group col-lg-9">
 
             <div class="text-right form-group col-lg-4 center container">
-                <a href="/user/{{ $message->user->slug }}">
+                <a data-toggle="tooltip" data-placement="left" title="Perfil de {{ $message->user->nombre_usuario }}"
+                   href="/user/{{ $message->user->slug }}">
                     <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
                          data-src="{{ $message->user->avatar }}"
                          onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
@@ -21,7 +22,7 @@
             <div class="card form-group col-lg-8 my-2 container justify-content-md-center">
                 <div class="card-header bg-transparent border-primary">
                     <h5 class="card-text ng">
-                    {{ $message->user->nombre_usuario }}
+                        {{ $message->user->nombre_usuario }}
                     </h5>
                 </div>
                 <div class="card-body bg-light">

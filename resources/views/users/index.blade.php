@@ -3,6 +3,14 @@
 @section('content')
     <div class="bg-color4">
 
+        <div class="col-lg-12 my-3">
+            <h4 class="col-lg-12 text-center">
+                <img class="lozad" data-src="{{ asset('images/location.png') }}">
+                @if($data->postal_code !== ""){{$data->postal_code . ','}} @endif{{$data->city}}
+            </h4>
+            <div id="map" class="map col-lg-12"></div>
+        </div>
+
         @include('valoraciones.valoracion')
 
         @auth
@@ -23,15 +31,17 @@
                     </div>
                 @endif
 
+                <div class="text-center mt-4">
+                    <a href="/user/{{ $user->slug }}">
+                        <img class="rounded mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_user"
+                             data-src="{{ $user->avatar }}"
+                             onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
+                             alt="Foto del usuario {{ $user->nombre_usuario }}"/>
+                    </a>
+                </div>
+
             @endif
         @endauth
-
-        <div class="text-center mt-4">
-            <img class="img-responsive img-fluid img-portfolio img-hover lozad ancho_max_imagen"
-                 data-src="{{ $user['avatar']}}" src="{{ $user['avatar']}}"
-                 onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
-                 alt="Avatar del usuario."/>
-        </div>
 
         <div class="text-center mt-4 jumbotron-fluid">
             <h1>Productos de {{ $user['nombre_usuario'] }} ({{$totalProductos}})</h1>
@@ -54,11 +64,11 @@
             Mostrar {{$user->reviews->count()}} Comentarios
         </button>
 
-                <div class="col-lg-12 collapse multi-collapse mb-4 bg-color4" id="elemento1">
-                    <div class="card card-body bg-dark">
-                        @include('reviews.reviews')
-                    </div>
-                </div>
+        <div class="col-lg-12 collapse multi-collapse mb-4 bg-color4" id="elemento1">
+            <div class="card card-body bg-dark">
+                @include('reviews.reviews')
+            </div>
+        </div>
 
     </div>
 @endsection
@@ -71,4 +81,12 @@
         @endif
     @endauth
     <script src="{{ asset('js/collapse.js') }}"></script>
+    <script src="{{ asset('js/map.js') }}"></script>
+    <script src="{{ asset('js/lozad.js') }}" defer></script>
+
+    <script>
+        $(function () {
+            maps('{{ $data->lat }}', '{{ $data->lon }}', '{{ $data->city }}');
+        })
+    </script>
 @endpush

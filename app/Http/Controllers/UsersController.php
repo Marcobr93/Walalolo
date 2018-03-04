@@ -7,6 +7,7 @@ use App\Http\Requests\CreateUserRequest;
 use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;
+use Torann\GeoIP\Facades\GeoIP;
 
 class UsersController extends Controller
 {
@@ -78,28 +79,29 @@ class UsersController extends Controller
      */
     public function show($user)
     {
-        $user1 = User::where('slug', $user)->firstOrFail();
+        $usuario = User::where('slug', $user)->firstOrFail();
 
-        $productos = $user1->productos()->latest()->with('user')->paginate(6);
+        $productos = $usuario->productos()->latest()->with('user')->paginate(6);
 
-        $totalProductos = $user1->productos()->count();
-
-        $usuario = $this->buscarPorNombre($user);
+        $totalProductos = $usuario->productos()->count();
 
         $media = $usuario->valoracionMedia();
 
+        $data = GeoIP::getLocation($usuario->ip);
+
         if($this->user !== null){
-            $conversation = Conversation::conversationId($this->user, $user1);
+            $conversation = Conversation::conversationId($this->user, $usuario);
         }else{
             $conversation = null;
         }
 
         return view('users.index', [
             'productos' => $productos,
-            'user' => $user1,
+            'user' => $usuario,
             'media' => $media,
             'totalProductos' => $totalProductos,
-            'conversation' => $conversation
+            'conversation' => $conversation,
+            'data' => $data
         ]);
     }
 

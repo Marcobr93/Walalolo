@@ -159,7 +159,8 @@
                             </div>
 
                             <div class="form-group row{{ $errors->has('categoria') ? ' has-error' : '' }}">
-                                <label for="categoria" class="col-lg-2 col-form-label text-lg-right ng">Categoría</label>
+                                <label for="categoria"
+                                       class="col-lg-2 col-form-label text-lg-right ng">Categoría</label>
 
                                 <div class="col-lg-8">
                                     <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria"

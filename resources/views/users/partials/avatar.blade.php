@@ -5,7 +5,7 @@
 
         <div class="col-lg-12">
             <div class="text-center">
-                <img class="img-responsive img-fluid img-portfolio img-hover mb-3 lozad ancho_max_imagen2 lozad"
+                <img class="rounded img-responsive img-fluid img-portfolio img-hover mb-3 lozad ancho_max_imagen2 lozad"
                      data-src="{{ $user->avatar }}"
                      alt="Avatar del usuario."/>
             </div>

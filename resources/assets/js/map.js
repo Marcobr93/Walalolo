@@ -6,13 +6,14 @@ function maps(lat, long, name){
     }).addTo(map);
 
     L.circle([lat, long], {
-        color: '#5882FA',
-        fillColor: '#A9D0F5',
+        color: 'red',
+        fillColor: '#f03',
         fillOpacity: 0.5,
-        radius: 350
+        radius: 500
     }).addTo(map);
 
     // L.marker([lat, long],{
     //     draggable: true
     // }).addTo(map).bindPopup(name).openPopup();
+
 }

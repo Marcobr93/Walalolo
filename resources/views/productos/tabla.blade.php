@@ -19,21 +19,29 @@
                 <tr>
                     <td>
                         <a href="/producto/{{ $producto['id'] }}" TARGET="_BLANK">
-                            <img class="ancho_max_imagen_tabla lozad" data-src="{{$producto->foto}}"
+                            <img class="rounded ancho_max_imagen_tabla lozad" data-src="{{$producto->foto}}"
                                  onerror="src='{{ asset('images/default_product.jpeg') }}'"
                                  alt="Foto del producto {{ $producto['titulo'] }}">
                         </a>
                     </td>
                     <td>
-                        <a data-toggle="tooltip" data-placement="top" title="Información del producto"
-                           href="/producto/{{ $producto['id'] }}" TARGET="_BLANK">{{$producto->titulo}}</a>
+                        <h5>
+                            <a class="badge badge-primary" data-toggle="tooltip" data-placement="bottom"
+                               title="Información detallada del producto"
+                               href="/producto/{{ $producto['id'] }}" TARGET="_BLANK">{{$producto->titulo}}</a>
+                        </h5>
+
                     </td>
                     <td>{{$producto->precio}} €</td>
                     <td>{{$producto->categoria}}</td>
                     <td>
-                        <a data-toggle="tooltip" data-placement="top" title="Perfil del usuario"
-                           href="/user/{{ $producto->user->slug }}"
-                           TARGET="_BLANK">{{$producto->user->nombre_usuario }}</a>
+                        <h5>
+                            <a class="badge badge-primary" data-toggle="tooltip" data-placement="bottom"
+                               title="Perfil de {{$producto->user->nombre_usuario }}"
+                               href="/user/{{ $producto->user->slug }}"
+                               TARGET="_BLANK">{{$producto->user->nombre_usuario }}</a>
+                        </h5>
+
                     </td>
                     <td>{{$producto->user->poblacion }}</td>
                     <td>{{$producto->created_at}}</td>

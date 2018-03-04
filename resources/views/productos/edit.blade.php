@@ -6,9 +6,14 @@
             <table class="mt-4 table table-striped table-bordered">
                 <thead class="bg-dark">
                 <tr>
-                    <th scope="col" @if(Request::is('producto/'.$producto->id.'/editar/informacion-general')) class="bg-color5" @endif><a href="{{route('producto.info', $producto->id)}}">Información General</a></th>
-                    <th scope="col" @if(Request::is('producto/'.$producto->id.'/editar/foto')) class="bg-color5" @endif><a href="{{route('producto.foto', $producto->id)}}">Foto</a></th>
-                    <th scope="col" @if(Request::is('producto/'.$producto->id.'/editar/otros-datos')) class="bg-color5" @endif><a href="{{route('producto.otros', $producto->id)}}">Otros datos</a></th>
+                    <th scope="col"
+                        @if(Request::is('producto/'.$producto->id.'/editar/informacion-general')) class="bg-color5" @endif>
+                        <a href="{{route('producto.info', $producto->id)}}">Información General</a></th>
+                    <th scope="col" @if(Request::is('producto/'.$producto->id.'/editar/foto')) class="bg-color5" @endif>
+                        <a href="{{route('producto.foto', $producto->id)}}">Foto</a></th>
+                    <th scope="col"
+                        @if(Request::is('producto/'.$producto->id.'/editar/otros-datos')) class="bg-color5" @endif><a
+                                href="{{route('producto.otros', $producto->id)}}">Otros datos</a></th>
                 </tr>
                 </thead>
             </table>

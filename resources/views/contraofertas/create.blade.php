@@ -1,4 +1,5 @@
-<button class="btn btn-dark">
+<button data-toggle="tooltip" data-placement="bottom" title="Realizas una contraoferta al producto"
+        class="btn btn-dark mt-1">
     <a href="#" class="nav-link" data-toggle="modal" data-target="#contraoferta">Contraoferta</a>
 </button>
 
@@ -40,41 +41,3 @@
         </div>
     </div>
 </form>
-
-
-
-{{--<div class="container">--}}
-    {{--<div class="iziModal">--}}
-        {{--<div id="modalContraoferta">--}}
-            {{--<form class="form-horizontal" action="{{ route('contraoferta.create', array('comprador_user_id' => Auth::user()->id,--}}
-{{--'vendedor_user_id' => $producto['user_id'], 'producto_id' => $producto['id']))}}" method="post">--}}
-                {{--{{ csrf_field() }}--}}
-
-                {{--<div class="modal-header">--}}
-                    {{--<h5 class="modal-title center">Contraoferta</h5>--}}
-                {{--</div>--}}
-                {{--<div class="modal-body">--}}
-                    {{--<form>--}}
-                        {{--<div class="form-group row{{ $errors->has('oferta') ? ' has-error' : '' }}">--}}
-                            {{--<label for="oferta" class="col-sm-2 col-form-label">Oferta</label>--}}
-                            {{--<div class="col-lg-12">--}}
-                                {{--<input type="number" name="oferta" id="oferta" step="any" min="0" class="form-control"--}}
-                                       {{--placeholder="Cantidad" autofocus>--}}
-                                {{--@if($errors->has('oferta'))--}}
-                                    {{--@foreach($errors->get('oferta') as $message)--}}
-                                        {{--<div class="alert alert-danger" role="alert">--}}
-                                            {{--{{ $message }}--}}
-                                        {{--</div>--}}
-                                    {{--@endforeach--}}
-                                {{--@endif--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</form>--}}
-                {{--</div>--}}
-                {{--<div class="modal-footer">--}}
-                    {{--<button type="submit" class="btn btn-primary">ENVIAR</button>--}}
-                {{--</div>--}}
-            {{--</form>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}

@@ -158,11 +158,12 @@ class ProductoController extends Controller
     }
 
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $query = $request->input('busqueda');
 
         $productos = Producto::with('user')->where('titulo', 'LIKE', "%{$query}%")->paginate(9);
-        return view('productos.busqueda',[
+        return view('productos.busqueda', [
             'productos' => $productos
         ]);
     }

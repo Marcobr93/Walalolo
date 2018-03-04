@@ -39,7 +39,8 @@
 
         <div class="col-lg-8 center">
 
-            <textarea class="form-control" name="descripcion" id="descripcion" rows="5">{{$producto->descripcion}}</textarea>
+            <textarea class="form-control" name="descripcion" id="descripcion"
+                      rows="5">{{$producto->descripcion}}</textarea>
             @if ($errors->has('descripcion'))
                 <div class="alert alert-danger">
                     <strong>{{ $errors->first('descripcion') }}</strong>

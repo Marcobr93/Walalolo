@@ -6,7 +6,7 @@
     </div>
 
     <h1 class="text-center mt-4 ng">
-       Productos aleatorios
+        Productos aleatorios
     </h1>
     @if($productos->isEmpty())
         <p>No hay productos para mostrar.</p>
@@ -29,13 +29,15 @@
                             <a href="/user/{{ $producto->user->slug }}">
                                 <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_conversation"
                                      data-src="{{ $producto->user->avatar }}"
+                                     onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                                      alt="Foto del usuario {{ $producto->user->nombre_usuario }}"/>
                             </a>
                         </h5>
                         <h5 class="card-img">
                             <a href="/producto/{{ $producto['id'] }}">
                                 <img class="lozad img-responsive img-fluid img-portfolio img-hover mb-3 "
-                                     src="{{ $producto['foto'] }}"
+                                     data-src="{{ $producto['foto'] }}"
+                                     onerror="src='{{ asset('images/default_product.jpeg') }}'"
                                      alt="Foto del producto {{ $producto['titulo'] }}"/>
                             </a>
                         </h5>
@@ -51,3 +53,7 @@
         </div>
     @endforeach
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/lozad.js') }}"></script>
+@endpush

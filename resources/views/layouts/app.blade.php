@@ -44,15 +44,6 @@
                         <li class="nav-item">
                             <a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a>
                         </li>
-                        {{--<li class="nav-item">--}}
-                        {{--<a href="{{ url('/') }}/perfil" class="nav-link">Perfil</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="nav-item">--}}
-                        {{--<a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}" class="nav-link">Ofertas</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="nav-item">--}}
-                        {{--<a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="nav-link">Tus productos</a>--}}
-                        {{--</li>--}}
                     @endauth
                     <li class="nav-item">
                         <a href="/tabla-busqueda" class="nav-link">Tabla de productos</a>
@@ -72,9 +63,10 @@
                             <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Registro</a></li>
                         @else
                             <li class="nav-item dropdown">
-                                <button href="#" class="btn btn-dark nav-link-active dropdown-toggle" id="navbarDropdownMenuLink"
-                                   data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
+                                <button href="#" class="btn btn-dark nav-link-active dropdown-toggle"
+                                        id="navbarDropdownMenuLink"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->nombre_usuario}}
                                 </button>
                                 <a href="/user/{{ Auth::user()->slug }}">
