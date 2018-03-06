@@ -118,8 +118,7 @@ class User extends Authenticatable
         return $media;
     }
 
-
-
+    
     /** Un usuario tiene muchas reviews de otros usuarios
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -127,6 +126,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class, 'user_id');
     }
+
+
 
     /** Función para saber si el usuario logeado es el mismo que el que comprobamos
      * @param $user

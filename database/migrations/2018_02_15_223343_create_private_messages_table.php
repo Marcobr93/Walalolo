@@ -20,8 +20,8 @@ class CreatePrivateMessagesTable extends Migration
             $table->string('content');
             $table->timestamps();
 
-            $table->foreign('conversation_id')->references('id')->on('conversations');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('conversation_id')->references('id')->on('conversations')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

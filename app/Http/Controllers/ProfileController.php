@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Torann\GeoIP\Facades\GeoIP;
 
 class ProfileController extends Controller
 {
@@ -18,42 +19,52 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        return view('users.perfil');
 
+    }
+
+    public function perfilCuenta()
+    {
+        $user = Auth::user();
+
+        return view('users.datosPerfil.cuenta', [
+            'user' => $user,
+        ]);
+
+    }
+
+
+    public function perfilDatosPersonales()
+    {
+        $user = Auth::user();
+
+        return view('users.datosPerfil.datosPersonales', [
+            'user' => $user,
+        ]);
+
+    }
+
+
+    public function perfilLocalizacion()
+    {
+        $user = Auth::user();
+
+        $data = GeoIP::getLocation($user->ip);
+
+
+        return view('users.datosPerfil.localizacion', [
+            'user' => $user,
+            'data' => $data
+        ]);
+
+    }
+
+    public function editProfile()
+    {
         return view('users.edit');
-
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /** Validacion por Ajax con FormRquest
      * @param CreateProfileEditAjaxFormRequest $request
@@ -132,16 +143,7 @@ class ProfileController extends Controller
             ->with('exito', 'Datos actualizados');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
 
     /** Devuelve la vista de prueba, donde realizo las pruebas en el proyecto.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

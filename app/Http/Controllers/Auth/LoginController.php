@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use http\Env\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,7 +32,6 @@ class LoginController extends Controller
 
     protected function authenticated()
     {
-
         return redirect("/perfil");
     }
 

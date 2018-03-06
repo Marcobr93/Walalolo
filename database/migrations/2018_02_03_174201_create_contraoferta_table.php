@@ -22,9 +22,9 @@ class CreateContraofertaTable extends Migration
             $table->string('estado_oferta');
             $table->timestamps();
 
-            $table->foreign('vendedor_user_id')->references('user_id')->on('productos');
-            $table->foreign('comprador_user_id')->references('id')->on('users');
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('vendedor_user_id')->references('user_id')->on('productos')->onDelete('cascade');
+            $table->foreign('comprador_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
         });
     }
 

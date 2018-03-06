@@ -20,8 +20,8 @@ class CreateVisitasTable extends Migration
             $table->string('ip');
             $table->timestamps();
 
-            $table->foreign('producto_id')->references('id')->on('productos');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

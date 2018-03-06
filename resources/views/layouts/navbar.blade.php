@@ -18,7 +18,7 @@
             </ul>
             <div class="justify-content-end">
                 <ul class="navbar-nav">
-                    <form class="form-inline my-2 my-lg-0 mr-4" action="/productos">
+                    <form class="form-inline my-2 my-lg-0 mr-4" action="/busqueda">
                         <input class="form-control mr-sm-2" type="search" id="busqueda" name="busqueda"
                                placeholder="Búsqueda" aria-label="Search">
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Búsqueda</button>
@@ -37,6 +37,7 @@
                             <a href="/user/{{ Auth::user()->slug }}">
                                 <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_navbar"
                                      data-src="{{ Auth::user()->avatar }}"
+                                     onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                                      alt="Foto del usuario {{ Auth::user()->nombre_usuario }}"/>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right bg-dark border-primary"

@@ -20,8 +20,8 @@ class CreateValoracionsTable extends Migration
             $table->integer('valoracion')->unsigned();
             $table->timestamps();
 
-            $table->foreign('valora_user_id')->references('id')->on('users');
-            $table->foreign('valorado_user_id')->references('id')->on('users');
+            $table->foreign('valora_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('valorado_user_id')->references('id')->on('users')->onDelete('cascade');
 
         });
     }

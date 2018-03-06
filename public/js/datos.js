@@ -88,6 +88,7 @@ function obtenerDatosPagina() {
     }).catch(function (error) {
         console.log(error);
     });
+    window.scrollTo($("#busqueda").left, $("#busqueda").top);
 }
 
 function asociarEventoAsincrono() {

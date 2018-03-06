@@ -14,7 +14,8 @@
 Route::get('/', 'PagesController@home');
 
 // Rutas de productos
-Route::get('/productos', 'ProductoController@search');
+Route::get('/busqueda', 'ProductoController@search');
+
 Route::get('/producto/{producto}', 'ProductoController@show')->name('producto.show');
 
 
@@ -41,19 +42,27 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/producto/{producto}/editar/foto', 'ProductoController@update');
     Route::get('/producto/{producto}/editar/otros-datos', 'ProductoController@edit')->name('producto.otros');
     Route::patch('/producto/{producto}/editar/otros-datos', 'ProductoController@update');
+    Route::get('/producto/{producto}/editar/borrar-producto', 'ProductoController@edit')->name('producto.borrar');
+    Route::delete('/producto/{producto}/editar/borrar-producto', 'ProductoController@destroy');
 
 
     // Rutas de usuarios
     Route::get('/perfil', 'ProfileController@index');
-    Route::get('/perfil/cuenta', 'ProfileController@edit')->name('perfil.cuenta');
-    Route::patch('/perfil/cuenta', 'ProfileController@update');
-    Route::get('/perfil/password', 'ProfileController@edit')->name('perfil.password');
-    Route::patch('/perfil/password', 'ProfileController@update');
-    Route::get('/perfil/avatar', 'ProfileController@edit')->name('perfil.avatar');
-    Route::patch('/perfil/avatar', 'ProfileController@update');
-    Route::get('/perfil/datos-personales', 'ProfileController@edit')->name('perfil.personal');
-    Route::patch('/perfil/datos-personales', 'ProfileController@update');
-
+    Route::get('/perfil/cuenta', 'ProfileController@perfilCuenta');
+    Route::get('/perfil/datos-personales', 'ProfileController@perfilDatosPersonales');
+    Route::get('/perfil/localizacion', 'ProfileController@perfilLocalizacion');
+    Route::get('/perfil/cuenta', 'ProfileController@perfilCuenta');
+    Route::get('/perfil/editar', 'ProfileController@editProfile');
+    Route::get('/perfil/editar/cuenta', 'ProfileController@edit')->name('perfil.cuenta');
+    Route::patch('/perfil/editar/cuenta', 'ProfileController@update');
+    Route::get('/perfil/editar/password', 'ProfileController@edit')->name('perfil.password');
+    Route::patch('/perfil/editar/password', 'ProfileController@update');
+    Route::get('/perfil/editar/avatar', 'ProfileController@edit')->name('perfil.avatar');
+    Route::patch('/perfil/editar/avatar', 'ProfileController@update');
+    Route::get('/perfil/editar/datos-personales', 'ProfileController@edit')->name('perfil.personal');
+    Route::patch('/perfil/editar/datos-personales', 'ProfileController@update');
+    Route::get('/perfil/editar/borrar-usuario', 'ProfileController@edit')->name('usuario.borrar');
+    Route::delete('/perfil/editar/borrar-usuario', 'UsersController@destroy');
 
 
     Route::get('/user/conversations/{conversation}', 'UsersController@showConversation')->name('conversation.show');
@@ -85,4 +94,3 @@ Route::get('/autocomplete', array('as' => 'autocomplete', 'uses'=>'CiudadesContr
 
 Route::get('/tabla-busqueda', 'ProductoController@tabla');
 
-Route::get('/prueba', 'ProfileController@prueba');

@@ -166,6 +166,9 @@
                                     <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria"
                                             title="Categoría">
                                         <option selected>Selecciona</option>
+                                        <option value="Coches">Coches</option>
+                                        <option value="Motor y Accesorios">Motor y Accesorios</option>
+                                        <option value="Electrónica">Electrónica</option>
                                         <option value="Deporte y Ocio">Deporte y Ocio</option>
                                         <option value="Muebles, Deco y Jardín">Muebles, Deco y Jardín</option>
                                         <option value="Consolas y Videojuegos">Consolas y Videojuegos</option>

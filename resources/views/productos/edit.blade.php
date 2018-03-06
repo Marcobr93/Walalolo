@@ -14,6 +14,9 @@
                     <th scope="col"
                         @if(Request::is('producto/'.$producto->id.'/editar/otros-datos')) class="bg-color5" @endif><a
                                 href="{{route('producto.otros', $producto->id)}}">Otros datos</a></th>
+                    <th scope="col"
+                        @if(Request::is('producto/'.$producto->id.'/editar/borrar-producto')) class="bg-color5" @endif><a
+                                href="{{route('producto.borrar', $producto->id)}}">Borrar Producto</a></th>
                 </tr>
                 </thead>
             </table>
@@ -40,6 +43,9 @@
 
                 @elseif(Request::is('producto/'.$producto->id.'/editar/otros-datos'))
                     @include('productos.partials.otrosDatos')
+
+                @elseif(Request::is('producto/'.$producto->id.'/editar/borrar-producto'))
+                    @include('productos.partials.delete')
 
                 @endif
 

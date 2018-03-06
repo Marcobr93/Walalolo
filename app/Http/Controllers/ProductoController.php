@@ -158,13 +158,57 @@ class ProductoController extends Controller
     }
 
 
+    /** Función que busca productos dependiendo del input que reciba en la $request.
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function search(Request $request)
     {
-        $query = $request->input('busqueda');
+        if ($request->input('busqueda')) {
+            $busqueda = $request->input('busqueda');
 
-        $productos = Producto::with('user')->where('titulo', 'LIKE', "%{$query}%")->paginate(9);
-        return view('productos.busqueda', [
-            'productos' => $productos
-        ]);
+            $productos = Producto::with('user')->where('titulo', 'LIKE', "%{$busqueda}%")->paginate(9);
+
+            return view('productos.busqueda', [
+                'productos' => $productos
+            ]);
+
+        } elseif ($request->input('categoria')) {
+
+            $categoria = $request->input('categoria');
+
+            if ($request->input('checkNegociacionPrecio') !== null && $request->input('checkIntercambio') !== null) {
+
+                $productos = Producto::with('user')->where('categoria', 'LIKE', "%{$categoria}%")->where('negociacion_precio', "1")->where('intercambio_producto', "1")->paginate(9);
+
+            } else if ($request->input('checkNegociacionPrecio') !== null && $request->input('checkIntercambio') == null) {
+
+                $productos = Producto::with('user')->where('categoria', 'LIKE', "%{$categoria}%")->where('negociacion_precio', "1")->paginate(9);
+
+            } else if ($request->input('checkNegociacionPrecio') == null && $request->input('checkIntercambio') !== null) {
+
+                $productos = Producto::with('user')->where('categoria', 'LIKE', "%{$categoria}%")->where('intercambio_producto', "1")->paginate(9);
+
+            } else {
+
+                $productos = Producto::with('user')->where('categoria', 'LIKE', "%{$categoria}%")->paginate(9);
+            }
+
+            return view('productos.busqueda', [
+                'productos' => $productos
+            ]);
+        }
+
+        return view('/');
+    }
+
+
+    public function destroy($id)
+    {
+        $producto = Producto::where('id', $id)->first();
+
+        $producto->delete();
+
+        return redirect('/');
     }
 }

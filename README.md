@@ -166,6 +166,7 @@ Las nuevas opciones que dispone aquí son 3:
 ## Componentes utilizados en el proyecto
 - **Lozad.js**
 - **iziModal.js**
+- **Autocomplete**
 - **Datatables.js**
 - **DatePicker.js**
 - **Leaflet.js**

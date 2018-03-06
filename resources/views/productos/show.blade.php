@@ -226,10 +226,3 @@
         })
     </script>
 @endpush
-
-{{--@push('scripts')--}}
-{{--@if($user->id !== Auth::user()->id)--}}
-{{--<script src="{{ asset('js/iziModal.js') }}"></script>--}}
-{{--<script src="{{ asset('js/modal.js') }}"></script>--}}
-{{--@endif--}}
-{{--@endpush--}}

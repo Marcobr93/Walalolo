@@ -1,4 +1,4 @@
-@if((!Request::is('user/*')) && (!Request::is('productos*')))
+@if((!Request::is('user/*')) && (!Request::is('busqueda*')))
     @include('layouts.carousel')
 @endif
 

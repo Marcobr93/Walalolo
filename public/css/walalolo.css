@@ -10,6 +10,9 @@
     color: black;
 }
 
+.bg-color-dark {
+    background-color: #343A40;
+}
 
 .bg-image {
     background-image: url("http://www.col323webdesign.com/wp-content/uploads/credit-card-backgrounds-expitrans-accept-credit-cards-today.jpg");

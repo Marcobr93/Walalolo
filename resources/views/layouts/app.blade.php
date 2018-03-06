@@ -36,9 +36,15 @@
 <body class="bg-color">
 <div id="app">
     @include('layouts.navbar')
-
-    <div class="container main-area mt-4">
-        @yield('content')
+    <div class="row">
+        <div class="col-lg-2 marginTop">
+            @if((Request::is('/')) || (Request::is('busqueda*')))
+            @include('productos.categorias')
+                @endif
+        </div>
+        <div class="col-lg-8 mt-4">
+            @yield('content')
+        </div>
     </div>
 </div>
 
