@@ -36,7 +36,7 @@ class ContraofertaController extends Controller
     {
         $userLogeado = $this->userLogeado($nombre_usuario);
 
-        $contraofertas = $userLogeado->contraofertas()->with('comprador')->paginate(9);
+        $contraofertas = $userLogeado->contraofertas()->with('comprador')->orderBy('created_at', 'desc')->paginate(9);
 
         return view('contraofertas.oferta', [
             'user' => $userLogeado,

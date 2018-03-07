@@ -8,6 +8,7 @@ use App\Producto;
 use App\Http\Requests\CreateProductoRequest;
 use App\User;
 use App\Visita;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Torann\GeoIP\Facades\GeoIP;
@@ -205,10 +206,16 @@ class ProductoController extends Controller
 
     public function destroy($id)
     {
+        $user = Auth::user();
+
         $producto = Producto::where('id', $id)->first();
+
+        $contraofertas = $user->contraofertas()->where('producto_id', $producto->id);
 
         $producto->delete();
 
-        return redirect('/');
+        $contraofertas->delete();
+
+        return redirect('/user/'.$user->slug);
     }
 }

@@ -6,7 +6,8 @@
             <label class="form-check-label col-sm-2" for="checkNegociacionPrecio">
                 Precio negociable
             </label>
-            <input class="form-check-input col-sm-12" type="checkbox" value="1" id="checkNegociacionPrecio" name="checkNegociacionPrecio">
+            <input class="form-check-input col-sm-12" type="checkbox" value="1" id="checkNegociacionPrecio"
+                   name="checkNegociacionPrecio">
 
         </div>
 
@@ -15,7 +16,8 @@
             <label class="form-check-label col-sm-2" for="checkIntercambio">
                 Intercambio
             </label>
-            <input class="form-check-input col-sm-12" type="checkbox" value="1" id="checkIntercambio" name="checkIntercambio">
+            <input class="form-check-input col-sm-12" type="checkbox" value="1" id="checkIntercambio"
+                   name="checkIntercambio">
         </div>
 
         <div class="btn-group dropbottom" role="group">

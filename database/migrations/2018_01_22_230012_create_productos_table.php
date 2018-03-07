@@ -25,6 +25,8 @@ class CreateProductosTable extends Migration
             $table->boolean('intercambio_producto');
             $table->boolean('destacado');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

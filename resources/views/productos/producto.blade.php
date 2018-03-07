@@ -60,6 +60,6 @@
 
 <div class="col-lg-6 offset-lg-3">
     <div class="pagination mx-auto text-center mb-4">
-        {{ $productos->links('pagination::bootstrap-4') }}
+        {{ $productos->appends(request()->except('page'))->links('pagination::bootstrap-4') }}
     </div>
 </div>

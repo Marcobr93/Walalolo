@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
 class Producto extends Model
 {
+    use SoftDeletes;
+
+
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /** Un usuario puede tener muchos productos.
@@ -18,11 +22,11 @@ class Producto extends Model
     }
 
 
-    /** Un producto puede tener muchas contraofertas.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    /** Un producto puede tener muchas contraofertas
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function contraofertasProducto(){
-        return $this->belongsTo(Contraoferta::class, 'producto_id');
+        return $this->belongsToMany(Contraoferta::class, 'producto_id');
     }
 
 

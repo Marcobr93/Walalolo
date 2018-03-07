@@ -18,7 +18,7 @@ $factory->define(App\User::class, function (Faker $faker) {
     $name = $faker->firstName;
     $apellido = $faker->lastName;
     $nombre_usuario = strtolower($name).'.'.strtolower($apellido);
-    $email = strtolower($name).'.'.strtolower($apellido).'@'.$faker->freeEmailDomain;
+    $email = $nombre_usuario.'@'.$faker->freeEmailDomain;
 
     return [
         'name' => $name,

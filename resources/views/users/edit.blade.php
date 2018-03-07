@@ -6,16 +6,16 @@
             <table class="mt-4 table table-striped table-bordered">
                 <thead class="bg-dark">
                 <tr>
-                    <th scope="col" @if(Request::is('datosPerfil')) class="bg-color5" @endif><a
+                    <th scope="col" @if(Request::is('perfil/editar/cuenta')) class="bg-color5" @endif><a
                                 href="{{route('perfil.cuenta')}}">Cuenta</a></th>
-                    <th scope="col" @if(Request::is('perfil/password')) class="bg-color5" @endif><a
+                    <th scope="col" @if(Request::is('perfil/editar/password')) class="bg-color5" @endif><a
                                 href="{{route('perfil.password')}}">Contraseña</a></th>
-                    <th scope="col" @if(Request::is('perfil/avatar')) class="bg-color5" @endif><a
+                    <th scope="col" @if(Request::is('perfil/editar/avatar')) class="bg-color5" @endif><a
                                 href="{{route('perfil.avatar')}}">Foto</a></th>
-                    <th scope="col" @if(Request::is('perfil/datos-personales')) class="bg-color5" @endif><a
+                    <th scope="col" @if(Request::is('perfil/editar/datos-personales')) class="bg-color5" @endif><a
                                 href="{{route('perfil.personal')}}">Datos personales</a></th>
                     <th scope="col"
-                        @if(Request::is('perfil/borrar-usuario')) class="bg-color5" @endif><a
+                        @if(Request::is('perfil/editar/borrar-usuario')) class="bg-color5" @endif><a
                                 href="{{route('usuario.borrar')}}">Borrar Usuario</a></th>
                 </tr>
                 </thead>

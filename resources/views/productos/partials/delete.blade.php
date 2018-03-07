@@ -1,5 +1,24 @@
 {{ method_field('DELETE') }}
-<div class="mb-4 text-center">
-    <button type="submit" class="btn btn-danger">Borrar producto</button>
-    <h1 class="alert alert-danger text-center mt-2">El borrado del producto es irreversible.</h1>
+<button class="btn btn-danger mt-4 center">
+    <a href="#" class="nav-link blanco" data-toggle="modal" data-target="#borrarProducto">Borrar Producto</a>
+</button>
+
+<div class="modal fade" id="borrarProducto" tabindex="-1" data-backdrop="static" data-show="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark blanco">
+                <h5 class="modal-title" id="ejemploLabel">Borrar Producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1 class="alert alert-danger text-center mt-2">El borrado del producto es irreversible.</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">BORRAR</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
+            </div>
+        </div>
+    </div>
 </div>
