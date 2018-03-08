@@ -110,14 +110,19 @@ click en el enlace ,accederemos a una vista específica del producto o del usuar
     dichos productos.
     - **Login:** nos permite logearnos en la página si ya disponemos de una cuenta.
     - **Register:** nos permite registrarnos en la página con un nuevo usuario.
-- El **contenido principal** de la página se basa en dos secciones:
-    - La parte superior posee un **Carousel**, aquí se mostrarán aquellos productos que posean entre sus características
+- El **contenido principal** de la página se divide en **tres secciones:**
+    - La **parte superior** posee un **Carousel**, aquí se mostrarán aquellos productos que posean entre sus características
     el ser **"destacado"**. Si hacemos click en la imagen iremos a una nueva página donde veremos más información acerca
     de ese producto.
-    - En la parte central de la página aparecerán todos los productos de más reciente "creación" hasta el más
+    - En la **parte central** de la página aparecerán todos los productos de más reciente "creación" hasta el más
     antiguo. Estos productos poseen la siguiente información:
         - Nombre del producto **(LMI)**, imagen del usuario que la ha subido **(LMI)**, nombre del usuario que la ha subido
          **(LMI)**, visitas de ese producto, imagen **(LMI)**, descripción y precio del producto.
+    - En el **lateral izquierdo** de la página, encontramos una pequeña tabla con dos opciones seleccionables y una tercera
+    con un desplegable, que nos permite filtrar los productos según lo seleccionado, el funcionamiento es el siguiente:
+        - Las dos opciones seleccionables nos permite filtrar por aquellos productos que tengan un precio
+        negociable o que permitan el intercambio.
+        - La tecera opción, el desplegable, nos permite seleccionar la categoría a la que pertecene dicho producto.
 - **Footer:** 
     - Foto y enlace de **Github** con links hacia el Github del proyecto.
     - Logo central de **Walalolo** que te redirecciona a la página principal.
@@ -140,12 +145,15 @@ continuación les explicaré las nuevas funcionalidades, las anteriores citadas 
 - En el **navbar** se modificará un poco:
     - **Añadir productos:** aquí podrás añadir un nuevo producto.
     - Click en el **nombre del usuario logeado**, aparecerá un dropdown:
-        - **Perfil:** accedemos a una nueva sección, aquí podremos modificar todos los datos del usuario.
+        - **Perfil:** accedemos a una nueva sección, aquí podremos **ver** todos los datos del usuario.
+            - **Editar Perfil:** si accedemos a **editar perfil**, podremos **modificar** la información del usuario.
         - **Ofertas:** veremos todas las ofertas que han realizado otros usuarios sobre nuestros productos con la 
         **negociación del precio activada**. Aquí podremos **aceptar/rechazar** las ofertas, las aceptadas pasarán a la
         parte de **"Ofertas aceptadas"**.
         - **Tus productos:** accedemos la vista de usuario pero en este caso la del tuyo.
         - **Logout**: nos desconectamos de la cuenta.
+    - **Foto del usuario:** enlace directo a tu **perfil.**
+    - **Icono del mensaje:** esto nos llevará a todas las conversaciones que tiene el **usuario.**
     
 #### Vista de un producto en concreto
 Las nuevas opciones que dispone aquí son dos:

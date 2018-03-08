@@ -50,6 +50,7 @@ class UsersController extends Controller
 
     }
 
+
     /** Función que obtiene un usuario a partir del $slug.
      * @param $slug
      * @return mixed
@@ -58,6 +59,7 @@ class UsersController extends Controller
     {
         return User::where('slug', $slug)->firstOrFail();
     }
+
 
 
     /** Display the specified resource.

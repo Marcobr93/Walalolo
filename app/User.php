@@ -148,6 +148,7 @@ class User extends Authenticatable
     }
 
 
+
     /** Getter del avatar del usuario, para mostrar si el avatar proviene de una por defecto o de una generada con $faker
      * @param $avatar
      * @return mixed

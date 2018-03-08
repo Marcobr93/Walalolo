@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Torann\GeoIP\Facades\GeoIP;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfileController extends Controller
 {
@@ -105,7 +107,9 @@ class ProfileController extends Controller
             $user = User::findOrFail(Auth::user()->id);
 
             $user->fill($data);
-        } elseif (strpos($path, 'password')) {
+        }
+
+        if (strpos($path, 'password')) {
 
             if (!Hash::check($request->get('current_password'), $user->password)) {
                 return redirect()->back()->with('error', 'La contraseña actual no es correcta');
@@ -116,23 +120,33 @@ class ProfileController extends Controller
             }
 
             $user->password = bcrypt($request->get('password'));
-        } elseif (strpos($path, 'datos-personales')) {
+        }
+
+        if (strpos($path, 'datos-personales')) {
 
             $data = array_filter($request->all());
 
             $user = User::findOrFail(Auth::user()->id);
 
             $user->fill($data);
-        } elseif (strpos($path, 'avatar')) {
-
-            $avatar = $request->file('avatar');
-
-            $url = $avatar->store('image', 'public');
-
-            $user = User::findOrFail(Auth::user()->id);
-
-            $user->avatar = $url;
         }
+
+        if( $avatar = $request->file('avatar') ){
+            if( !strpos($user->avatar, "http") ) {
+                $routeParts = explode('/', $user->avatar);
+                Storage::disk('public')->delete('image/'.end($routeParts));
+            }
+
+            $url = $avatar->store('image','public');
+        }else{
+            $url = $user->avatar;
+        }
+
+
+        $user->fill([
+            'avatar'     => $url,
+        ]);
+
 
         $user->ip = $request->ip();
 

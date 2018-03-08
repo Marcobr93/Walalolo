@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Torann\GeoIP\Facades\GeoIP;
+use Illuminate\Support\Facades\Storage;
 
 
 class ProductoController extends Controller
@@ -79,18 +80,30 @@ class ProductoController extends Controller
             $data = array_filter($request->all());
 
             $producto->fill($data);
-        } elseif (strpos($path, 'otros-datos')) {
+        }
+
+        if (strpos($path, 'otros-datos')) {
             $data = $request->all();
 
             $producto->fill($data);
-        } elseif (strpos($path, 'foto')) {
-
-            $foto = $request->file('foto');
-
-            $url = $foto->store('image', 'public');
-
-            $producto->foto = $url;
         }
+
+
+        if( $foto = $request->file('foto') ){
+            if( !strpos($producto->foto, "http") ) {
+                $routeParts = explode('/', $producto->foto);
+                Storage::disk('public')->delete('productos/'.end($routeParts));
+            }
+
+            $url = $foto->store('productos','public');
+        }else{
+            $url = $producto->foto;
+        }
+
+
+        $producto->fill([
+            'foto'     => $url,
+        ]);
 
         $producto->save();
 

@@ -34,7 +34,7 @@
                                     aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->nombre_usuario}}
                             </button>
-                            <a href="/user/{{ Auth::user()->slug }}">
+                            <a href="{{ url('/') }}/perfil">
                                 <img class="rounded-circle mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_navbar"
                                      data-src="{{ Auth::user()->avatar }}"
                                      onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
@@ -42,7 +42,7 @@
                             </a>
                             <a href="{{ route('conversation.all', Auth::user()->slug) }}">
                                 <img class="ml-2 rounded mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_navbar"
-                                     data-src="{{ asset('images/message.png') }}"
+                                     data-src="{{ asset('images/mensaje.png') }}"
                                 />
                             </a>
                             <div class="dropdown-menu dropdown-menu-right bg-dark border-primary"
