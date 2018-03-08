@@ -21,9 +21,11 @@
 
             <div class="card form-group col-lg-8 my-2 container justify-content-md-center">
                 <div class="card-header bg-transparent border-primary">
-                    <h5 class="card-text ng">
-                        {{ $message->user->nombre_usuario }}
-                    </h5>
+                    <a href="/user/{{ $message->user->slug }}">
+                        <h5 class="card-text ng">
+                            {{ $message->user->nombre_usuario }}
+                        </h5>
+                    </a>
                 </div>
                 <div class="card-body bg-light">
                     <h5 class="card-text">

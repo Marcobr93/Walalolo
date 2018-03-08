@@ -121,4 +121,17 @@ class UsersController extends Controller
         }
     }
 
+
+    public function showAllUserConversation($user)
+    {
+        $usuario = User::where('slug', $user)->firstOrFail();
+
+        $conversations = $usuario->conversations()->paginate(9);
+
+        return view('users.allConversations', [
+            'user' => $usuario,
+            'conversations' => $conversations
+        ]);
+    }
+
 }

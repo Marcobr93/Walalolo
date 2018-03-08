@@ -34,6 +34,7 @@
         <div class="text-center">
             <img class="rounded img-responsive img-fluid img-portfolio img-hover mb-3 lozad ancho_max_imagen2 lozad"
                  src="{{ $user->avatar }}"
+                 onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                  alt="Avatar del usuario."/>
         </div>
     </div>

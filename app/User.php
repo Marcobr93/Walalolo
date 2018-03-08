@@ -128,6 +128,11 @@ class User extends Authenticatable
     }
 
 
+    public function conversations()
+    {
+        return $this->belongsToMany(Conversation::class);
+    }
+
 
     /** Función para saber si el usuario logeado es el mismo que el que comprobamos
      * @param $user

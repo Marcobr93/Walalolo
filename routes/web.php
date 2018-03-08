@@ -15,9 +15,7 @@ Route::get('/', 'PagesController@home');
 
 // Rutas de productos
 Route::get('/busqueda', 'ProductoController@search');
-
 Route::get('/producto/{producto}', 'ProductoController@show')->name('producto.show');
-
 
 Auth::routes();
 
@@ -45,13 +43,22 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/producto/{producto}/editar/borrar-producto', 'ProductoController@edit')->name('producto.borrar');
     Route::delete('/producto/{producto}/editar/borrar-producto', 'ProductoController@destroy');
 
+    // Rutas de contraofertas/ofertas
+    Route::post('/productos/contraoferta/', 'ContraofertaController@store')->name('contraoferta.create');
+    Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta')->name('contraoferta.ofertas');
+    Route::get('/ofertas-aceptadas/{nombre_usuario}', 'ContraofertaController@ofertaAceptada')->name('contraoferta.aceptada');
+    Route::put('/ofertas/{nombre_usuario}/editado', 'ContraofertaController@update')->name('contraoferta.update');
+
 
     // Rutas de usuarios
+
+        // Rutas del perfil
     Route::get('/perfil', 'ProfileController@index');
     Route::get('/perfil/cuenta', 'ProfileController@perfilCuenta');
     Route::get('/perfil/datos-personales', 'ProfileController@perfilDatosPersonales');
     Route::get('/perfil/localizacion', 'ProfileController@perfilLocalizacion');
-    Route::get('/perfil/cuenta', 'ProfileController@perfilCuenta');
+
+        // Rutas de editar el perfil
     Route::get('/perfil/editar', 'ProfileController@editProfile');
     Route::get('/perfil/editar/cuenta', 'ProfileController@edit')->name('perfil.cuenta');
     Route::patch('/perfil/editar/cuenta', 'ProfileController@update');
@@ -64,33 +71,30 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/perfil/editar/borrar-usuario', 'ProfileController@edit')->name('usuario.borrar');
     Route::delete('/perfil/editar/borrar-usuario', 'UsersController@destroy');
 
-
+        // Rutas conversaciones
     Route::get('/user/conversations/{conversation}', 'UsersController@showConversation')->name('conversation.show');
     Route::post('/user/{user}/dms', 'UsersController@createPrivateMessage');
     Route::get('/user/{user}/conversation', 'UsersController@showUserConversation');
-
-
-    // Rutas de contraofertas/ofertas
-    Route::post('/productos/contraoferta/', 'ContraofertaController@store')->name('contraoferta.create');
-    Route::get('/ofertas/{nombre_usuario}', 'ContraofertaController@oferta')->name('contraoferta.ofertas');
-    Route::get('/ofertas-aceptadas/{nombre_usuario}', 'ContraofertaController@ofertaAceptada')->name('contraoferta.aceptada');
-    Route::put('/ofertas/{nombre_usuario}/editado', 'ContraofertaController@update')->name('contraoferta.update');
-
-
-    // Rutas de valoraciones
-    Route::post('valoracion/valorar', 'ValoracionController@createOrEdit')->name('valoracion.create');
+    Route::get('/user/{user}/conversations', 'UsersController@showAllUserConversation')->name('conversation.all');
 
 
     // Rutas de reviews
     Route::post('reviews/review', 'ReviewController@store')->name('review.create');
+
+
+    // Rutas de valoraciones
+    Route::post('valoracion/valorar', 'ValoracionController@createOrEdit')->name('valoracion.create');
 });
 
+    // Ruta home del proyecto
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+    // Ruta paginación asíncrona
 Route::get('/dameProductos/', 'PagesController@damePaginaProductos');
 
+    // Ruta para el autocompletado
 Route::get('/autocomplete', array('as' => 'autocomplete', 'uses'=>'CiudadesController@autocomplete'));
 
+    // Ruta para la tabla de búsqueda
 Route::get('/tabla-busqueda', 'ProductoController@tabla');
 

@@ -40,6 +40,11 @@
                                      onerror="src='{{ asset('images/userXDefecto.jpeg') }}'"
                                      alt="Foto del usuario {{ Auth::user()->nombre_usuario }}"/>
                             </a>
+                            <a href="{{ route('conversation.all', Auth::user()->slug) }}">
+                                <img class="ml-2 rounded mt-1 lozad img-responsive img-fluid img-portfolio img-hover ancho_max_imagen_navbar"
+                                     data-src="{{ asset('images/message.png') }}"
+                                />
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right bg-dark border-primary"
                                  aria-labelledby="navbarDropdownMenuLink">
                                 <a href="{{ url('/') }}/perfil" class="dropdown-item blanco">

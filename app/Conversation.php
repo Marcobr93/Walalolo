@@ -3,15 +3,29 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Conversation extends Model
 {
-    /** Muchas usuarios tienen muchas conversaciones.
+
+    /** Muchos usuarios tienen muchas conversaciones.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+
+    public static function user($conversation)
+    {
+        $users = $conversation->users()->get();
+
+        foreach ($users as $user){
+            if($user->id !== Auth::user()->id){
+                return $user;
+            }
+        }
     }
 
     /** Un usuario puede enviar muchos mensajes privados.
@@ -21,6 +35,7 @@ class Conversation extends Model
     {
         return $this->hasMany(PrivateMessage::class)->latest();
     }
+
 
     /** La conversación se realiza entre dos usuarios.
      * @param User $user
@@ -42,6 +57,7 @@ class Conversation extends Model
         return $conversation;
     }
 
+
     /** Función que sólo nos mostrará las conversaciones del usuario.
      * @param User $user
      * @param User $other
@@ -58,6 +74,7 @@ class Conversation extends Model
         return $query->first();
     }
 
+
     /** Función que comprobará si la conversación contiene el usuario.
      * @param $user
      * @param $conversation
@@ -67,4 +84,6 @@ class Conversation extends Model
 
         return $conversation->users()->get()->contains($user);
     }
+
+
 }
