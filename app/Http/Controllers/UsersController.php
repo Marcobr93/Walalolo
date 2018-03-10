@@ -15,7 +15,7 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        $this->middleware( function($request, $next){
+        $this->middleware(function ($request, $next) {
             $this->user = auth()->user();
 
             return $next($request);
@@ -51,17 +51,6 @@ class UsersController extends Controller
     }
 
 
-    /** Función que obtiene un usuario a partir del $slug.
-     * @param $slug
-     * @return mixed
-     */
-    public function buscarPorSlug($slug)
-    {
-        return User::where('slug', $slug)->firstOrFail();
-    }
-
-
-
     /** Display the specified resource.
      * @param $user
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -78,9 +67,9 @@ class UsersController extends Controller
 
         $data = GeoIP::getLocation($usuario->ip);
 
-        if($this->user !== null){
+        if ($this->user !== null) {
             $conversation = Conversation::conversationId($this->user, $usuario);
-        }else{
+        } else {
             $conversation = null;
         }
 
@@ -95,8 +84,7 @@ class UsersController extends Controller
     }
 
 
-
-    /** Elimina un usuario
+    /** Elimina definitivamente al usuario en concreto.
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy()
@@ -107,33 +95,46 @@ class UsersController extends Controller
     }
 
 
-
     /** Devuelve la vista con los mensajes privados entre los dos usuarios.
      * @param Conversation $conversation
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showConversation(Conversation $conversation)
     {
-        if(Conversation::userInConversation($this->user, $conversation)){
+        if (Conversation::userInConversation($this->user, $conversation)) {
             return view('users.conversation', [
                 'conversation' => $conversation
             ]);
-        }else{
+        } else {
             return redirect('/');
         }
     }
 
 
-    public function showAllUserConversation($user)
+    /** Función que nos muestra todas las conversaciones que tiene le usuario logeado.
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAllUserConversation($slug)
     {
-        $usuario = User::where('slug', $user)->firstOrFail();
+        $user = $this->buscarPorSlug($slug);
 
-        $conversations = $usuario->conversations()->paginate(9);
+        $conversations = $user->conversations()->paginate(12);
 
         return view('users.allConversations', [
-            'user' => $usuario,
+            'user' => $user,
             'conversations' => $conversations
         ]);
+    }
+
+
+    /** Función que obtiene un usuario a partir del $slug recibido.
+     * @param $slug
+     * @return mixed
+     */
+    public function buscarPorSlug($slug)
+    {
+        return User::where('slug', $slug)->firstOrFail();
     }
 
 }

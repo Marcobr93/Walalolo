@@ -60,77 +60,33 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 58);
+/******/ 	return __webpack_require__(__webpack_require__.s = 60);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 58:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(59);
+module.exports = __webpack_require__(61);
 
 
 /***/ }),
 
-/***/ 59:
+/***/ 61:
 /***/ (function(module, exports) {
 
 $(function () {
-    perfil();
+    disableButton();
 });
 
-function perfil() {
-    $("#perfilCuenta").on({
-        click: function click(e) {
-            e.preventDefault();
-            datosDireccion();
+function disableButton() {
+    $(".btnSubmit").on({
+        click: function click() {
+            this.disabled = true;
+            this.form.submit();
         }
     });
-
-    $("#perfilDatosPersonales").on({
-        click: function click(e) {
-            e.preventDefault();
-            datosPersonales();
-        }
-    });
-
-    $("#perfilLocalizacion").on({
-        click: function click(e) {
-            e.preventDefault();
-            datosLocalizacion();
-        }
-    });
-}
-
-function datosDireccion() {
-    axios.get('/perfil/cuenta').then(function (response) {
-        $("#datosPerfil").html(response.data);
-    }).catch(function (error) {
-        console.log(error);
-        alert('ERROR');
-    });
-    // window.scrollTo($("#logo").left, $("#logo").top);
-}
-
-function datosPersonales() {
-    axios.get('/perfil/datos-personales').then(function (response) {
-        $("#datosPerfil").html(response.data);
-    }).catch(function (error) {
-        console.log(error);
-        alert('ERROR');
-    });
-    // window.scrollTo($("#logo").left, $("#logo").top);
-}
-
-function datosLocalizacion() {
-    axios.get('/perfil/localizacion').then(function (response) {
-        $("#datosPerfil").html(response.data);
-    }).catch(function (error) {
-        console.log(error);
-        alert('ERROR');
-    });
-    // window.scrollTo($("#logo").left, $("#logo").top);
 }
 
 /***/ })

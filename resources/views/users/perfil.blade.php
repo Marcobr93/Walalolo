@@ -33,4 +33,5 @@
 
 @push('scripts')
     <script src="{{ asset('js/vistas.js') }}"></script>
+    <script src="{{ asset('js/map.js') }}"></script>
 @endpush

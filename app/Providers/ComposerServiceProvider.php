@@ -15,7 +15,6 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('errors::404', 'App\Http\ViewComposers\ProductosAleatoriosComposer');
-        View::composer('productos::producto', 'App\Http\ViewComposers\MediaComposer');
 
     }
 

@@ -17,6 +17,19 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
+    private $user;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = auth()->user();
+
+            return $next($request);
+        });
+
+        $this->user = auth()->user();
+    }
+
 
     /** Método que muestra la información de un producto. Utiliza Route Binding
      * para coneguir el Producto facilitado por el parámetro.
@@ -67,7 +80,7 @@ class ProductoController extends Controller
     }
 
 
-    /** Editamos un producto
+    /** Función para editar un producto, dependiendo de la ruta que reciba, editará ciertos campos
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -88,22 +101,19 @@ class ProductoController extends Controller
             $producto->fill($data);
         }
 
-
-        if( $foto = $request->file('foto') ){
-            if( !strpos($producto->foto, "http") ) {
+        if (strpos($path, 'foto')) {
+            if ($foto = $request->file('foto')) {
                 $routeParts = explode('/', $producto->foto);
-                Storage::disk('public')->delete('productos/'.end($routeParts));
+                Storage::disk('public')->delete('productos/' . end($routeParts));
+
+                $url = $foto->store('productos', 'public');
+            } else {
+                $url = $producto->foto;
             }
-
-            $url = $foto->store('productos','public');
-        }else{
-            $url = $producto->foto;
+            $producto->fill([
+                'foto' => $url,
+            ]);
         }
-
-
-        $producto->fill([
-            'foto'     => $url,
-        ]);
 
         $producto->save();
 
@@ -137,7 +147,7 @@ class ProductoController extends Controller
         $user = $request->user();
 
         if ($foto = $request->file('foto')) {
-            $url = $foto->store('image', 'public');
+            $url = $foto->store('productos', 'public');
         } else {
             $url = '/images/default_product.jpeg';
         }
@@ -217,18 +227,22 @@ class ProductoController extends Controller
     }
 
 
+    /** Borramos un producto con soft delete, las contraofertas que ha recibido ese producto si las eliminamos
+     *  definitivamente.
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy($id)
     {
-        $user = Auth::user();
 
         $producto = Producto::where('id', $id)->first();
 
-        $contraofertas = $user->contraofertas()->where('producto_id', $producto->id);
+        $contraofertas = $this->user->contraofertas()->where('producto_id', $producto->id);
 
         $producto->delete();
 
         $contraofertas->delete();
 
-        return redirect('/user/'.$user->slug);
+        return redirect('/user/' . $this->user->slug);
     }
 }

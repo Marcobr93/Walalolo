@@ -24,14 +24,15 @@ class CreateProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => 'required|string|max:255',
+            'titulo' => 'required|string|max:50',
             'descripcion' => 'max:500',
             'precio' => 'required|numeric|max:999999999',
             'categoria' => 'required|string|max:255',
             'tipo_envio' => 'required|string|max:255',
             'negociacion_precio' => 'required|boolean',
             'intercambio_producto' => 'required|boolean',
-            'destacado' => 'required|boolean'
+            'destacado' => 'required|boolean',
+            'foto' => 'image'
         ];
     }
 
@@ -46,9 +47,9 @@ class CreateProductoRequest extends FormRequest
         // en el método rules de esta clase.
         return [
             'titulo.required' => 'Es necesario completar el campo "título".',
-            'titulo.max' => 'Has sobrepasado los 255 caracteres disponibles para el "título".',
+            'titulo.max' => 'Has sobrepasado los 50 caracteres disponibles para el "título".',
             'titulo.string' => 'El título debe ser una cadena de caracteres.',
-            'descripcion.max' => 'Has sobrepasado los 500 caracteres disponibles para la "descripción".',
+            'descripcion.max' => 'Has sobrepasado los 500 caracteres disponibles para la "Descripción".',
             'precio.required' => 'Es necesario completar el campo "precio".',
             'precio.numeric' => 'El "precio" debe ser un número',
             'precio.max' => 'Has superado el límite de cantidad para el precio.',
@@ -64,6 +65,7 @@ class CreateProductoRequest extends FormRequest
             'intercambio_producto.boolean' => 'El intercambio de producto debe ser de Sí o No.',
             'destacado.required' => 'Es necesario completar el campo "destacado".',
             'destacado.boolean' => 'El destacado debe ser de Sí o No.',
+            'foto.image' => 'La foto debe ser una imagen.',
         ];
     }
 }

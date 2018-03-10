@@ -1,8 +1,7 @@
 <div class="container">
     <div class="iziModal">
         <div id="modalValorar">
-            <form class="form-horizontal" action="{{ route('valoracion.create', array('valora_user_id' => Auth::user()->id,
-'valorado_user_id' => $user['id']))}}" method="post">
+            <form class="form-horizontal" action="{{ route('valoracion.create', $user)}}" method="post">
                 {{ csrf_field() }}
 
                 <div class="modal-header bg-dark blanco">
@@ -35,7 +34,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">ENVIAR</button>
+                            <button type="submit" class="btn btn-primary btnSubmit">ENVIAR</button>
                         </div>
                     </form>
                 </div>

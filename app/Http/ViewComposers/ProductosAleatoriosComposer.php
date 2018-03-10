@@ -5,7 +5,6 @@ namespace App\Http\ViewComposers;
 use App\Producto as Producto;
 use Illuminate\Contracts\View\View;
 
-
 class ProductosAleatoriosComposer
 {
     public function compose(View $view)

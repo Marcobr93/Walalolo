@@ -9,6 +9,7 @@ class Valoracion extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+
     /** Cada valoración la realiza un único usuario.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -17,6 +18,9 @@ class Valoracion extends Model
         return $this->belongsTo(User::class,'valora_user_id');
     }
 
+    /** Usuario valorado
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function userValorado()
     {
         return $this->belongsTo(User::class,'valorado_user_id');

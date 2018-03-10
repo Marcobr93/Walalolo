@@ -1,4 +1,4 @@
-<div class="btn-group-vertical col-lg-12 ml-4" role="group" aria-label="Button group with nested dropdown">
+<div class="btn-group-vertical col-lg-12 ml-4" role="group">
     <form action="/busqueda">
 
         <div class="form-check text-left btn btn-dark col-sm-12">
@@ -21,52 +21,52 @@
         </div>
 
         <div class="btn-group dropbottom" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+            <button id="btnCategorias" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                 Categorías
             </button>
-            <div class="dropdown-menu bg-dark" aria-labelledby="btnGroupDrop1">
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Coches">Coches</button>
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Motor y Accesorios">Motor y
+            <div class="dropdown-menu bg-dark" aria-labelledby="btnCategorias">
+                <button class="btn btn-dark" name="categoria" type="submit" value="Coches">Coches</button>
+                <button class="btn btn-dark" name="categoria" type="submit" value="Motor y Accesorios">Motor y
                     Accesorios
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Electrónica">Electrónica
+                <button class="btn btn-dark" name="categoria" type="submit" value="Electrónica">Electrónica
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Deporte y Ocio">Deporte y
+                <button class="btn btn-dark" name="categoria" type="submit" value="Deporte y Ocio">Deporte y
                     Ocio
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Muebles, Deco y Jardín">
+                <button class="btn btn-dark" name="categoria" type="submit" value="Muebles, Deco y Jardín">
                     Muebles, Deco y Jardín
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Consolas y Videojuegos">
+                <button class="btn btn-dark" name="categoria" type="submit" value="Consolas y Videojuegos">
                     Consolas y Videojuegos
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Libros, Películas y Música">
+                <button class="btn btn-dark" name="categoria" type="submit" value="Libros, Películas y Música">
                     Libros, Películas y Música
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Moda y Accesorios">Moda y
+                <button class="btn btn-dark" name="categoria" type="submit" value="Moda y Accesorios">Moda y
                     Accesorios
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Niños y Bebés">Niños y Bebés
+                <button class="btn btn-dark" name="categoria" type="submit" value="Niños y Bebés">Niños y Bebés
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Inmobiliaria">Inmobiliaria
+                <button class="btn btn-dark" name="categoria" type="submit" value="Inmobiliaria">Inmobiliaria
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Electrodomésticos">
+                <button class="btn btn-dark" name="categoria" type="submit" value="Electrodomésticos">
                     Electrodomésticos
                 </button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Servicios">Servicios</button>
+                <button class="btn btn-dark" name="categoria" type="submit" value="Servicios">Servicios</button>
 
-                <button class="btn btn-dark blanco" name="categoria" type="submit" value="Otros">Otros</button>
+                <button class="btn btn-dark" name="categoria" type="submit" value="Otros">Otros</button>
             </div>
         </div>
     </form>

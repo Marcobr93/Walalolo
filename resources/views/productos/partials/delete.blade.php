@@ -16,7 +16,7 @@
                 <h1 class="alert alert-danger text-center mt-2">El borrado del producto es irreversible.</h1>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">BORRAR</button>
+                <button type="submit" class="btn btn-primary btnSubmit">BORRAR</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
             </div>
         </div>

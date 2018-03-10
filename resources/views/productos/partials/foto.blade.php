@@ -19,6 +19,6 @@
         </div>
     </div>
 </div>
-<div class="mb-4 text-center">
+<div class="mt-2 mb-4 text-center">
     <button type="submit" class="btn btn-dark">Actualizar</button>
 </div>

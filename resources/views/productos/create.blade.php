@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="text-center card-header bg-dark blanco">Añadir producto</div>
                     <div class="card-body bg-color4">
-                        <form action="{{ url('/') }}/productos/create" id="formularioCreacionProducto" method="post"
+                        <form action="{{ url('/') }}/productos/crear" id="formularioCreacionProducto" method="post"
                               enctype="multipart/form-data" class="form-horizontal">
                             {{ csrf_field() }}
 
@@ -87,7 +87,7 @@
                                     <div class="col-lg-6">
                                         <select name="tipo_envio" class="custom-select custom-select-lg mb-3"
                                                 id="tipo_envio" title="Tipo de envío">
-                                            <option selected>Selecciona</option>
+                                            <option selected value="Sin determinar.">Selecciona</option>
                                             <option value="Sin envío">Sin envío</option>
                                             <option value="5 kg max">5 kg max.</option>
                                             <option value="10 kg max">10 kg max.</option>
@@ -165,7 +165,7 @@
                                 <div class="col-lg-8">
                                     <select name="categoria" class="custom-select custom-select-lg mb-3" id="categoria"
                                             title="Categoría">
-                                        <option selected>Selecciona</option>
+                                        <option selected value="Sin determinar">Selecciona</option>
                                         <option value="Coches">Coches</option>
                                         <option value="Motor y Accesorios">Motor y Accesorios</option>
                                         <option value="Electrónica">Electrónica</option>
@@ -213,7 +213,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" id="botonCreacionProducto" class="btn btn-dark">
+                                <button type="submit" class="btn btn-dark btnSubmit">
                                     Añadir producto
                                 </button>
                             </div>
@@ -226,6 +226,5 @@
     </div>
     @push('scripts')
         <script src="{{ asset('js/validacionProducto.js') }}"></script>
-        <script src="{{ asset('js/selectMenu.js') }}"></script>
     @endpush
 @endsection

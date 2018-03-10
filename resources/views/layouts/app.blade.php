@@ -52,6 +52,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/disableButton.js') }}"></script>
 
 <!-- CDN jquery.ui(JS) -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

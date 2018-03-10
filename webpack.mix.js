@@ -22,6 +22,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/tablaProductos.js', 'public/js')
     .js('resources/assets/js/search.js', 'public/js')
     .js('resources/assets/js/vistas.js', 'public/js')
+    .js('resources/assets/js/disableButton.js', 'public/js')
     .js('resources/assets/js/validacionEditar.js', 'public/js')
     .js('resources/assets/js/validacionProducto.js', 'public/js')
     .js('resources/assets/js/validacionRegistro.js', 'public/js');

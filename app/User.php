@@ -118,7 +118,7 @@ class User extends Authenticatable
         return $media;
     }
 
-    
+
     /** Un usuario tiene muchas reviews de otros usuarios
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -146,7 +146,6 @@ class User extends Authenticatable
             return false;
         }
     }
-
 
 
     /** Getter del avatar del usuario, para mostrar si el avatar proviene de una por defecto o de una generada con $faker

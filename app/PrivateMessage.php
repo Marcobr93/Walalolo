@@ -8,6 +8,7 @@ class PrivateMessage extends Model
 {
     protected $guarded = [];
 
+
     /** Cada usuario tiene sus mensajes privados.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

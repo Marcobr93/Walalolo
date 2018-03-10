@@ -8,20 +8,35 @@ use App\Valoracion;
 class ValoracionController extends Controller
 {
 
+    private $user;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = auth()->user();
+
+            return $next($request);
+        });
+
+        $this->user = auth()->user();
+    }
+
+
     /** Función que comprueba si existe una valoración del usuario logeado con otro usuario, si no es null significa que no
      * tiene una valoración de él y por lo tanto crea una nueva, si existe, edita esa valoración por la nueva introducida.
      * @param CreateValoracionRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function createOrEdit(CreateValoracionRequest $request)
+    public function createOrEdit(CreateValoracionRequest $request, $user)
     {
-        $valora_user_id = $request->input('valora_user_id');
+        $valora_user_id = $this->user->id;
 
-        $valorado_user_id = $request->input('valorado_user_id');
+        $valorado_user_id = $user;
 
         $valoracion = $request->input('valoracion');
 
-        $user_valoracion = Valoracion::with('user')->where('valora_user_id', $valora_user_id)->where('valorado_user_id', $valorado_user_id)->first();
+        $user_valoracion = Valoracion::with('user')->where('valora_user_id', $valora_user_id)
+            ->where('valorado_user_id', $valorado_user_id)->first();
 
         if ($user_valoracion == null) {
             Valoracion::create([

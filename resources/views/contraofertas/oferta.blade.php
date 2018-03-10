@@ -6,7 +6,7 @@
         <div class="text-center btnespacio">
             <button class="btn btn-dark">
                 <a class="nav-link"
-                   href="{{route('contraoferta.aceptada',array('user' => Auth::user()->nombre_usuario))}}">Ofertas
+                   href="{{route('contraoferta.aceptada', Auth::user()->slug)}}">Ofertas
                     aceptadas</a>
             </button>
         </div>

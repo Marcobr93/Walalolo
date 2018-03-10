@@ -3,8 +3,7 @@
     <a href="#" class="nav-link" data-toggle="modal" data-target="#contraoferta">Contraoferta</a>
 </button>
 
-<form class="form-horizontal" action="{{ route('contraoferta.create', array('comprador_user_id' => Auth::user()->id,
-'vendedor_user_id' => $producto['user_id'], 'producto_id' => $producto['id']))}}" method="post">
+<form class="form-horizontal" action="{{ route('contraoferta.create', $producto)}}" method="post">
     {{ csrf_field() }}
     <div class="modal fade" id="contraoferta" tabindex="-1" data-backdrop="static" data-show="true">
         <div class="modal-dialog" role="document">
@@ -34,7 +33,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">ENVIAR</button>
+                    <button type="submit" class="btn btn-primary btnSubmit">ENVIAR</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
                 </div>
             </div>

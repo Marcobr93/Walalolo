@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 
 class PagesController extends Controller
 {
+
     /**
      * Genera la página de inicio del proyecto.
      *
@@ -31,6 +32,7 @@ class PagesController extends Controller
             'elementoActivo' => $destacado,
         ]);
     }
+
 
     /** Paginación asíncrona
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector

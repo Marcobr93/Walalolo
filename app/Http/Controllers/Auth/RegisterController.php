@@ -41,6 +41,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -53,8 +54,22 @@ class RegisterController extends Controller
             'nombre_usuario' => 'required|string|max:255|unique:users',
             'email' => 'required|max:255|email|unique:users',
             'password' => 'required|string|min:6|confirmed',
+        ],[
+            'nombre_usuario.required' => 'El nombre de usuario es obligatorio.',
+            'nombre_usuario.string' => 'El nombre debe ser una cadena de caracteres',
+            'nombre_usuario.max' => 'El nombre debe tener 255 caracteres como máximo',
+            'nombre_usuario.unique' => 'El nombre de usuario ya existe.',
+            'email.required' => 'El email de usuario es obligatorio.',
+            'email.string' => 'El email debe ser una cadena de caracteres',
+            'email.max' => 'El email debe tener 255 caracteres como máximo',
+            'email.unique' => 'El email ya existe.',
+            'password.required' => 'El password de usuario es obligatorio.',
+            'password.string' => 'El password debe ser una cadena de caracteres',
+            'password.max' => 'El nombre debe tener 6 caracteres como máximo',
+            'password.confirmed' => 'Las contraseñas no coinciden'
         ]);
     }
+
 
     /** Validacion por Ajax con FormRquest
      * @param CreateUserAjaxFormRequest $request
@@ -64,6 +79,7 @@ class RegisterController extends Controller
         //Obtenermos todos los valores y devolvemos un array vacio
         return array();
     }
+
 
     /**
      * Create a new user instance after a valid registration.

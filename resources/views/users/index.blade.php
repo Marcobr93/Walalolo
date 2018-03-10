@@ -47,7 +47,7 @@
             <h1>Productos de {{ $user->nombre_usuario }} ({{$totalProductos}})</h1>
         </div>
 
-        <div id="paginacion">
+        <div id="paginacionUser">
             @include('productos.producto')
         </div>
 
@@ -78,10 +78,12 @@
         @if($user->id !== Auth::user()->id)
             <script src="{{ asset('js/iziModal.js') }}"></script>
             <script src="{{ asset('js/modal.js') }}"></script>
+            <script src="{{ asset('js/disableButton.js') }}"></script>
         @endif
     @endauth
     <script src="{{ asset('js/collapse.js') }}"></script>
     <script src="{{ asset('js/map.js') }}"></script>
+    {{--<script src="{{ asset('js/ReviewAsync.js') }}"></script>--}}
     <script src="{{ asset('js/lozad.js') }}" defer></script>
 
     <script>

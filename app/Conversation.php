@@ -17,6 +17,10 @@ class Conversation extends Model
     }
 
 
+    /** Función que nos devuelve el usuario con el que el usuario logeado ha tenido una conversación.
+     * @param $conversation
+     * @return mixed
+     */
     public static function user($conversation)
     {
         $users = $conversation->users()->get();
@@ -27,6 +31,7 @@ class Conversation extends Model
             }
         }
     }
+
 
     /** Un usuario puede enviar muchos mensajes privados.
      * @return \Illuminate\Database\Query\Builder|static

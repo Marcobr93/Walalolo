@@ -9,7 +9,7 @@
             <ul class="navbar-nav mr-auto">
                 @auth()
                     <li class="nav-item">
-                        <a href="{{ url('/') }}/productos/create" class="nav-link">Añadir Producto</a>
+                        <a href="{{ url('/') }}/productos/crear" class="nav-link">Añadir Producto</a>
                     </li>
                 @endauth
                 <li class="nav-item">
@@ -50,7 +50,7 @@
                                 <a href="{{ url('/') }}/perfil" class="dropdown-item blanco">
                                     Perfil
                                 </a>
-                                <a href="{{ url('/') }}/ofertas/{{Auth::user()->nombre_usuario}}"
+                                <a href="{{ url('/') }}/ofertas/{{Auth::user()->slug}}"
                                    class="dropdown-item blanco">
                                     Ofertas</a>
                                 <a href="{{ url('/') }}/user/{{Auth::user()->slug}}" class="dropdown-item blanco">

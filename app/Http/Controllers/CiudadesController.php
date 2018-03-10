@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 class CiudadesController extends Controller
 {
-    /** Función que devuelve un Json con las provincias de España, que serán utilizadas por Autocomplete en el perfil de usuario.
+
+    /** Función que devuelve un Json con las provincias de España, que serán utilizadas por Autocomplete en la edición
+     *  del perfil de usuario.
      * @return string
      */
     public function autocomplete()

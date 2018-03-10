@@ -17,7 +17,7 @@
                             <textarea name="message" id="message" class="form-control" rows="5"></textarea>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">ENVIAR</button>
+                            <button type="submit" class="btn btn-primary btnSubmit">ENVIAR</button>
                         </div>
                     </form>
                 </div>

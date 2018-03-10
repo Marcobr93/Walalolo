@@ -24,18 +24,18 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_usuario' => 'required|string|max:255|unique:users',
-            'name' => 'required|string|max:255',
-            'apellido' => 'required|string|max:255',
+            'nombre_usuario' => 'required|string|max:30|unique:users',
+            'name' => 'required|string|max:50',
+            'apellido' => 'required|string|max:50',
             'email' => 'required|max:255|email|unique:users',
             'avatar' => 'string|max:255',
-            'num_telefono' => 'string|max:255',
+            'num_telefono' => 'string|max:30',
             'password' => 'required|string|min:6|confirmed',
-            'dni' => 'required|string|max:255',
+            'dni' => 'required|string|max:30',
             'direccion' => 'required|string|max:255',
             'poblacion' => 'required|string|max:255',
             'website'   => 'string|max:255',
-            'descripcion' => 'max:255'
+            'descripcion' => 'max:500'
         ];
     }
 
@@ -50,14 +50,14 @@ class CreateUserRequest extends FormRequest
         // en el método rules de esta clase.
         return [
             'nombre_usuario.required' => 'Es necesario completar el campo "nombre de usuario".',
-            'nombre_usuario.max' => 'Has sobrepasado los 255 caracteres disponibles para el "nombre de usuario".',
+            'nombre_usuario.max' => 'Has sobrepasado los 30 caracteres disponibles para el "nombre de usuario".',
             'nombre_usuario.string' => 'El nombre de usuario debe ser una cadena de caracteres.',
             'nombre_usuario.unique' => 'El nombre de usuario no está disponible.',
             'name.required' => 'Es necesario completar el campo "nombre".',
-            'name.max' => 'Has sobrepasado los 255 caracteres disponibles para el "nombre".',
+            'name.max' => 'Has sobrepasado los 50 caracteres disponibles para el "nombre".',
             'name.string' => 'El nombre debe ser una cadena de caracteres.',
             'apellido.required' => 'Es necesario completar el campo "apellido".',
-            'apellido.max' => 'Has sobrepasado los 500 caracteres disponibles para el "apellido".',
+            'apellido.max' => 'Has sobrepasado los 50 caracteres disponibles para el "apellido".',
             'apellido.string' => 'El apellido debe ser una cadena de caracteres.',
             'email.required' => 'Es necesario completar el campo "email".',
             'email.max' => 'Has sobrepasado los 255 caracteres disponibles para el "email".',
@@ -66,10 +66,10 @@ class CreateUserRequest extends FormRequest
             'avatar.string' => 'El avatar debe ser una cadena de caracteres',
             'avatar.max' => 'El avatar debe tener 6 caracteres como mínimo',
             'num_telefono.string' => 'El número de teléfono debe ser una cadena de caracteres',
-            'num_telefono.max' => 'El número de teléfono debe tener 6 caracteres como mínimo',
+            'num_telefono.max' => 'El número de teléfono debe tener 30 caracteres como máximo',
             'password.required' => 'El password de usuario es obligatorio.',
             'password.string' => 'El password debe ser una cadena de caracteres',
-            'password.max' => 'El nombre debe tener 6 caracteres como mínimo',
+            'password.min' => 'El nombre debe tener 6 caracteres como mínimo',
             'password.confirmed' => 'Las contraseñas no coinciden',
             'direccion.required' => 'Es necesario completar el campo "descripción".',
             'direccion.max' => 'Has sobrepasado los 255 caracteres disponibles para la "descripción".',
@@ -78,11 +78,11 @@ class CreateUserRequest extends FormRequest
             'poblacion.max' => 'Has sobrepasado los 255 caracteres disponibles para la "población".',
             'poblacion.string' => 'La población debe ser una cadena de caracteres.',
             'dni.required' => 'Es necesario completar el campo "DNI".',
-            'dni.max' => 'Has sobrepasado los 255 caracteres disponibles para el "DNI".',
+            'dni.max' => 'Has sobrepasado los 30 caracteres disponibles para el "DNI".',
             'dni.string' => 'El DNI debe ser una cadena de caracteres.',
             'website.string' => 'El website debe ser una cadena de caracteres',
             'website.max' => 'El website debe tener 6 caracteres como mínimo',
-            'descripcion.max' => 'La descripción debe tener 6 caracteres como mínimo',
+            'descripcion.max' => 'La descripción debe tener 500 caracteres como máximo',
         ];
     }
 }

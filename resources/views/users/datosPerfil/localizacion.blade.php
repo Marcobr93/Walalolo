@@ -6,12 +6,8 @@
     <div id="map" class="map col-lg-12"></div>
 </div>
 
-@push('scripts')
-    <script src="{{ asset('js/map.js') }}"></script>
-
-    <script>
-        $(function () {
-            maps('{{ $data->lat }}', '{{ $data->lon }}', '{{ $data->city }}');
-        })
-    </script>
-@endpush
+<script>
+    $(function () {
+        maps('{{ $data->lat }}', '{{ $data->lon }}', '{{ $data->city }}');
+    })
+</script>

@@ -14,8 +14,23 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+
+    private $user;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = auth()->user();
+
+            return $next($request);
+        });
+
+        $this->user = auth()->user();
+    }
+
+
     /**
-     * Display a listing of the resource.
+     * Muestra el perfil del usuario.
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,47 +40,46 @@ class ProfileController extends Controller
 
     }
 
+
+    /** Función que devuelve la vista de cuenta de forma asíncrona.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function perfilCuenta()
     {
-        $user = Auth::user();
-
         return view('users.datosPerfil.cuenta', [
-            'user' => $user,
+            'user' => $this->user,
         ]);
-
     }
 
 
+    /** Función que devuelve la vista de datos personales de forma asíncrona.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function perfilDatosPersonales()
     {
-        $user = Auth::user();
-
         return view('users.datosPerfil.datosPersonales', [
-            'user' => $user,
+            'user' => $this->user,
         ]);
-
     }
 
 
+    /** Función que devuelve la vista de localización de forma asíncrona.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function perfilLocalizacion()
     {
-        $user = Auth::user();
-
-        $data = GeoIP::getLocation($user->ip);
-
+        $data = GeoIP::getLocation($this->user->ip);
 
         return view('users.datosPerfil.localizacion', [
-            'user' => $user,
+            'user' => $this->user,
             'data' => $data
         ]);
-
     }
 
     public function editProfile()
     {
         return view('users.edit');
     }
-
 
 
     /** Validacion por Ajax con FormRquest
@@ -84,9 +98,7 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        $user = Auth::user();
-
-        return view('users.edit', ['user' => $user]);
+        return view('users.edit', ['user' => $this->user]);
     }
 
 
@@ -98,20 +110,16 @@ class ProfileController extends Controller
     public function update(UpdateUserRequest $request)
     {
         $path = $request->path();
-        $user = Auth::user();
-
 
         if (strpos($path, 'cuenta')) {
             $data = array_filter($request->all());
 
-            $user = User::findOrFail(Auth::user()->id);
-
-            $user->fill($data);
+            $this->user->fill($data);
         }
 
         if (strpos($path, 'password')) {
 
-            if (!Hash::check($request->get('current_password'), $user->password)) {
+            if (!Hash::check($request->get('current_password'), $this->user->password)) {
                 return redirect()->back()->with('error', 'La contraseña actual no es correcta');
             }
 
@@ -119,51 +127,36 @@ class ProfileController extends Controller
                 return redirect()->back()->with('error', 'La nueva contraseña debe ser diferente de la antigua.');
             }
 
-            $user->password = bcrypt($request->get('password'));
+            $this->user->password = bcrypt($request->get('password'));
         }
 
         if (strpos($path, 'datos-personales')) {
 
             $data = array_filter($request->all());
 
-            $user = User::findOrFail(Auth::user()->id);
-
-            $user->fill($data);
+            $this->user->fill($data);
         }
 
-        if( $avatar = $request->file('avatar') ){
-            if( !strpos($user->avatar, "http") ) {
-                $routeParts = explode('/', $user->avatar);
-                Storage::disk('public')->delete('image/'.end($routeParts));
+        if (strpos($path, 'avatar')) {
+            if ($avatar = $request->file('avatar')) {
+                $routeParts = explode('/', $this->user->avatar);
+                Storage::disk('public')->delete('image/' . end($routeParts));
+
+                $url = $avatar->store('image', 'public');
+            } else {
+                $url = $this->user->avatar;
             }
-
-            $url = $avatar->store('image','public');
-        }else{
-            $url = $user->avatar;
+            $this->user->fill([
+                'avatar' => $url,
+            ]);
         }
 
+        $this->user->ip = $request->ip();
 
-        $user->fill([
-            'avatar'     => $url,
-        ]);
-
-
-        $user->ip = $request->ip();
-
-        $user->save();
+        $this->user->save();
 
         return redirect()
             ->back()
             ->with('exito', 'Datos actualizados');
-    }
-
-
-
-    /** Devuelve la vista de prueba, donde realizo las pruebas en el proyecto.
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function prueba()
-    {
-        return view('prueba');
     }
 }
