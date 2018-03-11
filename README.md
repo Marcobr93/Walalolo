@@ -91,6 +91,21 @@ información generada aleatoriamente con**$faker**.
 php artisan migrate:refresh --seed
 ```
 
+## Creación de enlace blando para poder subir tus propias imágenes
+Será necesario que cree un enlace blando desde vagrant, le dejo el enlace de una guía por si tiene usted más dudas sobre
+este paso: https://www.cambiatealinux.com/ln-crear-un-enlace-simbolico-al-fichero-o-directorio
+
+A continuación le dejaré el comando que debe ejecutar en la ruta de su proyecto desde la **máquina virtual**, la ruta 
+puede variar dependiendo de los nombres que haya usted dado tanto al proyecto como en mi caso a la carpeta **Code**, 
+que es donde se almacenan los proyectos en la máquina virtual:
+```
+ln -s /home/vagrant/code/Walalolo/storage/app/public/ storage
+```
+Este comando debe realizarlo en la siguiente ruta:
+```
+vagrant@homestead:~/code/Walalolo/public$
+```
+
 ## Manual de uso de la aplicación
 Una vez llegados aquí, significa que todo ha funcionado de forma correcta, a continuación le detallaré las distintas
 funcionalidades que posee la página de **Walalolo.**
