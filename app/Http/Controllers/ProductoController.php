@@ -8,7 +8,6 @@ use App\Producto;
 use App\Http\Requests\CreateProductoRequest;
 use App\User;
 use App\Visita;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Torann\GeoIP\Facades\GeoIP;

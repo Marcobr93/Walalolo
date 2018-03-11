@@ -10,8 +10,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class HomeTest extends TestCase
 {
+
+
     /**
-     * La página home es correcta
+     * La página home es correcta.
      */
     public function testHome()
     {
@@ -20,13 +22,10 @@ class HomeTest extends TestCase
         $response->assertStatus(200);
     }
 
-//    public function testHomeSinProductos()
-//    {
-//        $response = $this->get('/');
-//
-//        $response->assertSeeText('No hay productos para mostrar.');
-//    }
 
+    /**
+     * Test que nos muestra la página de inicio y que contine productos.
+     */
     public function testHomeConProductos()
     {
         $response = $this->get('/');

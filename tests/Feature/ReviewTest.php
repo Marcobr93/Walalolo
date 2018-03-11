@@ -12,6 +12,9 @@ class ReviewTest extends TestCase
 {
     use DatabaseTransactions;
 
+    /**
+     * Test que comprueba que un usuario logeado puede realizar una review a otro usuario.
+     */
     public function testReviewUser()
     {
         $user = factory(User::class)->create();

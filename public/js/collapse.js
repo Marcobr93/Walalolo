@@ -86,6 +86,16 @@ $(function () {
     });
 });
 
+function toogleBusqueda() {
+    $("#mostrarBusqueda").collapse("toggle");
+}
+
+$(function () {
+    $("#btnCollapseBusqueda").on('click', function (e) {
+        toogleBusqueda();
+    });
+});
+
 /***/ })
 
 /******/ });

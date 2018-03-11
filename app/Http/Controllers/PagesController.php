@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
-use App\User;
 use Illuminate\Support\Facades\View;
 
 class PagesController extends Controller

@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProfileEditAjaxFormRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Torann\GeoIP\Facades\GeoIP;
 use Illuminate\Support\Facades\Storage;

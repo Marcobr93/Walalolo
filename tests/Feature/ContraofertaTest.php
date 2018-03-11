@@ -14,7 +14,10 @@ class ContraofertaTest extends TestCase
 {
     use DatabaseTransactions;
 
-
+    /**
+     * Test que comprueba que el usuario logeado puede realizar una contraoferta a un producto que tenga negociacion_precio
+     * '1'.
+     */
     public function testContraofertaProducto()
     {
         $user = factory(User::class)->create();
@@ -32,6 +35,9 @@ class ContraofertaTest extends TestCase
     }
 
 
+    /**
+     * Test que nos muestra las ofertas de un usuario sobre sus productos.
+     */
     public function testOfertasUser(){
         $user = factory(User::class)->create();
         $user2 = factory(User::class)->create();
@@ -55,6 +61,9 @@ class ContraofertaTest extends TestCase
     }
 
 
+    /**
+     * Test que nos comprueba que funciona la página de ofertas aceptadas de los productos del usuario logeado.
+     */
     public function testOfertasAceptadas(){
         $user = factory(User::class)->create();
 

@@ -39,7 +39,13 @@
     <div class="row">
         <div class="col-lg-2 marginTop">
             @if((Request::is('/')) || (Request::is('busqueda*')))
-            @include('productos.categorias')
+                <button id="btnCollapseBusqueda" data-toggle="collapse" class="btn btn-dark center my-4">
+                    Mostrar búsqueda
+                </button>
+
+                <div class="collapse multi-collapse" id="mostrarBusqueda">
+                        @include('productos.categorias')
+                </div>
                 @endif
         </div>
         <div class="col-lg-8 mt-4">
@@ -53,6 +59,8 @@
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/disableButton.js') }}"></script>
+<script src="{{ asset('js/collapse.js') }}"></script>
+
 
 <!-- CDN jquery.ui(JS) -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

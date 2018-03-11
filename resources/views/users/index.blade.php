@@ -81,9 +81,7 @@
             <script src="{{ asset('js/disableButton.js') }}"></script>
         @endif
     @endauth
-    <script src="{{ asset('js/collapse.js') }}"></script>
     <script src="{{ asset('js/map.js') }}"></script>
-    {{--<script src="{{ asset('js/ReviewAsync.js') }}"></script>--}}
     <script src="{{ asset('js/lozad.js') }}" defer></script>
 
     <script>

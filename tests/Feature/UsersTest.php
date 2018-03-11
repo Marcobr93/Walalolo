@@ -13,6 +13,9 @@ class UsersTest extends TestCase
     use DatabaseTransactions;
 
 
+    /**
+     * Test que comprueba que podemos logearnos con un usuario.
+     */
     public function testUserCanLogin()
     {
         $user = factory(User::class)->create();
@@ -26,6 +29,9 @@ class UsersTest extends TestCase
     }
 
 
+    /**
+     *  Test que comprueba que la vista del usuario funciona correctamente.
+     */
     public function testMostrarPaginaUsuario()
     {
         $user = factory(User::class)->create();
@@ -35,6 +41,10 @@ class UsersTest extends TestCase
         $response->assertStatus(200);
     }
 
+
+    /**
+     * Test que comprueba que la vista de otro usuario funciona correctamente.
+     */
     public function testMostrarPaginaOtroUsuario()
     {
         $user = factory(User::class)->create();
@@ -49,6 +59,9 @@ class UsersTest extends TestCase
     }
 
 
+    /**
+     * Test que comprueba que la vista del perfil del usuario logeado funciona correctamente.
+     */
     public function testMostrarPerfilUsuario()
     {
         $user = factory(User::class)->create();
@@ -59,6 +72,9 @@ class UsersTest extends TestCase
     }
 
 
+    /**
+     * Test que comprueba que la vista de edición, del perfil del usuario logeado, funciona correctamente.
+     */
     public function testMostrarPerfilEditarUsuario()
     {
         $user = factory(User::class)->create();
@@ -68,6 +84,10 @@ class UsersTest extends TestCase
         $response->assertStatus(200);
     }
 
+
+    /**
+     * Test que comprueba que la vista de edición cuenta, del perfil del usuario logeado, funciona correctamente.
+     */
     public function testMostrarPerfilEditarCuentaUsuario()
     {
         $user = factory(User::class)->create();
@@ -77,6 +97,10 @@ class UsersTest extends TestCase
         $response->assertStatus(200);
     }
 
+
+    /**
+     * Test que comprueba que la vista de edición password, del perfil del usuario logeado, funciona correctamente.
+     */
     public function testMostrarPerfilEditarPasswordUsuario()
     {
         $user = factory(User::class)->create();
@@ -86,6 +110,10 @@ class UsersTest extends TestCase
         $response->assertStatus(200);
     }
 
+
+    /**
+     * Test que comprueba que la vista de edición avatar, del perfil del usuario logeado, funciona correctamente.
+     */
     public function testMostrarPerfilEditarFotoUsuario()
     {
         $user = factory(User::class)->create();
@@ -95,6 +123,10 @@ class UsersTest extends TestCase
         $response->assertStatus(200);
     }
 
+
+    /**
+     * Test que comprueba que la vista de edición de datos-personales, del perfil del usuario logeado, funciona correctamente.
+     */
     public function testMostrarPerfilEditarDatosPersonalesUsuario()
     {
         $user = factory(User::class)->create();
@@ -104,6 +136,10 @@ class UsersTest extends TestCase
         $response->assertStatus(200);
     }
 
+
+    /**
+     * Test que comprueba que la vista de edición borrar-usuario, del perfil del usuario logeado, funciona correctamente.
+     */
     public function testMostrarPerfilEditarBorrarUsuario()
     {
         $user = factory(User::class)->create();
@@ -113,6 +149,10 @@ class UsersTest extends TestCase
         $response->assertStatus(200);
     }
 
+
+    /**
+     * Test que comprueba que podemos editar el nombre_usuario del perfil de edición.
+     */
     public function testUpdatePerfilNombre()
     {
         $user = factory(User::class)->create();
@@ -129,6 +169,10 @@ class UsersTest extends TestCase
         ]);
     }
 
+
+    /**
+     * Test que comprueba que podemos editar el website del perfil de edición.
+     */
     public function testUpdatePerfilWebsite()
     {
         $user = factory(User::class)->create();
@@ -145,6 +189,10 @@ class UsersTest extends TestCase
         ]);
     }
 
+
+    /**
+     * Test que comprueba que podemos eliminar al usuario logeado.
+     */
     public function testBorrarUsuario()
     {
         $user = factory(User::class)->create();

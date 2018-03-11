@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Conversation;
-use App\Http\Requests\CreateUserRequest;
 use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;

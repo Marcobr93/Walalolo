@@ -12,6 +12,10 @@ class ValoracionTest extends TestCase
 {
     use DatabaseTransactions;
 
+
+    /**
+     * Test que comprueba que un usuario logeado puede valorar a otro usuario distinto.
+     */
     public function testValoracionUser()
     {
         $user = factory(User::class)->create();

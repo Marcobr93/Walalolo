@@ -18,6 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
 
     }
 
+
     /**
      * Register the application services.
      *

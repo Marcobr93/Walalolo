@@ -118,8 +118,9 @@ click en el enlace ,accederemos a una vista específica del producto o del usuar
     antiguo. Estos productos poseen la siguiente información:
         - Nombre del producto **(LMI)**, imagen del usuario que la ha subido **(LMI)**, nombre del usuario que la ha subido
          **(LMI)**, visitas de ese producto, imagen **(LMI)**, descripción y precio del producto.
-    - En el **lateral izquierdo** de la página, encontramos una pequeña tabla con dos opciones seleccionables y una tercera
-    con un desplegable, que nos permite filtrar los productos según lo seleccionado, el funcionamiento es el siguiente:
+    - En el **lateral izquierdo** de la página, encontramos el botón de **Mostrar búsqueda**, al pulsar el botón, este nos
+     mostrará una pequeña tabla con dos opciones seleccionables y una tercera que abrirá un desplegable, el funcionamiento 
+     es el siguiente:
         - Las dos opciones seleccionables nos permite filtrar por aquellos productos que tengan un precio
         negociable o que permitan el intercambio.
         - La tecera opción, el desplegable, nos permite seleccionar la categoría a la que pertecene dicho producto.
