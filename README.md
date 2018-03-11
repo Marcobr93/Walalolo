@@ -68,6 +68,12 @@ Para generar 'APP_KEY, deberá utilizar el siguiente comando:'
 ```
 php artisan key:generate
 ```
+#### IMPORTANTE
+Como habrá podido observar en el archivo **.env**, es necesario cambiar la siguiente parte:
+```
+CACHE_DRIVER=array
+```
+Sin esto, no podremos visualizar el mapa de localización de cada usuario.
 
 ### Base de datos
 Para la configuración de la base de datos, utilizará los datos del archivo **.env**.
