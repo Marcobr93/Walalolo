@@ -36,17 +36,19 @@ class UsersController extends Controller
         $me = $request->user();
 
         $message = $request->input('message');
+        if ($message !== null) {
+            $conversation = Conversation::between($me, $user);
 
-        $conversation = Conversation::between($me, $user);
+            PrivateMessage::create([
+                'conversation_id' => $conversation->id,
+                'user_id' => $me->id,
+                'content' => $message,
+            ]);
 
-        PrivateMessage::create([
-            'conversation_id' => $conversation->id,
-            'user_id' => $me->id,
-            'content' => $message,
-        ]);
-
-        return redirect('/user/conversations/' . $conversation->id);
-
+            return redirect('/user/conversations/' . $conversation->id);
+        } else {
+            return redirect('/user/' . $user->slug);
+        }
     }
 
 

@@ -4,19 +4,15 @@ $(function () {
 
 function review() {
     $("#comentario").on({
-        keypress: function (e) {
-            if (e.keyCode == 13) {
-                e.preventDefault();
-                comentar($("#comentario").val());
-            }
+        click: function (e) {
+            e.preventDefault();
+            comentar();
         }
     });
 }
 
 
 function comentar(comentario) {
-
-    $(event.target).addClass("active");
     axios.post('/comentar', {
         comentario: comentario
     }).then(function (response) {
