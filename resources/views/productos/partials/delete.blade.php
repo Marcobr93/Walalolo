@@ -3,7 +3,7 @@
     <a href="#" class="nav-link blanco" data-toggle="modal" data-target="#borrarProducto">Borrar Producto</a>
 </button>
 
-<div class="modal fade" id="borrarProducto" tabindex="-1" data-backdrop="static" data-show="true">
+<div class="modal fade mt-4" id="borrarProducto" tabindex="-1" data-backdrop="static" data-show="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark blanco">

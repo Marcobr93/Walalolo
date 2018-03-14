@@ -39,22 +39,23 @@ class ReviewController extends Controller
         return redirect()->back();
     }
 
-//    public function comentar(CreateReviewRequest $request)
-//    {
-//        if (request()->ajax()) {
-//
-//            Review::create([
-//                'user_id' => $request->input('user_id'),
-//                'review_user_id' => $request->input('review_user_id'),
-//                'comentario' => $request->input('comentario')
-//            ])->render();
-//
-//            return redirect()->back();
-//
-//        } else {
-//            return redirect('/');
-//        }
-//    }
+    public function comentar(CreateReviewRequest $request)
+    {
+        if (request()->ajax()) {
+            $data = json_decode(file_get_contents("php://input"), true);
+
+            Review::create([
+                'user_id' => $request->input('user_id'),
+                'review_user_id' => $request->input('review_user_id'),
+                'comentario' => $request->input('comentario')
+            ])->render();
+
+            return redirect()->back();
+
+        } else {
+            return redirect('/');
+        }
+    }
 
 
     /** Muestra las reviews del usuario en cuestión.

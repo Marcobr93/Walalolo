@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="bg-color4">
+    <div class="bg-color4" id="usuario">
 
         <div class="col-lg-12 my-3">
             <h4 class="col-lg-12 text-center">
@@ -11,7 +11,7 @@
             <div id="map" class="map col-lg-12"></div>
         </div>
 
-        @include('valoraciones.valoracion')
+            @include('valoraciones.valoracion')
 
         @auth
             @include('valoraciones.valorar')
@@ -81,6 +81,7 @@
             <script src="{{ asset('js/disableButton.js') }}"></script>
         @endif
     @endauth
+    <script src="{{ asset('funcionesAsync.js') }}"></script>
     <script src="{{ asset('js/map.js') }}"></script>
     <script src="{{ asset('js/lozad.js') }}" defer></script>
 

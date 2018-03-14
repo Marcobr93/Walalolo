@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary btnSubmit">ENVIAR</button>
+                            <button type="submit" id="valorar" class="btn btn-primary btnSubmit">ENVIAR</button>
                         </div>
                     </form>
                 </div>

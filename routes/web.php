@@ -104,11 +104,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Rutas de reviews
     Route::post('/user/{user}/review', 'ReviewController@store')->name('review.create');
-    Route::post('/comentar', 'ReviewControllerController@comentar');
-
 
     // Rutas de valoraciones
     Route::post('/user/{user}/valorar', 'ValoracionController@createOrEdit')->name('valoracion.create');
+
+    // Rutas asíncronas
+    Route::post('/valorar', 'ValoracionController@valorar');
+    Route::post('/comentar', 'ReviewControllerController@comentar');
+    Route::delete('/borrar-producto/{producto}', 'ProductoController@borrar')->name('borrar.async');
+
 
 });
 

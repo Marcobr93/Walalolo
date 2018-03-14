@@ -244,4 +244,22 @@ class ProductoController extends Controller
 
         return redirect('/user/' . $this->user->slug);
     }
+
+
+    public function borrar($id)
+    {
+        if (request()->ajax()) {
+            $producto = Producto::where('id', $id)->first();
+            dd($producto);
+
+            $contraofertas = $this->user->contraofertas()->where('producto_id', $producto->id);
+
+            $producto->delete();
+
+            $contraofertas->delete();
+
+        }
+
+        return redirect()->back();
+    }
 }
