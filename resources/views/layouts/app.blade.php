@@ -39,13 +39,13 @@
     <div class="row">
         <div class="col-lg-2 marginTop">
             @if((Request::is('/')) || (Request::is('busqueda*')))
-                <button id="btnCollapseBusqueda" data-toggle="collapse" class="btn btn-dark center my-4">
-                    Mostrar búsqueda
-                </button>
+                {{--<button id="btnCollapseBusqueda" data-toggle="collapse" class="btn btn-dark center my-4">--}}
+                    {{--Mostrar búsqueda--}}
+                {{--</button>--}}
 
-                <div class="collapse multi-collapse" id="mostrarBusqueda">
-                        @include('productos.categorias')
-                </div>
+                {{--<div class="collapse multi-collapse" id="mostrarBusqueda">--}}
+                        {{--@include('productos.categorias')--}}
+                {{--</div>--}}
                 @endif
         </div>
         <div class="col-lg-8 mt-4">

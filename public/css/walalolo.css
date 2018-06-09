@@ -126,6 +126,18 @@
     box-shadow: 5px 5px 5px #888;
 }
 
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.relative {
+    position: relative;
+    width: 100%;
+    top: 0;
+}
+
 html{ height:100%; }
 body{ min-height:100%; padding:0; margin:0; position:relative; }
 

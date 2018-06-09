@@ -20,4 +20,5 @@
 @push('scripts')
     <script src="{{ asset('js/lozad.js') }}" defer></script>
     <script src="{{ asset('js/datos.js') }}" defer></script>
+    <script src="{{ asset('js/collapse.js') }}"></script>
 @endpush
