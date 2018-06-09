@@ -1,13 +1,14 @@
 @if((!Request::is('user/*')) && (!Request::is('busqueda*')))
     @include('layouts.carousel')
-@endif
 
-<button id="btnCollapseBusqueda" data-toggle="collapse" class="btn btn-dark center my-4">
-    Búsqueda avanzada
-</button>
-<div class="collapse multi-collapse" id="mostrarBusqueda">
-    @include('productos.categorias2')
-</div>
+    <button id="btnCollapseBusqueda" data-toggle="collapse" class="btn btn-dark center my-4">
+        Búsqueda avanzada
+    </button>
+    <div class="collapse multi-collapse" id="mostrarBusqueda">
+        @include('productos.categorias')
+    </div>
+
+@endif
 
 @if($productos->isEmpty())
     <h4 class="text-center">No hay productos para mostrar.</h4>
