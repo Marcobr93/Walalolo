@@ -2,7 +2,7 @@
     <form action="/busqueda">
 
     <div class="col-sm-12">
-
+        walalolo@192.168.10.10
         <div class="form-check text-left btn btn-dark col-sm-5">
             <img class="col-sm-3 text-left ancho_max_imagen_navbar" src="{{ asset('images/precio.png') }}">
             <label class="form-check-label col-sm-2" for="checkNegociacionPrecio">
